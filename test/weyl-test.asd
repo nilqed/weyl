@@ -17,5 +17,6 @@
   :depends-on ("lisp-unit" "weyl")
   :components
   ((:file "defpackage")
+   (:file "ge-tests" :depends-on ("defpackage"))
    (:file "combinatorial-tools" :depends-on ("defpackage"))
    (:file "f-and-g-series" :depends-on ("defpackage"))))
