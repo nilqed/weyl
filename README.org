@@ -1,5 +1,11 @@
 * Weyl Computer Algebra Substrate
 
+-----
+
+*Fixed issues and enhancements will be injected from* https://github.com/nilqed/cl-weyl/.
+
+-----
+
 This repository contains an updated version of the [[https://www.cs.cornell.edu/rz/computer-algebra.html][Weyl computer
 algebra substrate]] from [[https://www.cs.cornell.edu/][Cornell University]]. It is [[http://common-lisp.net/project/asdf/][ASDF]] loadable, and
 uses [[https://common-lisp.net/project/closer/closer-mop.html][Closer-MOP]]. It currently is known to work with [[http://sbcl.sourceforge.net/][SBCL]], [[http://ccl.clozure.com/][CCL]], [[http://sourceforge.net/projects/ecls/][ECL]],
