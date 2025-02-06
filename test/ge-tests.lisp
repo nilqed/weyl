@@ -29,12 +29,13 @@
          (ge1 (deriv (* p q) p))
          (ge2 (deriv (expt p 13) p))
          (ge3 (deriv (expt p q) p))
-         ;(ge4 (deriv (expt p q) q)) not impl
+         (ge4 (deriv (expt p q) q))
          (ge5 (deriv (sin p) p))
+         (ge6 (* (log p) (expt p q)))
          )
          (lisp-unit:assert-true (ge-equal ge1 q))
          (lisp-unit:assert-true (ge-equal ge2 (* (expt p 12) 13)))
          (lisp-unit:assert-true (ge-equal ge3 (* (expt p (- q 1)) q)))
-         ;(lisp-unit:assert-true (ge-equal ge5 ???))
+         (lisp-unit:assert-true (ge-equal ge5 g6))
          (lisp-unit:assert-true (ge-equal ge5 (cos p)))))
      
