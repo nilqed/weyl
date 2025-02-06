@@ -6,6 +6,10 @@
 
 ;;; general.lisp,v 1.14 1995/05/24 17:42:01 rz Exp
 
+;;; 06-FEB-2025/kfp : implementation of D(p^f(q),q) in method ge-deriv
+;;;                 : fix bug in 'simp-times-terms' if exponent not a number
+;;;
+
 (in-package :weyli)
 
 ;;; DELETE (make::adjust-version-numbers Weyl "1.14")
@@ -717,7 +721,8 @@ arrays."))
 			    (cond ((number? (exponent-of term))
 				   (add-term (list base) exp))
 				  (t (add-term (list base)
-					       (make-element domain 1))))))
+					 ;;; *kfp* -- (make-element domain 1) 
+					 (simplify exp))))))
 			 (t (add-term (list term) 1))))))
 	(loop-over-terms old-terms)
 	(setq terms (loop for (exp base) in (rest terms)
@@ -981,7 +986,8 @@ arrays."))
   (let ((base (base-of exp))
 	(power (exponent-of exp)))
     (cond ((depends-on? power var)
-	   (error "Not yet implemented"))
+	   ;(error "Not yet implemented")) *kfp*
+	   (* (log base) (expt base power) (ge-deriv power var)))
 	  ((and (number? power) (= power 2))
 	   (* 2 base (ge-deriv base var)))
 	  (t (* power (expt base (- power 1)))))))
