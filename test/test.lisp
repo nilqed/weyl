@@ -1,4 +1,7 @@
 (ql:quickload :weyl-test)
+
+(declaim (sb-ext:muffle-conditions style-warning))
+
 (in-package :weyl-test)
 
 (lisp-unit::run-tests '(f-and-g-series))
