@@ -12,7 +12,7 @@
 
 (defsystem :weyl
   :description "WEYL: A computer algebra substrate."
-  :version "0.1.0"
+  :version "0.1.1"
   :depends-on ("closer-mop")
   :license "Custom"
   :components
@@ -58,6 +58,15 @@
    (:file "rational-functions" :depends-on ("polynomials" "quotient-fields"))
    (:file "differential-domains" :depends-on ("polynomials"))
    (:file "algebraic-extension" :depends-on ("polynomials"))
+   
+   (:module "new"
+    :pathname "new"
+    :depends-on ("classes")
+    :components
+    ((:file "weyl-infix")
+     (:file "ge-support")
+     (:file "ge-latex")))
+   
    (:module "vector-spaces"
     :pathname "vector-spaces"
     :depends-on ("sets")
@@ -69,6 +78,7 @@
    (:file "topology" :depends-on ("avl" "polynomials" "vector-spaces"))
    (:file "funct-spaces" :depends-on ("classes" "vector-spaces"))
    (:file "mesh" :depends-on ("topology"))))
+   
 
 (defmethod perform :after ((op load-op) (comp (eql (find-system "weyl"))))
   "Initialize and reset the contexts."
