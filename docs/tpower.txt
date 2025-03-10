@@ -1,0 +1,88 @@
+
+ File: ../tpower.lisp 
+
+
+ TP-FIELD-PRINT-OBJECT (d stream)                                    [FUNCTION]
+
+ TP-RING-PRINT-OBJECT (d stream)                                     [FUNCTION]
+
+ GET-TPOWER-SERIES-DOMAIN (cdom variable)                            [FUNCTION]
+
+ MAKE-TPOWER-SERIES (domain series                           [GENERIC FUNCTION]
+                     &key &allow-other-keys)
+   The purpose of this function is unknown.
+
+ MAKE-TPOWER-SERIES ((domain tpower-series-domain)                     [METHOD]
+                     (tp tpower-series) &key (valence (valence tp))
+                     (order (order tp)) (branch-order
+                     (branch-order tp)) (coeffs (coeffs tp))
+                     &allow-other-keys)
+
+ MAKE-TPOWER-SERIES ((domain tpower-series-domain) coef                [METHOD]
+                     &rest options &key &allow-other-keys)
+
+ MAKE-TPOWER-SERIES ((domain tpower-series-domain) (plist list)        [METHOD]
+                     &rest options &key &allow-other-keys)
+
+ TRIM-ZEROES (coeffs)                                                [FUNCTION]
+
+ MAKE-TPOWER-SERIES ((domain tpower-series-domain) (terms array)       [METHOD]
+                     &key (valence 0) (order *positive-infinity*)
+                     (branch-order 1))
+
+ INITIALIZE-INSTANCE :AFTER ((d power-series-domain) &rest plist)      [METHOD]
+
+ PRINT-GROUPED (n stream)                                            [FUNCTION]
+
+ GROUPED? (str a b)                                                  [FUNCTION]
+
+ PRINT-EXPONENT (e br stream)                                        [FUNCTION]
+
+ PRINT-TPOWER-SERIES (var tp stream)                                 [FUNCTION]
+
+ PRINT-OBJECT ((p tpower-series) stream)                               [METHOD]
+
+ TPS-SPREAD-COEFFS (coeffs b)                                        [FUNCTION]
+
+ TPS-VAR-VAL (v)                                                     [FUNCTION]
+
+ TPS-VAR-BO (v)                                                      [FUNCTION]
+
+ TPS-VAR-ORDER (v)                                                   [FUNCTION]
+
+ TPS-VAR-COEFFS (v)                                                  [FUNCTION]
+
+ WITH-TPOWER-SERIES (vars-and-tps &body body)                           [MACRO]
+
+ MODIFY-BRANCH-ORDER (series factor)                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MODIFY-BRANCH-ORDER ((a tpower-series) (factor integer))              [METHOD]
+
+ SET-BRANCH-ORDER ((a tpower-series) (bo integer))                     [METHOD]
+
+ (SETF BRANCH-ORDER) set-branch-order                            [SETF MAPPING]
+
+ MAP-TPOWER-SERIES (tp f)                                            [FUNCTION]
+
+ COERCE (elt (domain tpower-series-domain))                            [METHOD]
+
+ COERCE ((exp symbol) (domain tpower-series-domain))                   [METHOD]
+
+ COERCE ((exp list) (domain tpower-series-domain))                     [METHOD]
+
+ COERCE ((exp general-expression) (domain tpower-series-domain))       [METHOD]
+
+ COERCE ((a upolynomial) (domain tpower-series-domain))                [METHOD]
+
+ COERCE ((a mpolynomial) (domain tpower-series-domain))                [METHOD]
+
+ LARGEST-STORED-COEFF ((tp tpower-series))                             [METHOD]
+
+ TRUNCATE-ORDER ((tp tpower-series) (torder integer))                  [METHOD]
+
+ MINUS ((tp tpower-series))                                            [METHOD]
+
+ EXPT ((a tpower-series) k)                                            [METHOD]
+
+ QUOTIENT ((a tpower-series) (b tpower-series))                        [METHOD]

@@ -1,0 +1,49 @@
+
+ File: ../fourier.lisp 
+
+
+ MAKE-GE-FOURIER (domain argument svar fvar)                 [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ MAKE-GE-FOURIER ((domain general-expressions) argument svar fvar)     [METHOD]
+
+ PRINT-OBJECT ((expr ge-fourier) stream)                               [METHOD]
+
+ GE-EQUAL ((x ge-fourier) (y ge-fourier))                              [METHOD]
+
+ GE-GREAT ((x ge-fourier) (y ge-fourier))                              [METHOD]
+
+ GE-FOURIER (exp svar fvar)                                  [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ GE-FOURIER ((exp general-expression) (svar symbol) (fvar symbol))     [METHOD]
+
+ GE-FOURIER (exp (svar ge-variable) (fvar ge-variable))                [METHOD]
+
+ GE-FOURIER ((exp numeric) (svar ge-variable) (fvar ge-variable))      [METHOD]
+
+ GE-FOURIER ((exp ge-variable) (svar ge-variable)                      [METHOD]
+             (fvar ge-variable))
+
+ GE-FOURIER ((exp ge-plus) (svar ge-variable) (fvar ge-variable))      [METHOD]
+
+ GE-FOURIER ((exp ge-times) (svar ge-variable) (fvar ge-variable))     [METHOD]
+
+ FOURIER (expression &rest variables)                        [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ FOURIER ((exp number) &rest vars)                                     [METHOD]
+
+ FOURIER ((exp numeric) &rest vars)                                    [METHOD]
+
+ FOURIER ((exp symbol) &rest vars)                                     [METHOD]
+
+ FOURIER ((exp general-expression) &rest vars)                         [METHOD]
+
+ MAKE-GE-IFOURIER (domain argument svar fvar)                [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-GE-IFOURIER ((domain general-expressions) argument svar          [METHOD]
+                   fvar)
+
+ PRINT-OBJECT ((expr ge-ifourier) stream)                              [METHOD]

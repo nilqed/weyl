@@ -1,0 +1,93 @@
+
+ File: ../funct-spaces.lisp 
+
+
+ NORM ((x hilbert-space-element))                                      [METHOD]
+
+ *MAXIMUM-NUMBER-OF-CACHED-VECTORS* (12)                             [VARIABLE]
+
+ *CACHED-VECTORS* (nil)                                              [VARIABLE]
+
+ CHECK-CACHED-VECTOR (vector)                                        [FUNCTION]
+
+ SAMPLED-FUNCTION ""                                                    [CLASS]
+   Superclasses
+   function-space-element
+   Initialization Arguments
+   The :x argument is a 
+   The :y argument is a 
+   Readers
+   function-x	Generic Function
+   	sampled-function
+   Returns 
+   function-y	Generic Function
+   	sampled-function
+   Returns 
+   Writers
+
+ PRINT-OBJECT ((obj sampled-function) stream)                          [METHOD]
+
+ MAKE-SAMPLED-FUNCTION (domain x y)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-SAMPLED-FUNCTION ((domain function-space) x y)                   [METHOD]
+
+ PRINT-TABLE ((func sampled-function)                                  [METHOD]
+              &optional (stream *standard-output*))
+
+ MAKE-SAMPLED-FUNCTION-1 (domain x-list function)            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-SAMPLED-FUNCTION-1 ((domain function-space) x-list function)     [METHOD]
+
+ MAKE-SAMPLED-FUNCTION-1 ((domain (eql nil)) x-list function)          [METHOD]
+
+ RESAMPLE ((func sampled-function) n)                                  [METHOD]
+
+ SMOOTH2 #'x                                                 [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SMOOTH2 ((func sampled-function) new-x)                               [METHOD]
+
+ EVALUATE-AT ((func sampled-function) pt)                              [METHOD]
+
+ POLYNOMIAL-INTERPOLATE (x-vector y-vector x &optional (n 4))        [FUNCTION]
+
+ MAP ((result-type (eql 'sampled-function)) oper (func                 [METHOD]
+      sampled-function) &rest ignore)
+
+ MINUS ((func sampled-function))                                       [METHOD]
+
+ TIMES ((num number) (func sampled-function))                          [METHOD]
+
+ TIMES ((num numeric) (func sampled-function))                         [METHOD]
+
+ TIMES ((func sampled-function) (num number))                          [METHOD]
+
+ TIMES ((func sampled-function) (num numeric))                         [METHOD]
+
+ QUOTIENT ((func sampled-function) (num number))                       [METHOD]
+
+ QUOTIENT ((func sampled-function) (num numeric))                      [METHOD]
+
+ CONJUGATE ((func sampled-function))                                   [METHOD]
+
+ REALPART ((func sampled-function))                                    [METHOD]
+
+ IMAGPART ((func sampled-function))                                    [METHOD]
+
+ DERIV-2POINT (x y index1 index2)                                       [MACRO]
+
+ DERIV ((func sampled-function) &rest vars)                            [METHOD]
+
+ TRAPEZOIDAL (x y i1 i2)                                                [MACRO]
+
+ INTEGRAL (function &key lower upper &allow-other-keys)      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INTEGRAL ((func sampled-function) &key lower upper                    [METHOD]
+           &allow-other-keys)
+
+ SIMPSON (x y i1 i2 i3)                                              [FUNCTION]
+
+ INDEF-INTEGRAL (func)                                               [FUNCTION]

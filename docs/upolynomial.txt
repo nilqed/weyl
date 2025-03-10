@@ -1,0 +1,31 @@
+
+ File: ../polynomials/upolynomial.lisp 
+
+
+ SCALAR? ((x upolynomial))                                             [METHOD]
+
+ 0? ((x upolynomial))                                                  [METHOD]
+
+ COEF-LIST0 (coefficient-domain)                                        [MACRO]
+
+ 1? ((x upolynomial))                                                  [METHOD]
+
+ COEF-LIST1 (coefficient-domain)                                        [MACRO]
+
+ CLIST-X (coefficient-domain)                                           [MACRO]
+
+ COPY-CLIST (c)                                                         [MACRO]
+
+ CLIST-DEGREE (c)                                                       [MACRO]
+
+ DEGREE ((x upolynomial) variable &rest other-variables)               [METHOD]
+
+ CLIST-ZERO-DEG? (c)                                                    [MACRO]
+
+ CLIST-LENGTH (c)                                                       [MACRO]
+
+ MAKE-CLIST (length &rest args)                                         [MACRO]
+
+ CLIST-GET (cl exp)                                                     [MACRO]
+
+ CLIST-SUBSEQ (cl beg end)                                              [MACRO]

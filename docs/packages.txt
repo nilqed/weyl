@@ -1,0 +1,174 @@
+
+ File: ../packages.lisp 
+
+
+ *WEYLI-EXPORTED-SYMBOLS* ('("*" "+" "-" "/" "=" ">" "<" ">="        [VARIABLE]
+                           "<=" "0?" "1?" "%max" "%min" "%plus"
+                           "%difference" "%times" "%quotient"
+                           "*coerce-where-possible*"
+                           "*default-random-height*" "*domains*"
+                           "*general*" "*morphisms*"
+                           "*negative-infinity*"
+                           "*positive-infinity*"
+                           "*print-modulus*" "abelian-group"
+                           "abelian-monoid" "abelian-semigroup"
+                           "abstract-point" "abstract-space"
+                           "add-new-variable" "add-relation"
+                           "add-subscripts" "adjacencies"
+                           "algebra" "algebraic-extension"
+                           "all-names" "angles" "args-of"
+                           "argument-of" "banach-space" "base-of"
+                           "bigfloat" "boundary"
+                           "boundary-complex-of"
+                           "boundary-domain" "bound-vars-of"
+                           "characteristic" "choose"
+                           "coefficient" "coefficient-domain-of"
+                           "coerce" "coercible?" "combinations"
+                           "complex-number" "complex-numbers"
+                           "compose" "convert-to-lisp-number"
+                           "create-mesh" "cross-product"
+                           "declare-dependencies"
+                           "define-operations" "degree" "delete"
+                           "depends-on?" "deriv" "derivs-of"
+                           "describe-operations"
+                           "different-kernels"
+                           "differential-ring" "dimension-of"
+                           "dimensional-space" "dimensions"
+                           "direct-sum" "display" "domain-of"
+                           "dot-product" "draw" "eqn=" "eqn>"
+                           "eqn>=" "even?" "euclidean-domain"
+                           "evaluate-at" "exponent-of" "expr-of"
+                           "exprs-of" "expand" "expt" "factor"
+                           "factorial" "field" "finite-field"
+                           "finite-set" "fourier" "funct"
+                           "funct-domain-of" "funct-of"
+                           "funct-range-of" "function-space"
+                           "gcd" "gcd-domain" "ge-abs?"
+                           "ge-application?" "ge-cos?"
+                           "ge-deriv?" "ge-eqn=?" "ge-eqn>?"
+                           "ge-eqn>=?" "ge-equal" "ge-expt?"
+                           "ge-fourier?" "ge-function?"
+                           "ge-function-deriv?" "ge-ifourier?"
+                           "ge-log?" "ge-nary?" "ge-plus?"
+                           "ge-sin?" "ge-tan?" "ge-times?"
+                           "ge-variable?" "generators-of"
+                           "get-abstract-space"
+                           "get-algebraic-extension"
+                           "get-automorphisms" "get-chain-module"
+                           "get-complex-numbers"
+                           "get-differential-ring"
+                           "get-direct-sum" "get-euclidean-space"
+                           "get-factor-group" "get-factor-module"
+                           "get-factor-ring" "get-finite-field"
+                           "get-free-module" "get-function"
+                           "get-gl-n" "get-hilbert-space"
+                           "get-homomorphisms" "get-lisp-numbers"
+                           "get-matrix-space" "get-morphisms"
+                           "get-o-n" "get-polynomial-ring"
+                           "get-psl-n" "get-quaternion-domain"
+                           "get-quotient-field"
+                           "get-rational-integers"
+                           "get-rational-numbers"
+                           "get-real-numbers" "get-sl-n"
+                           "get-so-n" "get-tpower-series-domain"
+                           "get-unit-quaternion-domain"
+                           "get-variable-property"
+                           "get-variable-name" "get-vector-space"
+                           "greater-function" "gfm" "gfp" "group"
+                           "height" "hilbert-space" "home-of"
+                           "homomorphism" "ifourier"
+                           "inner-product" "insert"
+                           "insert-boundary" "integral"
+                           "integral-domain" "interpolate"
+                           "jacobian" "lexical-<" "lexical->"
+                           "lhs-of" "list-of-elements"
+                           "list-of-variables" "list-operations"
+                           "locate" "make-app-function"
+                           "make-curved-segment"
+                           "make-ge-function" "make-ge-deriv"
+                           "make-ge-expt" "make-ge-function"
+                           "make-ge-plus" "make-ge-times"
+                           "make-generator" "make-ideal"
+                           "make-mesh" "make-mesh-from-file"
+                           "make-point" "make-sampled-function"
+                           "make-simplex" "make-union"
+                           "make-universal-quantified-set"
+                           "make-ge-variable" "map"
+                           "map-over-cells"
+                           "map-over-maximal-cells"
+                           "map-over-elements"
+                           "map-over-expressions"
+                           "map-over-faces" "map-with-domain"
+                           "matrix-dimensions" "max" "member"
+                           "memoize" "mesh" "min"
+                           "minimal-polynomial" "minus?" "monoid"
+                           "morphism" "multiplicative-order"
+                           "mutable-set" "name" "name-of"
+                           "name-region" "nargs-of" "norm"
+                           "number-of-elements" "number?" "odd?"
+                           "one" "one-matrix"
+                           "operation-arguments"
+                           "operation-values" "opposite"
+                           "ordered-abelian-group" "ordered-ring"
+                           "ordered-set" "ordered-set-of-pairs"
+                           "ordered-simple-set" "partial-deriv"
+                           "partition" "permute" "plus?"
+                           "pochhammer" "point" "polynomial"
+                           "power-of?" "prime?"
+                           "projective-space" "quotient-field"
+                           "quotient-ring" "rational-integer"
+                           "rational-integers" "rational-number"
+                           "rational-numbers" "read-mesh"
+                           "real-number" "real-numbers" "recip"
+                           "reduce-basis" "ref" "refine-mesh"
+                           "relations" "remainder" "replace"
+                           "required-operations" "reset-domains"
+                           "resultant" "reversion" "revlex->"
+                           "rhs-of" "ring" "ring-variables" "rng"
+                           "scalar?" "segment?" "semigroup" "set"
+                           "set-elements" "set-of-pairs"
+                           "simple-field-extension" "simple-ring"
+                           "simple-set" "simplex" "simplex-size"
+                           "simplicial-complex" "simplify"
+                           "skew-field" "split" "square-free"
+                           "string-of" "subface?" "substitute"
+                           "taylor" "terms-of" "tetrahedron?"
+                           "tilde" "total->" "totient"
+                           "transpose" "triangle?"
+                           "truncate-order" "tuple"
+                           "unique-factorization-domain"
+                           "universal-quantified-set" "var-of"
+                           "var-domain-of" "variable-derivation"
+                           "variable-index" "varlist-of"
+                           "vector-space" "vertices-of"
+                           "with-matrix-dimensions"
+                           "with-numerator-and-denominator"
+                           "write-mesh" "zero" "zero-matrix"))
+   Symbols exported from the internal WEYL package.
+
+ *WEYLI-SHADOWED-SYMBOLS* ('(coerce set + - * / = > < >= <=          [VARIABLE]
+                           minus expt abs random gcd lcm floor
+                           ceiling truncate round max min complex
+                           conjugate realpart imagpart sqrt exp
+                           log phase signum minusp zerop plusp
+                           sin cos tan asin acos atan sinh cosh
+                           tanh asinh acosh atanh numerator
+                           denominator reduce map delete member
+                           replace substitute getf union
+                           intersection apply funcall variable
+                           type-of))
+   Common lisp symbols shadowed in the internal WEYL package.
+
+ *WEYL-EXPORTED-SYMBOLS* ('("make-element" "make-upolynomial"))      [VARIABLE]
+   The WEYL package export these symbols in addition to those exported
+   form WEYLI.
+
+ USE-WEYLI-PACKAGE (package)                                         [FUNCTION]
+   Shadow import the shadowed symbols in the WEYLI package and then
+   use it.
+
+ USE-WEYL-PACKAGE (package)                                          [FUNCTION]
+   Shadow import the shadowed symbols in the WEYL package and then use
+   it.
+
+ INTERN-IN-PACKAGE (package-name symbols)                            [FUNCTION]

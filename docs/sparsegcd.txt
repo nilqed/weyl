@@ -1,0 +1,91 @@
+
+ File: ../polynomials/sparsegcd.lisp 
+
+
+ WITH-LINEAR-SUPPORT (&body body)                                       [MACRO]
+
+ TERMS-INTERPOLATE (pts vals)                                        [FUNCTION]
+
+ POLY-INTERPOLATE (var pts vals)                                     [FUNCTION]
+
+ INTERPOLATE (vars pts vals &key degrees)                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INTERPOLATE ((x polynomial) pts vals &rest ignore)                    [METHOD]
+
+ INTERPOLATE ((vars list) pts vals &key (degrees :total))              [METHOD]
+
+ EXPT-LIST (base expt)                                               [FUNCTION]
+
+ BOUND-DEGREE-TERM-COUNT (num-vars term-count                        [FUNCTION]
+                          &key (type :total))
+
+ DEGREE-PARTITION (v d)                                              [FUNCTION]
+
+ MAKE-DEGREE-MATRIX (domain expt-vects pts)                          [FUNCTION]
+
+ COMPUTE-VANDERMONDE-Q (pts)                                         [FUNCTION]
+
+ SOLVE-VANDERMONDE (pts vals &optional q)                            [FUNCTION]
+
+ SOLVE-VANDERMONDET (pts vals &optional q)                           [FUNCTION]
+
+ SOLVE-VANDERMONDETD (pts vals &optional q)                          [FUNCTION]
+
+ POLY-SKELETON (poly vars)                                           [FUNCTION]
+
+ PSKELETON (poly vars)                                       [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ PSKELETON ((p mpolynomial) vars)                                      [METHOD]
+
+ SPARSEINTERPSTAGE (poly bp d k)                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SPARSEINTERPSTAGE ((pkminus1 mpolynomial) bp d k)                     [METHOD]
+
+ SPARSEINTERPSTAGEI (coef-domain pkminus1 bp d k             [GENERIC FUNCTION]
+                     &optional coef-bound)
+   The purpose of this function is unknown.
+
+ SPARSEINTERPSTAGEI ((coef-domain rational-integers)                   [METHOD]
+                     (pkminus1 mpolynomial) bp d k
+                     &optional (coef-bound most-positive-fixnum))
+
+ INITY (coef-domain s k l)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INITY ((coef-domain field) s k l)                                     [METHOD]
+
+ INTERPOLATE ((domain multivariate-polynomial-ring) bp                 [METHOD]
+              degree-bounds &rest ignore)
+
+ LIST-COERCE (list domain)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ LIST-COERCE ((l list) domain)                                         [METHOD]
+
+ SPARSEINTERPSTAGEI ((coef-domain field) (pkminus1 mpolynomial) bp     [METHOD]
+                     d k &optional ignore)
+
+ SPMOD-GCD (p q)                                                     [FUNCTION]
+
+ SPMOD-GCD1 (p q)                                                    [FUNCTION]
+
+ SPMOD-GCD2 (lc p q vars)                                            [FUNCTION]
+
+ NON-ZERO-RANDOM (domain)                                            [FUNCTION]
+
+ SPMOD-GCD3 (skels lc p q vars max-terms)                            [FUNCTION]
+
+ EVAL-MONOMIAL (exps vals)                                           [FUNCTION]
+
+ INTERPOLATE-FROM-SKEL (skel init-pt vals vars)                      [FUNCTION]
+
+ DENSE-INTERPOLATE-COEFFICIENTS (poly-list vals var)                 [FUNCTION]
+
+ POLY-GCDU (p q)                                                     [FUNCTION]
+
+ TERMS-GCDU (pt qt)                                                  [FUNCTION]
+
+ TERMS-GCDU+ (lc pt qt)                                              [FUNCTION]

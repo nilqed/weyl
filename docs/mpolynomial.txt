@@ -1,0 +1,349 @@
+
+ File: ../polynomials/mpolynomial.lisp 
+
+
+ INITIALIZE-INSTANCE :AFTER ((d multivariate-polynomial-ring)          [METHOD]
+                             &rest plist)
+
+ POLYNOMIAL-RING-PRINT-OBJECT (d stream)                             [FUNCTION]
+
+ GET-POLYNOMIAL-RING (domain variables)                      [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ GET-POLYNOMIAL-RING ((coefficient-domain domain)                      [METHOD]
+                      (variables list))
+
+ POLY-ORDER-NUMBER (poly)                                               [MACRO]
+
+ POLY-TERMS (poly)                                                      [MACRO]
+
+ POLY-COEF? (x)                                                         [MACRO]
+
+ SCALAR? (object)                                            [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ SCALAR? ((x mpolynomial))                                             [METHOD]
+
+ 0? ((x mpolynomial))                                                  [METHOD]
+
+ 1? ((x mpolynomial))                                                  [METHOD]
+
+ MAKE-POLY-FORM (poly terms)                                         [FUNCTION]
+
+ MAKE-POLYNOMIAL (domain form)                               [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-POLYNOMIAL ((domain multivariate-polynomial-ring) form)          [METHOD]
+
+ VARIABLE-SYMBOL ((domain variable-hash-table) (poly mpolynomial))     [METHOD]
+
+ MORE-MAIN-ORDER-NUMBER? (x y)                                       [FUNCTION]
+
+ LE (terms)                                                             [MACRO]
+
+ LC (terms)                                                             [MACRO]
+
+ LT (terms)                                                             [MACRO]
+
+ RED (terms)                                                            [MACRO]
+
+ MAKE-TERMS (e c &optional (terms nil))                                 [MACRO]
+
+ MAKE-MANY-TERMS (&rest e-c-pairs)                                      [MACRO]
+
+ TERMS0? (x)                                                            [MACRO]
+
+ TERMS0 "()"                                                            [MACRO]
+
+ MAKE-POLY (domain variable &optional terms)                 [GENERIC FUNCTION]
+   This is not part of the interface. It is mostly used for
+   testing.
+
+ MAKE-POLY ((domain multivariate-polynomial-ring) variable             [METHOD]
+            &optional terms)
+
+ MAP-OVER-EACH-TERM (terms (e c) &body body)                            [MACRO]
+
+ PAIR-UP-TERMS (terms1 (e1 c1) terms2 (e2 c2) order-predicate           [MACRO]
+                &body body)
+
+ *EMPTY-ACCUMULATION-SLOT* ((list nil))                              [VARIABLE]
+
+ ACCUMULATE-TERMS (terms                                                [MACRO]
+                   (accumulator &optional (identity (terms0))) (e c)
+                   &body element-forms)
+
+ INSERT-INTO-ACCUMULATION-LIST (l element accumulator)               [FUNCTION]
+
+ ACCUMULATE-ACCUMULATION-LIST (accum-list accumulator identity)      [FUNCTION]
+
+ E= (x y)                                                               [MACRO]
+
+ E> (x y)                                                               [MACRO]
+
+ E< (x y)                                                               [MACRO]
+
+ E0 "()"                                                                [MACRO]
+
+ E0? (x)                                                                [MACRO]
+
+ E1 "()"                                                                [MACRO]
+
+ E1? (x)                                                                [MACRO]
+
+ E+ (x y)                                                               [MACRO]
+
+ E1+ (x)                                                                [MACRO]
+
+ E1- (x)                                                                [MACRO]
+
+ E- (x y)                                                               [MACRO]
+
+ E* (x y)                                                               [MACRO]
+
+ E/ (x y)                                                               [MACRO]
+
+ EMINUS? (x)                                                            [MACRO]
+
+ EODDP (x)                                                              [MACRO]
+
+ EMINUS (x)                                                             [MACRO]
+
+ EMAX (x y)                                                             [MACRO]
+
+ MAKE-POLYNOMIAL-MORPHISM (domain range &rest pairs)         [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-POLYNOMIAL-MORPHISM ((domain polynomial-ring)                    [METHOD]
+                           (range polynomial-ring) &rest pairs)
+
+ MAKE-POLYNOMIAL-MORPHISM ((domain free-module)                        [METHOD]
+                           (range free-module) &rest pairs)
+
+ POLY-MONOMIAL? (poly)                                               [FUNCTION]
+
+ PRINT-MPOLYNOMIAL-FORM (domain p stream)                    [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ PRINT-MPOLYNOMIAL-FORM ((domain multivariate-polynomial-ring) p       [METHOD]
+                         stream)
+
+ PRINT-OBJECT ((p mpolynomial) stream)                                 [METHOD]
+
+ COERCE (elt (domain multivariate-polynomial-ring))                    [METHOD]
+
+ COERCE ((exp symbol) (domain multivariate-polynomial-ring))           [METHOD]
+
+ COERCE ((exp list) (domain multivariate-polynomial-ring))             [METHOD]
+
+ COERCE ((p mpolynomial) (d general-expressions))                      [METHOD]
+
+ COERCE ((exp general-expression)                                      [METHOD]
+         (domain multivariate-polynomial-ring))
+
+ POLY-SIMP (variable x)                                              [FUNCTION]
+
+ TERMS-TERM (terms n)                                                [FUNCTION]
+
+ TERMS-PLUS (x y)                                                    [FUNCTION]
+
+ POLY-PLUS (x y)                                                     [FUNCTION]
+
+ POLY-MINUS (p)                                                      [FUNCTION]
+
+ TERMS-MINUS (x)                                                     [FUNCTION]
+
+ MINUS ((x mpolynomial))                                               [METHOD]
+
+ POLY-MINUS? (p)                                                     [FUNCTION]
+
+ TERMS-MINUS? (terms)                                                [FUNCTION]
+
+ MINUS? ((x mpolynomial))                                              [METHOD]
+
+ TERMS-DIFFERENCE (x y)                                              [FUNCTION]
+
+ POLY-DIFFERENCE (x y)                                               [FUNCTION]
+
+ TERMS-MON-TIMES (poly-terms e c)                                    [FUNCTION]
+
+ TERMS-TIMES (x y)                                                   [FUNCTION]
+
+ POLY-TIMES (x y)                                                    [FUNCTION]
+
+ POLY-EXPTSQ (p n)                                                   [FUNCTION]
+
+ POLY-EXPT (p n)                                                     [FUNCTION]
+
+ EXPT ((base mpolynomial) (expt integer))                              [METHOD]
+
+ EXPT ((base mpolynomial) (expt rational-integer))                     [METHOD]
+
+ TERMS-QUOTIENT (u v)                                                [FUNCTION]
+
+ POLY-QUOTIENT* (x y)                                                [FUNCTION]
+
+ POLY-QUOTIENT (x y)                                                 [FUNCTION]
+
+ TERMS-CQUOTIENT (terms c)                                           [FUNCTION]
+
+ POLY-TEST-QUOTIENT (x y)                                            [FUNCTION]
+
+ TERMS-PSEUDO-REMAINDER (u v)                                        [FUNCTION]
+
+ POLY-PSEUDO-REMAINDER (p q)                                         [FUNCTION]
+
+ TERMS-COEF-REMAINDER (u q)                                          [FUNCTION]
+
+ POLY-TRUNCATE2 (u v)                                                [FUNCTION]
+
+ POLY-HEIGHT (x)                                                     [FUNCTION]
+
+ HEIGHT ((x mpolynomial))                                              [METHOD]
+
+ POLY-FACTOR-CBOUND (p)                                              [FUNCTION]
+
+ POLY-GCD-ALGORITHM ('poly-subresultant-gcd)                         [VARIABLE]
+   Algorithm to be used to compute the GCD of two polynomials with the
+   same main variable
+
+ TERMS-CONTENT (p)                                                   [FUNCTION]
+
+ POLY-CONTENT (p)                                                    [FUNCTION]
+
+ POLY-GCD (p q)                                                      [FUNCTION]
+
+ POLY-LCM (p q)                                                      [FUNCTION]
+
+ POLY-SPLIT-ON-VARS (poly vars                                       [FUNCTION]
+                     &optional
+                     (pvars
+                     (reverse (poly-list-of-variables poly))))
+
+ POLY-FIND-COMMON-VARS (polys)                                       [FUNCTION]
+
+ POLY-MGCD (polys)                                                   [FUNCTION]
+
+ POLY-CONTENT-AND-PRIM-PART (p)                                      [FUNCTION]
+
+ TERMS-PRIM-PART (p)                                                 [FUNCTION]
+
+ POLY-PRIM-PART (p)                                                  [FUNCTION]
+
+ TERMS-MONICIZE (terms)                                              [FUNCTION]
+
+ POLY-MONICIZE (p)                                                   [FUNCTION]
+
+ TERMS-EUCLIDEAN-GCD (u v)                                           [FUNCTION]
+
+ POLY-EUCLIDEAN-GCD (p q)                                            [FUNCTION]
+
+ TERMS-PRIMITIVE-GCD (u v)                                           [FUNCTION]
+
+ POLY-PRIMITIVE-GCD (p q)                                            [FUNCTION]
+
+ POLY-REDUCED-GCD (p q)                                              [FUNCTION]
+
+ TERMS-REDUCED-GCD (u v)                                             [FUNCTION]
+
+ POLY-SUBRESULTANT-GCD (p q)                                         [FUNCTION]
+
+ RESULTANT (polynomial polynomial~ variable)                 [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ RESULTANT ((x mpolynomial) (y mpolynomial) var)                       [METHOD]
+
+ POLY-RESULTANT (p q)                                                [FUNCTION]
+
+ TERMS-SUBRESULTANT-GCD (u v)                                        [FUNCTION]
+
+ POLY-COERCE (poly domain)                                           [FUNCTION]
+
+ TERMS-COERCE (terms domain)                                         [FUNCTION]
+
+ POLY-SUBST (poly var-value)                                         [FUNCTION]
+
+ TERMS-SUBST (terms var-val-pairs)                                   [FUNCTION]
+
+ TERMS-HORNERS-RULE (terms value &optional var-value)                [FUNCTION]
+
+ SUBSTITUTE (value variable (p mpolynomial) &rest ignore)              [METHOD]
+
+ SUBSTITUTE ((value mpolynomial) (variable mpolynomial)                [METHOD]
+             (p mpolynomial) &rest ignore)
+
+ SUBSTITUTE ((values list) (variables list) (p mpolynomial)            [METHOD]
+             &rest ignore)
+
+ POLY-VARIABLE-LIST (p &optional (varlist nil))                      [FUNCTION]
+
+ PARTIAL-DERIV (polynomial variable)                         [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ PARTIAL-DERIV ((p mpolynomial) x)                                     [METHOD]
+
+ PARTIAL-DERIV ((p mpolynomial) (x symbol))                            [METHOD]
+
+ PARTIAL-DERIV ((p mpolynomial) (x general-expression))                [METHOD]
+
+ PARTIAL-DERIV ((p mpolynomial) (x mpolynomial))                       [METHOD]
+
+ POLY-DERIVATIVE (p var)                                             [FUNCTION]
+
+ TERMS-DERIVATIVE (x)                                                [FUNCTION]
+
+ DERIV ((poly mpolynomial) &rest vars)                                 [METHOD]
+
+ POLY-MAX-COEFFICIENT (p)                                            [FUNCTION]
+
+ TERMS-MAX-COEFFICIENT (terms &optional (max 0))                     [FUNCTION]
+
+ DEGREE (polynomial variable &rest rest)                     [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ DEGREE ((p mpolynomial) (var symbol) &rest ignore)                    [METHOD]
+
+ DEGREE ((p mpolynomial) (var ge-variable) &rest ignore)               [METHOD]
+
+ DEGREE ((p mpolynomial) (x mpolynomial) &rest ignore)                 [METHOD]
+
+ POLY-DEGREE (p var)                                                 [FUNCTION]
+
+ POLY-DEGREE-VECTOR (p)                                              [FUNCTION]
+
+ ADD-VARIABLE-DEGREE (pdv var deg)                                   [FUNCTION]
+
+ TERMS-DEGREE-VECTOR (terms pdv)                                     [FUNCTION]
+
+ LIST-OF-VARIABLES (polynomial &optional variables)          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ LIST-OF-VARIABLES ((x mpolynomial) &optional list-of-variables)       [METHOD]
+
+ POLY-LIST-OF-VARIABLES (p &optional list-of-vars)                   [FUNCTION]
+
+ COEFFICIENT (polynomial variables &optional exponent)       [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ COEFFICIENT ((p mpolynomial) (var symbol) &optional (exponent 1))     [METHOD]
+
+ COEFFICIENT ((p mpolynomial) (var ge-variable)                        [METHOD]
+              &optional (exponent 1))
+
+ COEFFICIENT ((p mpolynomial) (var mpolynomial)                        [METHOD]
+              &optional (exponent 1))
+
+ POLY-COEFFICIENT (poly var exp)                                     [FUNCTION]
+
+ POLY-C-COEFFICIENT (poly var exp)                                   [FUNCTION]
+
+ POLY-LEADING-COEFFICIENT (poly)                                     [FUNCTION]
+
+ GET-VARIABLE-NAME (order-number domain)                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ GET-VARIABLE-NAME (order-number (domain variable-hash-table))         [METHOD]
+
+ VARIABLE-INDEX ((domain domain) (p mpolynomial))                      [METHOD]
+
+ PARSE-LINEAR-EQUATION ((p mpolynomial) &rest variables)               [METHOD]

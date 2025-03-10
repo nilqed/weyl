@@ -1,0 +1,10 @@
+
+ File: ../vector-spaces/quaternions.lisp 
+
+
+ QUATERNION-DOMAIN-PRINT-OBJECT (domain stream)                      [FUNCTION]
+
+ UNIT-QUATERNION-DOMAIN-PRINT-OBJECT (domain stream)                 [FUNCTION]
+
+ MAKE-ELEMENT ((domain quaternion-domain) (value vector)               [METHOD]
+               &rest values)

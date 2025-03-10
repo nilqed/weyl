@@ -1,0 +1,38 @@
+
+ File: ../mesh.lisp 
+
+
+ *DELAUNAY* (t)                                                      [VARIABLE]
+
+ *CROSS-EDGES* (nil)                                                 [VARIABLE]
+
+ *MESH* (nil)                                                        [VARIABLE]
+
+ *SPACE* (nil)                                                       [VARIABLE]
+
+ *TOO-CLOSE-FACTOR* (0.75)                                           [VARIABLE]
+
+ HAS-HOME-SPACE ""                                                      [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :home argument is a 
+   Readers
+   home-of	Generic Function
+   	has-home-space
+   Returns 
+   Writers
+
+ CURVED-SIMPLEX ""                                                      [CLASS]
+   Superclasses
+   has-home-spacesimplex
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ HOME-OF (simplex)                                           [GENERIC FUNCTION]
+   The home of a noncurved simplex is determined by (the first of)
+   its vertices.

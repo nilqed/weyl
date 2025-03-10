@@ -1,0 +1,24 @@
+
+ File: ../algebraic-extension.lisp 
+
+
+ VARIABLE-MINIMAL-POLYNOMIAL (domain var)                               [MACRO]
+
+ MINIMAL-POLYNOMIAL (domain variable)                        [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MINIMAL-POLYNOMIAL ((domain algebraic-extension-ring) variable)       [METHOD]
+
+ MINIMAL-POLYNOMIAL ((domain algebraic-extension-ring)                 [METHOD]
+                     (variable integer))
+
+ SET-MINIMAL-POLYNOMIAL ((domain algebraic-extension-ring)             [METHOD]
+                         variable minimal-polynomial)
+
+ (SETF MINIMAL-POLYNOMIAL) set-minimal-polynomial                [SETF MAPPING]
+
+ MAKE-POLYNOMIAL ((domain algebraic-extension-ring) form)              [METHOD]
+
+ ALG-POLY-TIMES (x y)                                                [FUNCTION]
+
+ EXPT ((base algebraic-object) (expt integer))                         [METHOD]

@@ -1,0 +1,247 @@
+
+ File: ../topology.lisp 
+
+
+ MAKE-ELEMENT ((domain euclidean-space) (value vector)                 [METHOD]
+               &rest values)
+
+ EUCLIDEAN-SPACE-PRINT-OBJECT (domain stream)                        [FUNCTION]
+
+ MAKE-POINT (domain value &rest values)                      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-POINT ((domain vector-space) (value vector) &rest values)        [METHOD]
+
+ MAKE-POINT ((domain vector-space) value &rest values)                 [METHOD]
+
+ MAKE-POINT ((domain vector-space) (value vector-space-element)        [METHOD]
+             &rest values)
+
+ MAKE-POINT ((domain abstract-space) value &rest values)               [METHOD]
+
+ PRINT-OBJECT ((point named-point) stream)                             [METHOD]
+
+ PRINT-OBJECT ((point abstract-point) stream)                          [METHOD]
+
+ PRINT-OBJECT ((point point) stream)                                   [METHOD]
+
+ BINARY= ((cell1 cell) (cell2 cell))                                   [METHOD]
+
+ MAKE-SIMPLEX (point &rest rest)                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-SIMPLEX ((point abstract-point) &rest rest)                      [METHOD]
+
+ PRINT-OBJECT ((simplex simplex) stream)                               [METHOD]
+
+ CELL-ID (simplex)                                           [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CELL-ID ((simplex simplex))                                           [METHOD]
+
+ FACETS ((simplex simplex) (complex (eql nil)))                        [METHOD]
+
+ DIMENSION-OF ((s simplex))                                            [METHOD]
+
+ OPPOSITE ((face simplex) (simplex simplex))                           [METHOD]
+
+ OPPOSITE ((face list) (simplex simplex))                              [METHOD]
+
+ OPPOSITE ((face point) (simplex simplex))                             [METHOD]
+
+ FACE? (points simplex)                                      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ FACE? ((points list) (simplex simplex))                               [METHOD]
+
+ FACE? ((simplex1 simplex) (simplex2 simplex))                         [METHOD]
+
+ SEGMENT? (thing)                                                    [FUNCTION]
+
+ TRIANGLE? (thing)                                                   [FUNCTION]
+
+ TETRAHEDRON? (thing)                                                [FUNCTION]
+
+ SIGN-OF-PERMUTATION (lista listb)                                   [FUNCTION]
+
+ MAP-OVER-ORIENTED-FACETS ((facet orientation simplex complex)          [MACRO]
+                           &rest body)
+   Map over the faces of SIMPLEX, taking ORIENTATION into account
+
+ MAP-OVER-ORIENTED-COFACETS ((cofacet orientation simplex complex)      [MACRO]
+                             &rest body)
+   Map over the faces of SIMPLEX, taking ORIENTATION into account
+
+ CELL-ID ((polygon polygon))                                           [METHOD]
+
+ FACETS ((polygon polygon) (complex (eql nil)))                        [METHOD]
+
+ DIMENSION-OF ((polygon polygon))                                      [METHOD]
+
+ GET-CELL (cell complex)                                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ GET-CELL ((cell cell) (complex cell-complex))                         [METHOD]
+
+ GET-CELL ((vertex-list list) (complex cell-complex))                  [METHOD]
+
+ MEMBER ((cell cell) (complex cell-complex) &rest ignore)              [METHOD]
+
+ FACETS (cell complex)                                       [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ FACETS ((cell cell) (complex cell-complex))                           [METHOD]
+
+ FACETS ((cells list) (complex cell-complex))                          [METHOD]
+
+ COFACETS (cell complex)                                     [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ COFACETS ((cell cell) (complex cell-complex))                         [METHOD]
+
+ COFACETS ((cells list) (complex cell-complex))                        [METHOD]
+
+ MAXIMAL-CELL? (cell complex)                                [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAXIMAL-CELL? ((cell cell) (complex cell-complex))                    [METHOD]
+
+ INSERT ((cell cell) (complex cell-complex) &rest ignore)              [METHOD]
+
+ DELETE-MAXIMAL-CELL ((cell cell) (complex cell-complex))              [METHOD]
+
+ %MAP-OVER-CELLS (function complex dimension)                [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ %MAP-OVER-CELLS (#'function (complex cell-complex) dimension)         [METHOD]
+
+ MAP-OVER-CELLS ((cell &optional (dimension nil)) structure             [MACRO]
+                 &body body)
+
+ MAP-OVER-MAXIMAL-CELLS ((cell) complex &body body)                     [MACRO]
+
+ UNION ((complex1 cell-complex) (complex2 cell-complex)                [METHOD]
+        &rest rest)
+
+ INTERSECTION ((complex1 cell-complex) (complex2 cell-complex)         [METHOD]
+               &rest rest)
+
+ VERTEX-SET ((cell-complex cell-complex))                              [METHOD]
+
+ INSERT :BEFORE (thing (complex simplicial-complex) &rest ignore)      [METHOD]
+
+ MAKE-SIMPLICIAL-COMPLEX (cells)                                     [FUNCTION]
+
+ MAX-DIMENSION-OF (cell)                                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAX-DIMENSION-OF ((cm cell-complex))                                  [METHOD]
+
+ COERCE ((thing has-coercion-cache) (domain domain))                   [METHOD]
+
+ %SET-COERCE ((thing has-coercion-cache) (domain domain) value)        [METHOD]
+
+ (SETF COERCE) %set-coerce                                       [SETF MAPPING]
+
+ CHAIN-MODULE-PRINT-OBJECT (cm stream)                               [FUNCTION]
+
+ COCHAIN-MODULE-PRINT-OBJECT (cm stream)                             [FUNCTION]
+
+ COMPLEX-OF ((chain chain))                                            [METHOD]
+
+ GET-CHAIN-MODULE (cell integer &optional ring)              [GENERIC FUNCTION]
+   The purpose of this function is unkown.
+
+ GET-CHAIN-MODULE ((c cell-complex) (n integer)                        [METHOD]
+                   &optional (ring (get-rational-integers)))
+
+ GET-COCHAIN-MODULE (cell integer &optional ring)            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ GET-COCHAIN-MODULE ((c cell-complex) (n integer)                      [METHOD]
+                     &optional (ring (get-rational-integers)))
+
+ BOUNDARY-DOMAIN (chain)                                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BOUNDARY-DOMAIN ((c chain-module))                                    [METHOD]
+
+ DIMENSION-OF ((chain chain))                                          [METHOD]
+
+ BOUNDARY-DOMAIN ((c chain))                                           [METHOD]
+
+ BOUNDARY-DOMAIN ((s simplex))                                         [METHOD]
+
+ BOUNDARY-DOMAIN ((cc cell-complex))                                   [METHOD]
+
+ COBOUNDARY-DOMAIN (cochain)                                 [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ COBOUNDARY-DOMAIN ((c cochain))                                       [METHOD]
+
+ COBOUNDARY-DOMAIN ((s simplex))                                       [METHOD]
+
+ PRINT-OBJECT ((c chain) stream)                                       [METHOD]
+
+ CANONICAL (pair domain)                                             [FUNCTION]
+
+ COERCE ((simplex simplex) (cm chain-module))                          [METHOD]
+
+ COERCE ((cc simplicial-complex) (cm chain-module))                    [METHOD]
+
+ POINTS-ORDER (a b)                                                  [FUNCTION]
+
+ CELL-ORDER (cell1 cell2)                                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CELL-ORDER ((a cell) (b cell))                                        [METHOD]
+
+ MAKE-CHAIN-OR-COCHAIN (d simplices chain-or-cochain)                [FUNCTION]
+
+ MAKE-CHAIN (d simplices)                                            [FUNCTION]
+
+ MAKE-COCHAIN (d simplices)                                          [FUNCTION]
+
+ ZERO ((d chain-module))                                               [METHOD]
+
+ APPLY ((c chain) &rest args)                                          [METHOD]
+
+ FREE-GROUP-PLUS (xt yt)                                             [FUNCTION]
+
+ FREE-GROUP-DIFFERENCE (xt yt)                                       [FUNCTION]
+
+ FREE-GROUP-MINUS (xt)                                               [FUNCTION]
+
+ FREE-GROUP-SCALAR-TIMES (c terms)                                   [FUNCTION]
+
+ TIMES ((x number) (y chain))                                          [METHOD]
+
+ TIMES ((x domain-element) (y chain))                                  [METHOD]
+
+ TIMES ((x chain) (y number))                                          [METHOD]
+
+ TIMES ((x chain) (y number))                                          [METHOD]
+
+ MINUS ((x chain))                                                     [METHOD]
+
+ CHAIN-TERMS-TIMES (xt yt)                                           [FUNCTION]
+
+ BOUNDARY (simplex &optional domain)                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BOUNDARY ((s simplex) &optional (domain (boundary-domain s)))         [METHOD]
+
+ BOUNDARY ((cc cell-complex)                                           [METHOD]
+           &optional (domain (boundary-domain cc)))
+
+ BOUNDARY ((c chain) &optional d)                                      [METHOD]
+
+ BOUNDARY-SET ((c chain))                                              [METHOD]
+
+ DERIV ((ch chain) &rest vars)                                         [METHOD]
+
+ COBOUNDARY ((c cochain) &optional d)                                  [METHOD]
+
+ COERCE ((chain chain) (cocm cochain-module))                          [METHOD]
+
+ COERCE ((cochain cochain) (cm chain-module))                          [METHOD]

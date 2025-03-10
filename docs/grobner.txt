@@ -1,0 +1,63 @@
+
+ File: ../polynomials/grobner.lisp 
+
+
+ INITIALIZE-INSTANCE :AFTER ((id ideal) &rest ignore)                  [METHOD]
+
+ IDEAL-PRINT-OBJECT (id stream)                                      [FUNCTION]
+
+ MAKE-IDEAL (ring &rest generators)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-IDEAL ((ring ring) &rest generators)                             [METHOD]
+
+ MAKE-IDEAL ((ring field) &rest generators)                            [METHOD]
+
+ MAKE-IDEAL ((ring rational-integers) &rest generators)                [METHOD]
+
+ REDUCE-BASIS ((id pid-ideal))                                         [METHOD]
+
+ PLUS ((id1 ideal) (id2 ideal))                                        [METHOD]
+
+ TIMES ((id1 ideal) (id2 ideal))                                       [METHOD]
+
+ BINARY= ((id1 ideal) (id2 ideal))                                     [METHOD]
+
+ WITH-GROBNER-OPERATIONS (grobner-basis &body body)                     [MACRO]
+
+ INITIALIZE-INSTANCE :AFTER ((gb grobner-basis) &rest ignore)          [METHOD]
+
+ CHECK-SAME-DOMAIN (exprs)                                           [FUNCTION]
+
+ MAKE-IDEAL ((ring polynomial-ring) &rest polys)                       [METHOD]
+
+ (SETF GREATER-FUNCTION) (new-function (grob grobner-basis))           [METHOD]
+
+ ADD-RELATION (basis poly)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ ADD-RELATION ((grob-struct grobner-basis) (relation mpolynomial))     [METHOD]
+
+ ADD-RELATION ((grob-struct grobner-basis) (relation epolynomial))     [METHOD]
+
+ GENERATORS-OF ((grob-struct grobner-basis))                           [METHOD]
+
+ RESET-GROBNER-BASIS ((grob-struct grobner-basis))                     [METHOD]
+
+ TERMS-S-POLY (greater-function terms1 terms2)                       [FUNCTION]
+
+ REDUCE-BASIS ((grob-struct grobner-basis))                            [METHOD]
+
+ REDUCE-ALL (basis)                                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ REDUCE-ALL ((grob-struct grobner-basis))                              [METHOD]
+
+ NEW-BASIS (basis)                                           [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NEW-BASIS ((grob-struct grobner-basis))                               [METHOD]
+
+ TERMS-REDUCE (greater-function terms basis)                         [FUNCTION]
+
+ GTERMS-PRIM* (poly)                                                 [FUNCTION]

@@ -1,0 +1,16 @@
+
+ File: ../vector-spaces/projective-space.lisp 
+
+
+ PROJECTIVE-SPACE-PRINT-OBJECT (domain stream)                       [FUNCTION]
+
+ MAKE-PROJECTIVE-SPACE-ELEMENT (domain value)                        [FUNCTION]
+
+ MAKE-ELEMENT ((domain projective-space) value &rest values)           [METHOD]
+
+ REF ((vect projective-space-element) &rest args)                      [METHOD]
+
+ VECTOR-SET-REF ((vect projective-space-element) new-value             [METHOD]
+                 &rest args)
+
+ MAKE-AFFINE-SPACE ((space projective-space) &optional n)              [METHOD]

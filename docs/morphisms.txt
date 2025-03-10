@@ -1,0 +1,84 @@
+
+ File: ../morphisms.lisp 
+
+
+ PRINT-OBJECT ((homo morphism) stream)                                 [METHOD]
+
+ *MORPHISM-COMPOSITION-TABLE* ((make-hash-table))                    [VARIABLE]
+
+ COMPOSE (morphism1 morphism2)                               [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ COMPOSE ((f homomorphism) (g homomorphism))                           [METHOD]
+
+ GET-MORPHISMS (&key type domain range direct?)                      [FUNCTION]
+
+ MAKE-MORPHISM (domain map range &key (replace? t))                  [FUNCTION]
+
+ DELETE-MORPHISM (morphism)                                  [GENERIC FUNCTION]
+   Delete the morphism.
+
+ DELETE-MORPHISM ((morph morphism))                                    [METHOD]
+
+ MAKE-HOMOMORPHISM (domain map range)                                [FUNCTION]
+
+ GET-HOMOMORPHISMS (&key domain range)                               [FUNCTION]
+
+ GET-EMBEDDABLE-DOMAINS (domain)                                     [FUNCTION]
+
+ MAKE-AUTOMORPHISM (domain map &optional range)                      [FUNCTION]
+
+ GET-AUTOMORPHISMS (&key domain)                                     [FUNCTION]
+
+ APPLY-MORPHISM (morphism argument)                          [GENERIC FUNCTION]
+   Apply the morphism to the argument.
+
+ APPLY-MORPHISM ((h morphism) argument)                                [METHOD]
+
+ CANONICALIZE-NUMBER (elt)                                   [GENERIC FUNCTION]
+   Converts a LISP number into a a Weyl number in the appropriate
+   canonical domain. These guys CANNOT use coerce!!!!
+
+ CANONICALIZE-NUMBER ((num integer))                                   [METHOD]
+
+ CANONICALIZE-NUMBER ((num rational-integer))                          [METHOD]
+
+ CANONICALIZE-NUMBER ((num ratio))                                     [METHOD]
+
+ CANONICALIZE-NUMBER ((num rational-number))                           [METHOD]
+
+ CANONICALIZE-NUMBER ((num float))                                     [METHOD]
+
+ CANONICALIZE-NUMBER ((num floating-point-number))                     [METHOD]
+
+ CANONICALIZE-NUMBER ((num bigfloat))                                  [METHOD]
+
+ CANONICALIZE-NUMBER ((num complex))                                   [METHOD]
+
+ CANONICALIZE-NUMBER ((num complex-number))                            [METHOD]
+
+ CANONICALIZE-NUMBER ((num gfp-element))                               [METHOD]
+
+ CANONICALIZE-NUMBER ((num gfm-element))                               [METHOD]
+
+ APPLY-MORPHISM ((map morphism) (elt number))                          [METHOD]
+
+ REACHABLE-DOMAINS (domain)                                          [FUNCTION]
+
+ FIND-COMMON-DOMAINS (d1 d2)                                         [FUNCTION]
+
+ *COERCIBILITY-CHECKING* (nil)                                       [VARIABLE]
+
+ COERCE (elt (domain domain))                                          [METHOD]
+
+ COERCE ((elt number) (domain domain))                                 [METHOD]
+
+ COERCE ((elt numeric) (domain domain))                                [METHOD]
+
+ COERCIBLE? (elt (d domain))                                           [METHOD]
+
+ *COERCE-WHERE-POSSIBLE* (t)                                         [VARIABLE]
+
+ DEF-BINARY-COERCION (op illegal-mess ambig-mess                        [MACRO]
+                      &key (numeric-numeric? t)
+                      (domain-element-domain-element? t))

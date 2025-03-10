@@ -1,0 +1,79 @@
+
+ File: ../polynomials/epolynomial.lisp 
+
+
+ MAKE-EPOLYNOMIAL* (domain greater-function terms)           [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-EPOLYNOMIAL* ((domain multivariate-polynomial-ring)              [METHOD]
+                    greater-function terms)
+
+ MAKE-EPOLYNOMIAL (domain greater-function poly)             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-EPOLYNOMIAL ((domain multivariate-polynomial-ring)               [METHOD]
+                   greater-function (poly mpolynomial))
+
+ MAKE-EPOLYNOMIAL ((domain multivariate-polynomial-ring)               [METHOD]
+                   greater-function (poly epolynomial))
+
+ MAKE-EPOLYNOMIAL ((domain multivariate-polynomial-ring)               [METHOD]
+                   greater-function (r rational-function))
+
+ MAKE-EPOLYNOMIAL ((domain multivariate-polynomial-ring)               [METHOD]
+                   greater-function (form list))
+
+ PRINT-OBJECT ((poly epolynomial) stream)                              [METHOD]
+
+ 0? ((x epolynomial))                                                  [METHOD]
+
+ 1? ((x epolynomial))                                                  [METHOD]
+
+ BINARY= ((p epolynomial) (q epolynomial))                             [METHOD]
+
+ GET-COMPARISON-FUN (num-vars name)                                  [FUNCTION]
+
+ MAKE-COMPARISON-FUN (num-vars var-order &key total? reverse?        [FUNCTION]
+                      new?)
+
+ MAKE-POLYNOMIAL ((domain multivariate-polynomial-ring)                [METHOD]
+                  (epol epolynomial))
+
+ COERCE ((p epolynomial) (d general-expressions))                      [METHOD]
+
+ SAME-GREATER-FUNCTIONS ((x y) &body body)                              [MACRO]
+
+ MAKE-ETERM (exp coef)                                               [FUNCTION]
+
+ GTERMS-PLUS (greater-function x y)                                  [FUNCTION]
+
+ MINUS ((x epolynomial))                                               [METHOD]
+
+ GTERMS-MINUS (x)                                                    [FUNCTION]
+
+ GTERMS-DIFFERENCE (greater-function x y)                            [FUNCTION]
+
+ GTERMS-MON-TIMES (poly-terms term)                                  [FUNCTION]
+
+ GTERM-TIMES (x-term y-term dim)                                     [FUNCTION]
+
+ GTERM-QUOT (x-term y-term dim)                                      [FUNCTION]
+
+ GTERM-LCM (x-term y-term dim)                                       [FUNCTION]
+
+ GTERM-DISJOINT (x-term y-term dim)                                  [FUNCTION]
+
+ GTERM-DOMINATES (x-term y-term dim)                                 [FUNCTION]
+
+ GTERM-EQUAL (x-term y-term dim)                                     [FUNCTION]
+
+ GTERM-CONSTANT? (term dim)                                          [FUNCTION]
+
+ GTERMS-TIMES (greater-function x y)                                 [FUNCTION]
+
+ EXPT ((base epolynomial) (expt integer))                              [METHOD]
+
+ GTERMS-EXPT (cf terms exp)                                          [FUNCTION]
+
+ MAKE-MPOLYNOMIAL ((domain multivariate-polynomial-ring)               [METHOD]
+                   (poly epolynomial))

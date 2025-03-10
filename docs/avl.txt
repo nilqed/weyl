@@ -1,0 +1,31 @@
+
+ File: ../avl.lisp 
+
+
+ CHOOSE (seq (var n . options) &body body)                              [MACRO]
+
+ %CHOOSE (variables number function)                         [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ %CHOOSE ((vars list) n fn)                                            [METHOD]
+
+ %CHOOSE-REPEATS (variables number function)                 [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ %CHOOSE-REPEATS ((vars list) n fn)                                    [METHOD]
+
+ PERMUTE (seq (var . options) &body body)                               [MACRO]
+
+ PERMUTE% (sequence function)                                [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ PERMUTE% ((seq list) fun)                                             [METHOD]
+
+ %PARTITION1 (n fun)                                                 [FUNCTION]
+
+ %PARTITION2 (n fun num-parts minimum-part maximum-part              [FUNCTION]
+              distinct?)
+
+ PARTITION ((var n . options) &body body)                               [MACRO]
+
+ MAP-OVER-TREE (node (root . options) &body body)                       [MACRO]

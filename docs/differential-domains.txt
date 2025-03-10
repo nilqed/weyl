@@ -1,0 +1,37 @@
+
+ File: ../differential-domains.lisp 
+
+
+ RING-VARIABLES ((domain differential-polynomial-ring))                [METHOD]
+
+ (SETF VARIABLE-DERIVATION) set-variable-derivation              [SETF MAPPING]
+
+ DIFFERENTIAL-RING-PRINT-OBJECT (d stream)                           [FUNCTION]
+
+ COERCE ((variable list) (domain differential-polynomial-ring))        [METHOD]
+
+ VARIABLE-DERIVATION (domain var)                                       [MACRO]
+
+ VARIABLE-DERIVATIVE-ORDER (domain var)                                 [MACRO]
+
+ SET-VARIABLE-DERIVATION (domain variable derivation)        [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SET-VARIABLE-DERIVATION ((domain differential-polynomial-ring)        [METHOD]
+                          (variable symbol) derivation)
+
+ SET-VARIABLE-DERIVATION ((domain differential-polynomial-ring)        [METHOD]
+                          (variable general-expression) derivation)
+
+ ADD-NEW-VARIABLE ((domain differential-ring) variable)                [METHOD]
+
+ STANDARD-DERIVATION (p)                                             [FUNCTION]
+
+ POLY-DERIVATION (p                                                  [FUNCTION]
+                  &optional (derivation #'standard-derivation))
+
+ POLY-DIFFERENTIATE-COEFS (p derivation)                             [FUNCTION]
+
+ DERIVATION ((poly polynomial))                                        [METHOD]
+
+ DERIVATION ((rat rational-function))                                  [METHOD]

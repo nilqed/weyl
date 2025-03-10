@@ -1,0 +1,10 @@
+
+ File: ../numbers/numbers.lisp 
+
+
+ RATIONAL-INTEGERS-PRINT-OBJECT (d stream)                           [FUNCTION]
+
+ PRINT-OBJECT ((n rational-integer) stream)                            [METHOD]
+
+ MAKE-ELEMENT ((domain rational-integers) (x integer)                  [METHOD]
+               &rest ignore)

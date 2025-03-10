@@ -1,0 +1,98 @@
+
+ File: ../sets.lisp 
+
+
+ TUPLE ""                                                               [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :values argument is a 
+   Readers
+   value-of	Generic Function
+   	tuple
+   Returns 
+   Writers
+
+ TUPLE-VALUE (tuple)                                         [GENERIC FUNCTION]
+   A wrapper function for value-of for backward compatibility.
+
+ INITIALIZE-INSTANCE :AFTER ((object tuple) &rest plist)               [METHOD]
+
+ PRINT-OBJECT ((tuple tuple) stream)                                   [METHOD]
+
+ REF (tuple &rest args)                                      [GENERIC FUNCTION]
+   Refernce the item of tuple specified by the first arg.
+
+ SET-REF (tuple new-value &rest args)                        [GENERIC FUNCTION]
+   Set the element specified by args to new-value.
+
+ SET-REF ((tuple tuple) new-value &rest args)                          [METHOD]
+
+ (SETF REF) (new-value)                                          [SETF MAPPING]
+
+ LIST-OF-ELEMENTS (tuple)                                    [GENERIC FUNCTION]
+   Return a list of the tuple elements.
+
+ LIST-OF-ELEMENTS ((tuple tuple))                                      [METHOD]
+
+ MAP (type function (seq tuple) &rest sequences)                       [METHOD]
+
+ MAP-WITH-DOMAIN (type domain function sequence              [GENERIC FUNCTION]
+                  &rest sequences)
+   Map the values of the sequences into the domain.
+
+ MAP-WITH-DOMAIN (type domain function (seq tuple)                     [METHOD]
+                  &rest sequences)
+
+ PRINT-OBJECT ((element set-element) stream)                           [METHOD]
+
+ PRINT-OBJECT ((element set-element2) stream)                          [METHOD]
+
+ BINARY= ((e1 set-element) e2)                                         [METHOD]
+
+ BINARY= :AROUND (e1 (e2 set-element))                                 [METHOD]
+
+ BINARY> ((e1 set-element) e2)                                         [METHOD]
+
+ BINARY> :AROUND (e1 (e2 set-element))                                 [METHOD]
+
+ MAKE-ELEMENT ((set set-elements-as-singletons) key &rest rest)        [METHOD]
+
+ MAKE-ELEMENT ((set set-elements-as-pairs) key &rest rest)             [METHOD]
+
+ SET-ELEMENTS (set)                                          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ SET-WITH-ELEMENT-LIST-PRINT-OBJECT (set stream)                     [FUNCTION]
+
+ INITIALIZE-INSTANCE :AFTER ((set set-with-element-list)               [METHOD]
+                             &rest plist)
+
+ INSERT (key (set mutable-set-with-element-list) &rest rest)           [METHOD]
+
+ DELETE (item (set mutable-set-with-element-list) &rest args)          [METHOD]
+
+ MEMBER (key (set set-with-element-list) &rest args)                   [METHOD]
+
+ MAP-OVER-ELEMENTS (set function)                            [GENERIC FUNCTION]
+   Map over the elements of the set applying the function.
+
+ MAP-OVER-ELEMENTS ((set set-with-element-list) function)              [METHOD]
+
+ MAKE-GENERATOR ((set set-with-element-list))                          [METHOD]
+
+ INSERT (key (set mutable-set-with-sorted-element-list)                [METHOD]
+         &rest rest)
+
+ DELETE (item (set mutable-set-with-sorted-element-list)               [METHOD]
+         &rest args)
+
+ MEMBER (key (set set-with-sorted-element-list) &rest args)            [METHOD]
+
+ SIZE (set)                                                  [GENERIC FUNCTION]
+   Return the length of the set.
+
+ RANDOM (set &optional height)                               [GENERIC FUNCTION]
+   Return a random element of the list.
+
+ RANDOM ((set set-with-element-list) &optional height)                 [METHOD]

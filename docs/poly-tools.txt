@@ -1,0 +1,50 @@
+
+ File: ../polynomials/poly-tools.lisp 
+
+
+ INITIALIZE-INSTANCE :AFTER ((domain variable-hash-table)              [METHOD]
+                             &rest plist)
+
+ VARIABLE-INDEX (domain variable)                            [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ VARIABLE-INDEX ((domain variable-hash-table) (variable symbol))       [METHOD]
+
+ VARIABLE-INDEX ((domain variable-hash-table)                          [METHOD]
+                 (variable general-expression))
+
+ VARIABLE-SYMBOL (domain order)                              [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ VARIABLE-SYMBOL ((domain variable-hash-table)                         [METHOD]
+                  (order-number number))
+
+ GET-VARIABLE-NUMBER-PROPERTY (domain order property)        [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ GET-VARIABLE-NUMBER-PROPERTY ((domain variable-hash-table)            [METHOD]
+                               order-number property)
+
+ SET-VARIABLE-NUMBER-PROPERTY (domain order property         [GENERIC FUNCTION]
+                               value)
+   The purpose of this method is unknown.
+
+ SET-VARIABLE-NUMBER-PROPERTY ((domain variable-hash-table)            [METHOD]
+                               order-number property value)
+
+ (SETF GET-VARIABLE-NUMBER-PROPERTY) set-variable-number-property  [SETF MAPPING]
+
+ GET-VARIABLE-PROPERTY ((domain variable-hash-table) variable          [METHOD]
+                        property)
+
+ SET-VARIABLE-PROPERTY ((domain variable-hash-table) variable          [METHOD]
+                        property value)
+
+ ADD-NEW-VARIABLE (ring variable)                            [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ ADD-NEW-VARIABLE ((ring variable-hash-table) variable)                [METHOD]
+
+ ZERO ((domain caching-zero-and-one))                                  [METHOD]
+
+ ONE ((domain caching-zero-and-one))                                   [METHOD]

@@ -1,0 +1,41 @@
+
+ File: ../functions.lisp 
+
+
+ MAKE-APP-FUNCTION (args body)                                       [FUNCTION]
+
+ PRINT-OBJECT ((fun applicable-function) stream)                       [METHOD]
+
+ APPLY ((fun applicable-function) &rest args)                          [METHOD]
+
+ CANONICALIZE-FUNCTIONS (x y)                                        [FUNCTION]
+
+ DEFINE-APPLICABLE-FUNCTION-BINARY (operator)                           [MACRO]
+
+ 0? ((x applicable-function))                                          [METHOD]
+
+ 1? ((x applicable-function))                                          [METHOD]
+
+ MINUS ((x ge-function))                                               [METHOD]
+
+ MINUS ((x applicable-function))                                       [METHOD]
+
+ RECIP ((x ge-function))                                               [METHOD]
+
+ RECIP ((x applicable-function))                                       [METHOD]
+
+ EXPT ((x applicable-function) (y number))                             [METHOD]
+
+ EXPT ((x applicable-function) (y symbol))                             [METHOD]
+
+ EXPT ((x ge-function) (y number))                                     [METHOD]
+
+ EXPT ((x ge-function) (y symbol))                                     [METHOD]
+
+ DERIV ((exp applicable-function) &rest vars)                          [METHOD]
+
+ DEF-GE-1OPER (name (arg))                                              [MACRO]
+
+ DEFSIMPLIFY-FUNCT (name args &body body)                               [MACRO]
+
+ DEFDERIV-FUNCT (name &body body)                                       [MACRO]

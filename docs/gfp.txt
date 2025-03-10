@@ -1,0 +1,19 @@
+
+ File: ../numbers/gfp.lisp 
+
+
+ NUMBER-OF-ELEMENTS (domain)                                 [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ NUMBER-OF-ELEMENTS ((domain gfp))                                     [METHOD]
+
+ NUMBER-OF-ELEMENTS ((domain gfq))                                     [METHOD]
+
+ MAKE-GFP-DOMAIN (number number~)                            [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-GFP-DOMAIN ((characteristic integer) (degree integer))           [METHOD]
+
+ GFP-PRINT-OBJECT (d stream)                                         [FUNCTION]
+
+ MAKE-ELEMENT ((domain gfp) (value integer) &rest ignore)              [METHOD]

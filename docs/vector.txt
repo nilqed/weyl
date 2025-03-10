@@ -1,0 +1,13 @@
+
+ File: ../vector-spaces/vector.lisp 
+
+
+ LOOP-VECTOR-BIND (index vars-vectors &body body)                       [MACRO]
+
+ FREE-MODULE-PRINT-OBJECT (domain stream)                            [FUNCTION]
+
+ MAKE-ELEMENT ((domain free-module) (value vector) &rest values)       [METHOD]
+
+ MAKE-ELEMENT-FREE-MODULE-VECTOR (domain value)                      [FUNCTION]
+
+ MAKE-ELEMENT ((domain free-module) value &rest values)                [METHOD]

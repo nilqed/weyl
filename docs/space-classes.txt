@@ -1,0 +1,33 @@
+
+ File: ../classes/space-classes.lisp 
+
+
+ ABSTRACT-SPACE ""                                                      [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIMENSIONAL-SPACE ""                                                   [CLASS]
+   Superclasses
+   abstract-spacedimensional-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ EUCLIDEAN-SPACE ""                                                     [CLASS]
+   Superclasses
+   vector-spacedimensional-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.

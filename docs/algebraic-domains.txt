@@ -1,0 +1,415 @@
+
+ File: ../classes/algebraic-domains.lisp 
+
+
+ SET ""                                                                 [CLASS]
+   A class for finite, unordered sets
+   Superclasses
+   domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ HAS-NAME ""                                                            [CLASS]
+   Include this class in objects and/or domains that have names.
+   Superclasses
+   None.
+   Initialization Arguments
+   The :name argument is a 
+   Readers
+   name-of	Generic Function
+   	has-name
+   Returns 
+   Writers
+   setf (name-of has-name)	Generic Setf Form
+   	name-of
+   The name-of argument should be a 
+
+ BINARY= (x y)                                               [GENERIC FUNCTION]
+   Elements of a set are assumed to be comparable using binary=. For
+   more complex set structures, the binary= operation looks up the
+   comparison function in EQUAL-FUNCTION slot.
+
+ BINARY> (x y)                                               [GENERIC FUNCTION]
+   Elements of a set are assumed to be comparable using binary>. For
+   more complex set structures, the binary> operation looks up the
+   comparison function in greater-funcion slot.
+
+ BINARY>= (x y)                                              [GENERIC FUNCTION]
+
+ MAKE-ELEMENT (domain obj &rest rest)                        [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ HAS-EQUALITY ""                                                        [CLASS]
+   A canonical place to cache equality function information.
+   Superclasses
+   None.
+   Initialization Arguments
+   The :equal-function argument is a 
+   Readers
+   equal-function-of	Generic Function
+   	has-equality
+   Returns 
+   Writers
+   setf (equal-function-of has-equality)	Generic Setf Form
+   	equal-function-of
+   The equal-function-of argument should be a 
+
+ HAS-COMPARISON ""                                                      [CLASS]
+   A cononical place to cache inequality function information.
+   Superclasses
+   None.
+   Initialization Arguments
+   The :greater-function argument is a 
+   Readers
+   greater-function-of	Generic Function
+   	has-comparison
+   Returns 
+   Writers
+   setf (greater-function-of has-comparison)	Generic Setf Form
+   	greater-function-of
+   The greater-function-of argument should be a 
+
+ NON-STRICT-DOMAIN ""                                                   [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ *EMPTY-PROPERTY* ((list nil))                                       [VARIABLE]
+
+ *MATH-PROPERTIES* (nil)                                             [VARIABLE]
+
+ DEFINE-MATH-PROPERTY (property-name subsumed-properties)               [MACRO]
+
+ SEMIGROUP ""                                                           [CLASS]
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ TIMES (x y)                                                 [GENERIC FUNCTION]
+
+ EXPT (x y)                                                  [GENERIC FUNCTION]
+
+ MONOID ""                                                              [CLASS]
+   Superclasses
+   semigroup
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ONE (x)                                                     [GENERIC FUNCTION]
+
+ ONE ((domain domain))                                                 [METHOD]
+
+ 1? (x)                                                      [GENERIC FUNCTION]
+
+ GROUP ""                                                               [CLASS]
+   Superclasses
+   monoid
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ RECIP (x)                                                   [GENERIC FUNCTION]
+
+ ABELIAN-SEMIGROUP ""                                                   [CLASS]
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ PLUS (x y)                                                  [GENERIC FUNCTION]
+
+ ABELIAN-MONOID ""                                                      [CLASS]
+   Superclasses
+   abelian-semigroup
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ZERO (domain)                                               [GENERIC FUNCTION]
+
+ ZERO ((domain domain))                                                [METHOD]
+
+ 0? (x)                                                      [GENERIC FUNCTION]
+
+ ABELIAN-GROUP ""                                                       [CLASS]
+   Superclasses
+   abelian-monoid
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MINUS (x)                                                   [GENERIC FUNCTION]
+
+ DIFFERENCE (x y)                                            [GENERIC FUNCTION]
+
+ RNG ""                                                                 [CLASS]
+   Superclasses
+   semigroupabelian-group
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SIMPLE-RING ""                                                         [CLASS]
+   Superclasses
+   rngmonoid
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ HAS-COEFFICIENT-DOMAIN ""                                              [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :coefficient-domain argument is a 
+   Readers
+   coefficient-domain-of	Generic Function
+   	has-coefficient-domain
+   Returns 
+   Writers
+
+ *COEFFICIENT-DOMAIN* (nil)                                          [VARIABLE]
+   Within the context of a polynomial operation, the coefficient
+   domain
+
+ %BIND-DYNAMIC-DOMAIN-CONTEXT ((domain has-coefficient-domain)         [METHOD]
+                               function)
+
+ MODULE ""                                                              [CLASS]
+   Superclasses
+   abelian-grouphas-coefficient-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ CHARACTERISTIC (domain)                                     [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ CHARACTERISTIC ((domain module))                                      [METHOD]
+
+ ALGEBRA ""                                                             [CLASS]
+   Superclasses
+   modulesemigroup
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ RING ""                                                                [CLASS]
+   Superclasses
+   algebrasimple-ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ BINARY-GCD (x y)                                            [GENERIC FUNCTION]
+
+ BINARY-LCM (x y)                                            [GENERIC FUNCTION]
+
+ FIELD ""                                                               [CLASS]
+   Superclasses
+   ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((domain field) &rest plist)               [METHOD]
+
+ FINITE-FIELD ""                                                        [CLASS]
+   Superclasses
+   fieldfinite-set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FACTOR-DOMAIN ""                                                       [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   The :numerator argument is a 
+   The :denominator argument is a 
+   Readers
+   factor-numer-of	Generic Function
+   	factor-domain
+   Returns 
+   factor-denom-of	Generic Function
+   	factor-domain
+   Returns 
+   Writers
+   setf (factor-numer-of factor-domain)	Generic Setf Form
+   	factor-numer-of
+   The factor-numer-of argument should be a 
+   setf (factor-denom-of factor-domain)	Generic Setf Form
+   	factor-denom-of
+   The factor-denom-of argument should be a 
+
+ FACTOR-DOMAIN-PRINT-OBJECT (domain stream)                  [GENERIC FUNCTION]
+
+ FACTOR-DOMAIN-PRINT-OBJECT (domain stream)                            [METHOD]
+
+ INITIALIZE-INSTANCE :AFTER ((domain factor-domain) &rest plist)       [METHOD]
+
+ FACTOR-GROUP ""                                                        [CLASS]
+   Superclasses
+   factor-domaingroup
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FACTOR-MODULE ""                                                       [CLASS]
+   Superclasses
+   factor-domainmodule
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FACTOR-RING ""                                                         [CLASS]
+   Superclasses
+   factor-domainring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ALGEBRAIC-EXTENSION ""                                                 [CLASS]
+   Superclasses
+   ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SIMPLE-FIELD-EXTENSION ""                                              [CLASS]
+   Superclasses
+   algebraic-extensionfield
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIMENSIONAL-DOMAIN ""                                                  [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   The :dimension argument is a 
+   Readers
+   dimension-of	Generic Function
+   	dimensional-domain
+   Returns 
+   Writers
+
+ DIMENSIONS (domain)                                         [GENERIC FUNCTION]
+
+ DIMENSIONS ((d dimensional-domain))                                   [METHOD]
+
+ FREE-MODULE ""                                                         [CLASS]
+   Superclasses
+   moduledimensional-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ VECTOR-SPACE ""                                                        [CLASS]
+   Superclasses
+   free-module
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ PROJECTIVE-SPACE ""                                                    [CLASS]
+   Superclasses
+   free-module
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIFFERENTIAL-RING ""                                                   [CLASS]
+   Superclasses
+   ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ QUOTIENT-RING ""                                                       [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.

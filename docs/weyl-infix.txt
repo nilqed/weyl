@@ -1,0 +1,225 @@
+
+ File: ../new/weyl-infix.lisp 
+
+
+ *VERSION* ("1.3  28-jun-96")                                       [PARAMETER]
+
+ *PRINT-INFIX-COPYRIGHT* (t)                                        [PARAMETER]
+   If non-NIL, prints a copyright notice upon loading this file.
+
+ INFIX-COPYRIGHT (&optional (stream *standard-output*))              [FUNCTION]
+   Prints an INFIX copyright notice and header upon startup.
+
+ *INFIX-READTABLE* ((copy-readtable nil))                           [PARAMETER]
+
+ *NORMAL-READTABLE* ((copy-readtable nil))                          [PARAMETER]
+
+ INFIX-READER (stream subchar arg)                                   [FUNCTION]
+
+ STRING->PREFIX (string)                                             [FUNCTION]
+   Convert a string to a prefix s-expression using the infix reader.
+    If the argument is not a string, just return it as is.
+
+ INFIX-ERROR (format-string &rest args)                                 [MACRO]
+
+ READ-INFIX (stream)                                                 [FUNCTION]
+
+ READ-REGULAR (stream)                                               [FUNCTION]
+
+ SAME-OPERATOR-P (x y)                                               [FUNCTION]
+
+ SAME-TOKEN-P (x y)                                                  [FUNCTION]
+
+ *PEEKED-TOKEN* (nil)                                                [VARIABLE]
+
+ READ-TOKEN (stream)                                                 [FUNCTION]
+
+ PEEK-TOKEN (stream)                                                 [FUNCTION]
+
+ FANCY-NUMBER-FORMAT-P (left operator stream)                        [FUNCTION]
+
+ VALID-NUMBERP (string)                                              [FUNCTION]
+
+ GATHER-SUPERIORS (previous-operator stream)                         [FUNCTION]
+   Gathers an expression whose operators all exceed the precedence of
+   the operator to the left.
+
+ GET-FIRST-TOKEN (stream)                                            [FUNCTION]
+
+ APPLY-TOKEN-PREFIX-OPERATOR (token stream)                          [FUNCTION]
+
+ GET-NEXT-TOKEN (stream left)                                        [FUNCTION]
+
+ APPLY-TOKEN-INFIX-OPERATOR (token left stream)                      [FUNCTION]
+
+ INFIX-READ-DELIMITED-LIST (end-token delimiter-token stream)        [FUNCTION]
+
+ *OPERATOR-ORDERING* ('(([ |(| !) (^) (~) (* / %) (+ -) (<< >>)     [PARAMETER]
+                      (< == > <= != >=) (&) (^^) (|\||) (not)
+                      (and) (or) (= |:=| += -= *= /=) (|,|) (if)
+                      (then else) (] |)|) (%infix-end-token%)))
+   Ordered list of operators of equal precedence.
+
+ OPERATOR-LESSP (op1 op2)                                            [FUNCTION]
+
+ *RIGHT-ASSOCIATIVE-OPERATORS* ('(^ =))                             [PARAMETER]
+
+ OPERATOR-RIGHT-ASSOCIATIVE-P (operator)                             [FUNCTION]
+
+ *TOKEN-OPERATORS* (nil)                                             [VARIABLE]
+
+ *TOKEN-PREFIX-OPERATOR-TABLE* ((make-hash-table))                   [VARIABLE]
+
+ *TOKEN-INFIX-OPERATOR-TABLE* ((make-hash-table))                    [VARIABLE]
+
+ TOKEN-OPERATOR-P (token)                                            [FUNCTION]
+
+ GET-TOKEN-PREFIX-OPERATOR (token)                                   [FUNCTION]
+
+ GET-TOKEN-INFIX-OPERATOR (token)                                    [FUNCTION]
+
+ DEFINE-TOKEN-OPERATOR (operator-name &key (prefix nil prefix-p)        [MACRO]
+                        (infix nil infix-p))
+
+ DEFINE-CHARACTER-TOKENIZATION (char function)                          [MACRO]
+
+ POST-PROCESS-EXPRESSION (expression)                                [FUNCTION]
+
+ *TEST-CASES* ('(("1 * +2" (* 1 2)) ("1 * -2" (* 1 (- 2))) ("1      [PARAMETER]
+               * /2" (* 1 (/ 2))) ("/2" (/ 2)) ("not true"
+               (not true)) ("foo\\-bar" foo-bar) ("a + b-c"
+               (+ a b (- c))) ("a + b\\-c" (+ a b-c)) ("f\\oo"
+               |foo|)
+               ("!foo-bar * 2" (* foo-bar 2)) ("!(foo bar baz)"
+               (foo bar baz)) ("!foo-bar " foo-bar) ("!foo-bar"
+               foo-bar)
+               ("a+-b" (+ a (- b))) ("a+b" (+ a b)) ("a+b*c" (+
+               a (* b c))) ("a+b+c" (+ a b c)) ("a+b-c" (+ a b
+               (- c))) ("a+b-c+d" (+ a b (- c) d)) ("a+b-c-d" (+
+               a b (- c) (- d))) ("a-b" (- a b)) ("a*b" (* a b))
+               ("a*b*c" (* a b c)) ("a*b+c" (+ (* a b) c))
+               ("a/b" (/ a b)) ("a^b" (expt a b)) ("foo/-bar"
+               (/ foo (- bar))) ("1+2*3^4" (+ 1
+               (* 2 (expt 3 4)))) ("1+2*3^4+5" (+ 1 (* 2
+               (expt 3 4)) 5)) ("2*3^4+1" (+ (* 2 (expt 3 4))
+               1))
+               ("2+3^4*5" (+ 2 (* (expt 3 4) 5))) ("2^3^4" (expt
+               2 (expt 3 4))) ("x^2 + y^2" (+ (expt x 2)
+               (expt y 2))) ("(1+2)/3" (/ (+ 1 2) 3)) ("(a=b)"
+               (setq a b)) ("(a=b,b=c)"
+               (progn (setq a b) (setq b c))) ("1*(2+3)" (* 1
+               (+ 2 3))) ("1+2/3" (+ 1 (/ 2 3))) ("a,b" (progn a
+               b))
+               ("a,b,c" (progn a b c)) ("foo(a,b,(c,d))"
+               (foo a b (progn c d))) ("foo(a,b,c)" (foo a b c))
+               ("(a+b,c)" (progn (+ a b) c)) ("1" 1) ("-1"
+               (- 1)) ("+1" 1) ("1." 1) ("1.1" 1.1) ("1e3"
+               1000.0)
+               ("1e-3" 0.001) ("1f-3" 0.001)
+               ("1e-3e" (- |1e| |3e|)) ("!1e-3 " 0.001) ("a and
+               b and c" (and a b c)) ("a and b or c"
+               (or (and a b) c)) ("a and b" (and a b)) ("a or b
+               and c" (or a (and b c))) ("a or b" (or a b))
+               ("a<b and b<c" (and (< a b) (< b c))) ("if (if a
+               then b else c) then e"
+               (when (if a b c) e)) ("if 1 then 2 else 3+4" (if
+               1 2 (+ 3 4))) ("(if 1 then 2 else 3)+4" (+
+               (if 1 2 3) 4)) ("if a < b then b else a"
+               (if (< a b)
+               b
+               a))
+               ("if a and b then c and d else e and f"
+               (if (and a b)
+               (and c d)
+               (and e f)))
+               ("if a or b then c or d else e or f"
+               (if (or a b)
+               (or c d)
+               (or e f)))
+               ("if a then (if b then c else d) else e"
+               (if a
+               (if b
+               c
+               d)
+               e))
+               ("if a then (if b then c) else d"
+               (if a
+               (when b c)
+               d))
+               ("if a then b else c"
+               (if a
+               b
+               c))
+               ("if a then b" (when a b))
+               ("if a then if b then c else d else e"
+               (if a
+               (if b
+               c
+               d)
+               e))
+               ("if a then if b then c else d"
+               (when a
+               (if b
+               c
+               d)))
+               ("if if a then b else c then e"
+               (when
+               (if a
+               b
+               c)
+               e))
+               ("if not a and not b then c" (when (and (not a)
+               (not b)) c)) ("if not a then not b else not c and
+               d" (if (not a) (not b)
+               (and (not c) d)))
+               ("not a and not b" (and (not a) (not b)))
+               ("not a or not b" (or (not a) (not b)))
+               ("not a<b and not b<c" (and (not (< a b)) (not
+               (< b c)))) ("not a<b" (not (< a b)))
+               ("a[i,k]*b[j,k]" (* (aref a i k) (aref b j k)))
+               ("foo(bar)=foo[bar,baz]"
+               (setf (foo bar) (aref foo bar baz)))
+               ("foo(bar,baz)" (foo bar baz)) ("foo[bar,baz]"
+               (aref foo bar baz)) ("foo[bar,baz]=barf"
+               (setf (aref foo bar baz) barf)) ("max = if a < b
+               then b else a" (setq max (if (< a b) b a)))
+               ("a < b < c" (< a b c))
+               ("a < b <= c" (and (< a b) (<= b c))) ("a <= b <=
+               c" (<= a b c)) ("a <= b <= c" (<= a b c)) ("a!=b
+               and b<c" (and (not (= a b)) (< b c))) ("a!=b"
+               (not (= a b))) ("a<b" (< a b)) ("a==b" (= a b))
+               ("a*b(c)+d" (+ (* a (b c)) d)) ("a+b(c)*d"
+               (+ a (* (b c) d))) ("a+b(c)+d" (+ a (b c) d))
+               ("d+a*b(c)" (+ d (* a (b c)))) ("+a+b" (+ a b))
+               ("-a+b" (+ (- a) b)) ("-a-b" (+ (- a) (- b)))
+               ("-a-b-c" (+ (- a) (- b) (- c))) ("a*b/c" (/
+               (* a b) c)) ("a+b-c" (+ a b (- c))) ("a-b-c" (- a
+               b c))
+               ("a/b*c" (* (/ a b) c)) ("a/b/c" (/ a b c))
+               ("/a/b" (/ (* a b))) ("a^b^c" (expt a
+               (expt b c))) ("a(d)^b^c" (expt (a d) (expt b c)))
+               ("a<b+c<d" (< a (+ b c) d)) ("1*~2+3" (+
+               (* 1 (lognot 2)) 3)) ("1+~2*3" (+ 1 (* (lognot 2)
+               3)))
+               ("1+~2+3" (+ 1 (lognot 2) 3)) ("f(a)*=g(b)" (setf
+               (f a) (* (f a) (g b)))) ("f(a)+=g(b)" (incf (f a)
+               (g b))) ("f(a)-=g(b)" (decf (f a) (g b)))
+               ("f(a)/=g(b)" (setf (f a) (/ (f a) (g b))))
+               ("a&b" (logand a b)) ("a^^b" (logxor a b)) ("a|b"
+               (logior a b)) ("a<<b" (ash a b)) ("a>>b"
+               (ash a (- b))) ("~a" (lognot a)) ("a&&b" (and a
+               b))
+               ("a||b" (or a b)) ("a%b" (mod a b)) ("x^2   ; the
+               x coordinate + y^2 ; the y coordinate" :error)
+               ("x^2   ; the x coordinate + y^2 ; the y
+               coordinate " (+ (expt x 2) (expt y 2)))
+               ("foo(bar,baz" :error) ("foo(bar,baz))"
+               (foo bar baz)) ("foo[bar,baz]]" :error)
+               ("[foo,bar]" :error) ("and a" :error)
+               ("< a" :error) ("=bar" :error) ("*bar" :error)
+               ("a not b" :error) ("a if b then c" :error)
+               ("" :error) (")a" :error) ("]a" :error)))
+
+ TEST-INFIX (&optional (tests *test-cases*))                         [FUNCTION]
+
+ TEST-INFIX-CASE (string result)                                     [FUNCTION]

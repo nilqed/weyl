@@ -1,0 +1,135 @@
+
+ File: ../lisp-numbers.lisp 
+
+
+ NUMERATOR (number)                                          [GENERIC FUNCTION]
+   Return the numerator of the number.
+
+ DENOMINATOR (number)                                        [GENERIC FUNCTION]
+   Return the denominator of the number.
+
+ FACTORIAL (number)                                          [GENERIC FUNCTION]
+   Return the factorial of the number.
+
+ FACTORIAL ((n integer))                                               [METHOD]
+
+ POCHHAMMER (number1 number2)                                [GENERIC FUNCTION]
+   Return the falling, or lower, factorial.
+
+ POCHHAMMER ((n integer) (k integer))                                  [METHOD]
+
+ COMBINATIONS (number1 number2)                              [GENERIC FUNCTION]
+   Return a combination of the upper and lower factorial.
+
+ FASTER-ISQRT (n)                                                    [FUNCTION]
+   Argument n must be a non-negative integer
+
+ INTEGER-NTH-ROOT (x n)                                              [FUNCTION]
+
+ *POINTBOUND* (2147483629)                                           [VARIABLE]
+   Should be largest prime that fits in a word
+
+ *BIG-PRIMES* (nil)                                                  [VARIABLE]
+   List of large primes by decending size
+
+ REDUCE-MODULO-INTEGER (value modulus)                               [FUNCTION]
+
+ EXPT-MODULO-INTEGER (base expt modulus)                             [FUNCTION]
+
+ PRIME? (number)                                             [GENERIC FUNCTION]
+   Return true if the number is prime.
+
+ PRIME? ((p integer))                                                  [METHOD]
+
+ FIND-SMALLER-PRIME (p)                                              [FUNCTION]
+   Finds biggest prime less than fixnum p
+
+ NEWPRIME (&optional p)                                              [FUNCTION]
+
+ CHOICE-PRIMES (limit                                                [FUNCTION]
+                &optional
+                (prime-list
+                (list
+                (find-smaller-prime most-positive-fixnum))))
+
+ SYM-MOD (a b)                                                       [FUNCTION]
+
+ REPEATED-SQUARING (mult one)                                        [FUNCTION]
+
+ POWER-OF? (number &optional opt-number)                     [GENERIC FUNCTION]
+   Return true if number is a power of opt-number.
+
+ POWER-OF? ((m integer) &optional n)                                   [METHOD]
+
+ *FACTOR-METHOD* ('simple-integer-factor)                            [VARIABLE]
+
+ COUNT-MULTIPLE-INTEGER-FACTORS (n divisor)                             [MACRO]
+
+ UNIFORMIZE-FACTOR-LIST (ans)                                        [FUNCTION]
+
+ FACTOR (number)                                             [GENERIC FUNCTION]
+   Return the factors of the number.
+
+ FACTOR ((n integer))                                                  [METHOD]
+
+ ALL-DIVISORS (n)                                                    [FUNCTION]
+
+ *SKIP-CHAIN-FOR-3-AND-5* ((circular-list 4 2 4 2 4 6 2 6))          [VARIABLE]
+
+ SIMPLE-INTEGER-FACTOR (n)                                           [FUNCTION]
+
+ FERMAT-INTEGER-FACTOR (n)                                           [FUNCTION]
+
+ TOTIENT (x)                                                         [FUNCTION]
+
+ SIN (number)                                                [GENERIC FUNCTION]
+   Return the sine of the number.
+
+ COS (number)                                                [GENERIC FUNCTION]
+   Return the cosine of the number.
+
+ TAN (number)                                                [GENERIC FUNCTION]
+   Return the tangent of the number.
+
+ ASIN (number)                                               [GENERIC FUNCTION]
+   Return the arc-sine of the number.
+
+ ACOS (number)                                               [GENERIC FUNCTION]
+   Return the arc-cosine of the number.
+
+ ATAN (number1 &optional number2)                            [GENERIC FUNCTION]
+   Return the arc-tangent of the number1 or optionally
+   number1/number2.
+
+ ATAN ((number1 number) &optional number2)                             [METHOD]
+
+ SINH (number)                                               [GENERIC FUNCTION]
+   Return the hyperbolic sine of the number.
+
+ COSH (number)                                               [GENERIC FUNCTION]
+   Return the hyperbolic cosine of the number.
+
+ TANH (number)                                               [GENERIC FUNCTION]
+   Return the hyperbolic tangent of the number.
+
+ ASINH (number)                                              [GENERIC FUNCTION]
+   Return the hyperbolic arc sine of the number.
+
+ ACOSH (number)                                              [GENERIC FUNCTION]
+   Return the hyperbolic arc cosine of the number.
+
+ ATANH (number)                                              [GENERIC FUNCTION]
+   Return the hyperbolic arc tangent of the number.
+
+ EXP (number)                                                [GENERIC FUNCTION]
+   Return the exponential of the number.
+
+ LOG2 (number base)                                          [GENERIC FUNCTION]
+   Return the base logarithm of the number.
+
+ LOG (number)                                                [GENERIC FUNCTION]
+   Return the natural logarithm of the number.
+
+ SIGNUM (number)                                             [GENERIC FUNCTION]
+   Returns a numerical value that indicates whether number is
+   negative, zero or positive.

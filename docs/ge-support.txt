@@ -1,0 +1,15 @@
+
+ File: ../new/ge-support.lisp 
+
+
+ GE-VAR (v)                                                             [MACRO]
+   Define a variable in the general domain (*general*). This is
+   equivalent to (defvar v (coerce 'v *general*)). (CL::TYPE-OF v) ==>
+   WEYLI::GE-VARIABLE. 
+
+ EVAL-STR (s)                                                        [FUNCTION]
+
+ GE-VARS (vl)                                                        [FUNCTION]
+   Define general variables from the list vl, that is looping of
+   <ge-var> over vl. Examples: (ge-vars '(x_0 x_1 x_2 x_3)), (ge-vars
+   '(x y z p q r)). 

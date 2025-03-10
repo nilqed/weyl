@@ -1,0 +1,64 @@
+
+ File: ../quotient-fields.lisp 
+
+
+ MAKE-QUOTIENT-FIELD (field)                                 [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ GET-QUOTIENT-FIELD (field)                                  [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-QUOTIENT-ELEMENT (domain numerator denominator)        [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-QUOTIENT-ELEMENT ((domain quotient-field) numerator              [METHOD]
+                        denominator)
+
+ QUOTIENT-FIELD-PRINT-OBJECT (qf stream)                             [FUNCTION]
+
+ COERCE ((qe quotient-element) (d general-expressions))                [METHOD]
+
+ PRINT-OBJECT ((ratfun quotient-element) stream)                       [METHOD]
+
+ NUMERATOR ((r quotient-element))                                      [METHOD]
+
+ DENOMINATOR ((r quotient-element))                                    [METHOD]
+
+ ZERO ((qf quotient-field))                                            [METHOD]
+
+ ONE ((qf quotient-field))                                             [METHOD]
+
+ 0? ((r quotient-element))                                             [METHOD]
+
+ 1? ((r quotient-element))                                             [METHOD]
+
+ HEIGHT (object)                                             [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ HEIGHT ((r quotient-element))                                         [METHOD]
+
+ MINUS ((r quotient-element))                                          [METHOD]
+
+ MINUS? (object)                                             [GENERIC FUNCTION]
+   Return true if the object is negative.
+
+ MINUS? ((r quotient-element))                                         [METHOD]
+
+ QUOTIENT-REDUCE* (qf num &optional den)                             [FUNCTION]
+
+ QUOTIENT-REDUCE (field numerator &optional denominator)     [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ QUOTIENT-REDUCE ((qf quotient-field) num &optional den)               [METHOD]
+
+ RECIP ((r1 quotient-element))                                         [METHOD]
+
+ EXPT-QUOTIENT (domain quo exp)                                      [FUNCTION]
+
+ EXPT ((r1 quotient-element) (exp integer))                            [METHOD]
+
+ EXPT ((r1 quotient-element) (exp rational-integer))                   [METHOD]
+
+ COERCE (x (domain quotient-field))                                    [METHOD]
+
+ COERCE ((x quotient-element) (domain field))                          [METHOD]
