@@ -31,3 +31,275 @@
    None.
    Writers
    None.
+
+ HAS-COERCION-CACHE ""                                                  [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   Readers
+   %coercion-cache-of	Generic Function
+   	has-coercion-cache
+   Returns 
+   Writers
+   setf (%coercion-cache-of has-coercion-cache)	Generic Setf Form
+   	%coercion-cache-of
+   The %coercion-cache-of argument should be a 
+
+ HAS-ID-NUMBER ""                                                       [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   Readers
+   %global-id-counter-of	Generic Function
+   	has-id-number
+   Returns 
+   id-number-of	Generic Function
+   	has-id-number
+   Returns 
+   Writers
+   setf (%global-id-counter-of has-id-number)	Generic Setf Form
+   	%global-id-counter-of
+   The %global-id-counter-of argument should be a 
+
+ HAS-NAME ""                                                            [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :name argument is a 
+   Readers
+   name-of	Generic Function
+   	has-name
+   Returns 
+   Writers
+   setf (name-of has-name)	Generic Setf Form
+   	name-of
+   The name-of argument should be a 
+
+ INITIALIZE-INSTANCE :AFTER ((obj has-id-number) &rest ignore)         [METHOD]
+
+ ABSTRACT-POINT ""                                                      [CLASS]
+   Superclasses
+   has-id-numberdomain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ NAMED-POINT ""                                                         [CLASS]
+   Superclasses
+   has-nameabstract-point
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GENERAL-POINT ""                                                       [CLASS]
+   Superclasses
+   tuplehas-coercion-cacheabstract-point
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ POINT ""                                                               [CLASS]
+   Superclasses
+   vector-space-elementgeneral-point
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ CELL ""                                                                [CLASS]
+   Superclasses
+   has-id-number
+   Initialization Arguments
+   The :orient argument is a 
+   Readers
+   orient-of	Generic Function
+   	cell
+   Returns 
+   Writers
+   setf (orient-of cell)	Generic Setf Form
+   	orient-of
+   The orient-of argument should be a 
+
+ SIMPLEX ""                                                             [CLASS]
+   Superclasses
+   cell
+   Initialization Arguments
+   The :vertices argument is a 
+   Readers
+   vertices-of	Generic Function
+   	simplex
+   Returns 
+   Writers
+
+ ORIENTED-SORT (list)                                                [FUNCTION]
+   Sort keeping track of the number of swaps
+
+ INITIALIZE-INSTANCE :AFTER ((simplex simplex) &rest ignore            [METHOD]
+                             &key home)
+
+ POLYGON ""                                                             [CLASS]
+   Superclasses
+   cell
+   Initialization Arguments
+   The :vertices argument is a 
+   Readers
+   vertices-of	Generic Function
+   	polygon
+   Returns 
+   Writers
+
+ INITIALIZE-INSTANCE :AFTER ((polygon polygon) &rest ignore)           [METHOD]
+
+ CELL-COMPLEX ""                                                        [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   Readers
+   cell-table-of	Generic Function
+   	cell-complex
+   Returns 
+   facet-table-of	Generic Function
+   	cell-complex
+   Returns 
+   cofacet-table-of	Generic Function
+   	cell-complex
+   Returns 
+   Writers
+
+ SIMPLICIAL-COMPLEX ""                                                  [CLASS]
+   Superclasses
+   cell-complex
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ CHAIN-MODULE ""                                                        [CLASS]
+   Superclasses
+   module
+   Initialization Arguments
+   The :complex argument is a 
+   The :dimension argument is a 
+   Readers
+   complex-of	Generic Function
+   	chain-module
+   Returns 
+   dimension-of	Generic Function
+   	chain-module
+   Returns 
+   Writers
+
+ COCHAIN-MODULE ""                                                      [CLASS]
+   Superclasses
+   module
+   Initialization Arguments
+   The :complex argument is a 
+   The :dimension argument is a 
+   Readers
+   complex-of	Generic Function
+   	cochain-module
+   Returns 
+   dimension-of	Generic Function
+   	cochain-module
+   Returns 
+   Writers
+
+ CHAIN ""                                                               [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   The :terms argument is a 
+   Readers
+   chain-terms-of	Generic Function
+   	chain
+   Returns 
+   Writers
+   setf (chain-terms-of chain)	Generic Setf Form
+   	chain-terms-of
+   The chain-terms-of argument should be a 
+
+ COCHAIN ""                                                             [CLASS]
+   Superclasses
+   chain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FUNCTION-SPACE ""                                                      [CLASS]
+   Superclasses
+   vector-spacedimensional-spacering
+   Initialization Arguments
+   The :domain argument is a 
+   The :range argument is a 
+   Readers
+   funct-domain-of	Generic Function
+   	function-space
+   Returns 
+   funct-range-of	Generic Function
+   	function-space
+   Returns 
+   Writers
+
+ FUNCTION-SPACE-ELEMENT ""                                              [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((h function-space) &rest plist)           [METHOD]
+
+ FUNCTION-SPACE-PRINT-OBJECT (h stream)                              [FUNCTION]
+
+ BANACH-SPACE ""                                                        [CLASS]
+   Superclasses
+   function-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ HILBERT-SPACE ""                                                       [CLASS]
+   Superclasses
+   banach-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ HILBERT-SPACE-ELEMENT ""                                               [CLASS]
+   Superclasses
+   function-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((h hilbert-space) &rest plist)            [METHOD]
+
+ HILBERT-SPACE-PRINT-OBJECT (h stream)                               [FUNCTION]

@@ -1,3 +1,145 @@
 
  File: ../domain-support.lisp 
 
+
+ HAS-PROPERTY-LIST ""                                                   [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   Readers
+   property-list-of	Generic Function
+   	has-property-list
+   Returns 
+   Writers
+   setf (property-list-of has-property-list)	Generic Setf Form
+   	property-list-of
+   The property-list-of argument should be a 
+
+ GETF ((obj has-property-list) key &optional (default nil))            [METHOD]
+
+ PUTF ((obj has-property-list) key value)                              [METHOD]
+
+ DOMAIN-PRINT-OBJECT (d stream)                                      [FUNCTION]
+
+ DOMAIN ""                                                              [CLASS]
+   Superclasses
+   has-property-list
+   Initialization Arguments
+   The :super-domains argument is a 
+   The :print-function argument is a 
+   Readers
+   super-domains-of	Generic Function
+   	domain
+   Returns 
+   domain-morphisms-from	Generic Function
+   	domain
+   Returns 
+   domain-morphisms-to	Generic Function
+   	domain
+   Returns 
+   Writers
+   setf (super-domains-of domain)	Generic Setf Form
+   	super-domains-of
+   The super-domains-of argument should be a 
+   setf (domain-morphisms-from domain)	Generic Setf Form
+   	domain-morphisms-from
+   The domain-morphisms-from argument should be a 
+   setf (domain-morphisms-to domain)	Generic Setf Form
+   	domain-morphisms-to
+   The domain-morphisms-to argument should be a 
+
+ PRINT-OBJECT ((d domain) stream)                                      [METHOD]
+
+ DEFINE-OPERATIONS (domain &body operations)                            [MACRO]
+
+ PARSE-OPERATION-LIST (domain operation-list)                [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ PARSE-OPERATION-LIST ((d domain) operation-list)                      [METHOD]
+
+ PARSE-OPERATIONS (domain)                                   [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ INITIALIZE-INSTANCE :AFTER ((d domain) &rest plist)                   [METHOD]
+
+ LIST-OPERATIONS (domain)                                    [GENERIC FUNCTION]
+   Return a list of operations for the domain.
+
+ LIST-OPERATIONS ((d domain))                                          [METHOD]
+
+ OPERATION-ARGUMENTS (domain operation)                      [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ OPERATION-ARGUMENTS ((d domain) operation)                            [METHOD]
+
+ OPERATION-VALUES (domain operation)                         [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ OPERATION-VALUES ((d domain) operation)                               [METHOD]
+
+ DESCRIBE-OPERATIONS (domain &optional no-complaints)        [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ DESCRIBE-OPERATIONS ((d domain) &optional no-complaints)              [METHOD]
+
+ REQUIRED-OPERATIONS (domain &optional fun)                  [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ REQUIRED-OPERATIONS ((d domain) &optional fun)                        [METHOD]
+
+ MAP-OVER-ARGLIST-COMBINATIONS (self arglist fun)                    [FUNCTION]
+
+ CHECK-DOMAIN (domain)                                       [GENERIC FUNCTION]
+   The purspose of this method is not known.
+
+ *DOMAINS* (nil)                                                     [VARIABLE]
+   List of domains currently in use
+
+ *GENERAL* (nil)                                                     [VARIABLE]
+   The general representation domain
+
+ RESET-DOMAINS "()"                                                  [FUNCTION]
+
+ ADD-DOMAIN (predicate &body body)                                      [MACRO]
+
+ ADD-DOMAIN-INTERNAL (predicate body)                                [FUNCTION]
+
+ FALSE (&rest args)                                                  [FUNCTION]
+
+ TRUE (&rest args)                                                   [FUNCTION]
+
+ DEFINE-DOMAIN-CREATOR (name args creator &key predicate body)          [MACRO]
+
+ WITH-NEW-WEYL-CONTEXT ((plist) &body body)                             [MACRO]
+
+ DOMAIN-ELEMENT ""                                                      [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :domain argument is a 
+   Readers
+   domain-of	Generic Function
+   	domain-element
+   Returns 
+   Writers
+
+ DEFINE-DOMAIN-ELEMENT-CLASSES (domain &body element-classes)           [MACRO]
+
+ DOMAIN-ELEMENT-CLASSES (domain)                             [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ COERCE (elt domain)                                         [GENERIC FUNCTION]
+   Coerce the element into the domain.
+
+ COERCIBLE? (elt domain)                                     [GENERIC FUNCTION]
+   Return true if the element is coercible into the domain.
+
+ DEFMETHOD-SD (op (x-spec y-spec) &body body)                           [MACRO]
+
+ *DOMAIN* (nil)                                                      [VARIABLE]
+   Within the context of an operation, the current domain
+
+ %BIND-DYNAMIC-DOMAIN-CONTEXT (domain function)              [GENERIC FUNCTION]
+   The purpose of this method is not known.
+
+ BIND-DOMAIN-CONTEXT (domain &body body)                                [MACRO]

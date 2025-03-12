@@ -413,3 +413,1021 @@
    None.
    Writers
    None.
+
+ QUOTIENT-FIELD ""                                                      [CLASS]
+   Superclasses
+   field
+   Initialization Arguments
+   The :ring argument is a 
+   Readers
+   qf-ring	Generic Function
+   	quotient-field
+   Returns 
+   Writers
+
+ CHARACTERISTIC ((domain quotient-field))                              [METHOD]
+
+ QUOTIENT-ELEMENT ""                                                    [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   The :numerator argument is a 
+   The :denominator argument is a 
+   Readers
+   qo-numerator	Generic Function
+   	quotient-element
+   Returns 
+   qo-denominator	Generic Function
+   	quotient-element
+   Returns 
+   Writers
+   setf (qo-numerator quotient-element)	Generic Setf Form
+   	qo-numerator
+   The qo-numerator argument should be a 
+   setf (qo-denominator quotient-element)	Generic Setf Form
+   	qo-denominator
+   The qo-denominator argument should be a 
+
+ WITH-NUMERATOR-AND-DENOMINATOR ((num denom) quotient-element           [MACRO]
+                                 &body body)
+
+ MUTABLE-SET ""                                                         [CLASS]
+   Sets built from this class can be modified
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FINITE-SET ""                                                          [CLASS]
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-ELEMENT ""                                                         [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   The :key argument is a 
+   Readers
+   element-key	Generic Function
+   	set-element
+   Returns 
+   Writers
+
+ SET-ELEMENT1 ""                                                        [CLASS]
+   Superclasses
+   set-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-ELEMENT2 ""                                                        [CLASS]
+   Superclasses
+   set-element
+   Initialization Arguments
+   The :value argument is a 
+   Readers
+   element-value	Generic Function
+   	set-element2
+   Returns 
+   Writers
+   setf (element-value set-element2)	Generic Setf Form
+   	element-value
+   The element-value argument should be a 
+
+ SET-ELEMENTS-AS-SINGLETONS ""                                          [CLASS]
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-ELEMENTS-AS-PAIRS ""                                               [CLASS]
+   Superclasses
+   set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-WITH-ELEMENT-LIST ""                                               [CLASS]
+   Superclasses
+   finite-sethas-equality
+   Initialization Arguments
+   The :elements argument is a 
+   Readers
+   set-element-list	Generic Function
+   	set-with-element-list
+   Returns 
+   Writers
+   setf (set-element-list set-with-element-list)	Generic Setf Form
+   	set-element-list
+   The set-element-list argument should be a 
+
+ MUTABLE-SET-WITH-ELEMENT-LIST ""                                       [CLASS]
+   Superclasses
+   set-with-element-listmutable-set
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-WITH-SORTED-ELEMENT-LIST ""                                        [CLASS]
+   Superclasses
+   set-with-element-listhas-comparison
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MUTABLE-SET-WITH-SORTED-ELEMENT-LIST ""                                [CLASS]
+   Superclasses
+   mutable-set-with-element-listhas-comparison
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SIMPLE-SET ""                                                          [CLASS]
+   Superclasses
+   mutable-set-with-element-listset-elements-as-singletons
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SET-OF-PAIRS ""                                                        [CLASS]
+   Superclasses
+   mutable-set-with-element-listset-elements-as-pairs
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ORDERED-SIMPLE-SET ""                                                  [CLASS]
+   Superclasses
+   mutable-set-with-sorted-element-listset-elements-as-singletons
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ORDERED-SET-OF-PAIRS ""                                                [CLASS]
+   Superclasses
+   mutable-set-with-sorted-element-listset-elements-as-pairs
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GE-OR-NUMERIC ""                                                       [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ NUMERIC ""                                                             [CLASS]
+   Superclasses
+   ge-or-numeric
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ NUMERIC-DOMAIN ""                                                      [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ RATIONAL-INTEGERS ""                                                   [CLASS]
+   Superclasses
+   ringcaching-zero-and-onenumeric-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ CHARACTERISTIC ((domain rational-integers))                           [METHOD]
+
+ RATIONAL-INTEGER ""                                                    [CLASS]
+   Superclasses
+   numeric
+   Initialization Arguments
+   The :value argument is a 
+   Readers
+   integer-value	Generic Function
+   	rational-integer
+   Returns 
+   Writers
+
+ REAL-NUMBERS ""                                                        [CLASS]
+   Superclasses
+   fieldnumeric-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((domain real-numbers) &rest plist)        [METHOD]
+
+ CHARACTERISTIC ((domain real-numbers))                                [METHOD]
+
+ REAL-NUMBER ""                                                         [CLASS]
+   Superclasses
+   numeric
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FLOATING-POINT-NUMBER ""                                               [CLASS]
+   Superclasses
+   real-number
+   Initialization Arguments
+   The :value argument is a 
+   Readers
+   fp-value	Generic Function
+   	floating-point-number
+   Returns 
+   Writers
+
+ BIGFLOAT ""                                                            [CLASS]
+   Superclasses
+   real-number
+   Initialization Arguments
+   The :mantissa argument is a 
+   The :exponent argument is a 
+   Readers
+   bigfloat-mantissa	Generic Function
+   	bigfloat
+   Returns 
+   bigfloat-exponent	Generic Function
+   	bigfloat
+   Returns 
+   Writers
+
+ COMPLEX-NUMBERS ""                                                     [CLASS]
+   Superclasses
+   algebraic-extensionfieldnumeric-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((domain complex-numbers) &rest plist)     [METHOD]
+
+ CHARACTERISTIC ((domain complex-numbers))                             [METHOD]
+
+ COMPLEX-NUMBER ""                                                      [CLASS]
+   Superclasses
+   numeric
+   Initialization Arguments
+   The :realpart argument is a 
+   The :imagpart argument is a 
+   Readers
+   cn-realpart	Generic Function
+   	complex-number
+   Returns 
+   cn-imagpart	Generic Function
+   	complex-number
+   Returns 
+   Writers
+
+ RATIONAL-NUMBERS ""                                                    [CLASS]
+   Superclasses
+   fieldnumeric-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((domain rational-numbers)                 [METHOD]
+                             &rest plist)
+
+ CHARACTERISTIC ((domain rational-numbers))                            [METHOD]
+
+ RATIONAL-NUMBER ""                                                     [CLASS]
+   Superclasses
+   quotient-elementnumeric
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GFP ""                                                                 [CLASS]
+   Superclasses
+   fieldnumeric-domain
+   Initialization Arguments
+   The :characteristic argument is a 
+   Readers
+   characteristic	Generic Function
+   	gfp
+   Returns 
+   Writers
+
+ GFQ ""                                                                 [CLASS]
+   Superclasses
+   gfp
+   Initialization Arguments
+   The :degree argument is a 
+   Readers
+   field-degree	Generic Function
+   	gfq
+   Returns 
+   Writers
+
+ GFP-ELEMENT ""                                                         [CLASS]
+   Superclasses
+   numeric
+   Initialization Arguments
+   The :value argument is a 
+   Readers
+   gfp-value	Generic Function
+   	gfp-element
+   Returns 
+   Writers
+
+ GF2^N ""                                                               [CLASS]
+   Superclasses
+   gfq
+   Initialization Arguments
+   The :reduction-table argument is a 
+   Readers
+   gfp-reduction-table	Generic Function
+   	gf2^n
+   Returns 
+   Writers
+
+ GFM ""                                                                 [CLASS]
+   Superclasses
+   rngnumeric-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GFM-ELEMENT ""                                                         [CLASS]
+   Superclasses
+   numeric
+   Initialization Arguments
+   The :value argument is a 
+   The :modulus argument is a 
+   Readers
+   value	Generic Function
+   	gfm-element
+   Returns 
+   modulus	Generic Function
+   	gfm-element
+   Returns 
+   Writers
+
+ HAS-RING-VARIABLES ""                                                  [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :variables argument is a 
+   Readers
+   ring-variables	Generic Function
+   	has-ring-variables
+   Returns 
+   Writers
+
+ POLYNOMIAL-RING ""                                                     [CLASS]
+   Superclasses
+   ringmodulehas-ring-variables
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ INITIALIZE-INSTANCE :AFTER ((domain polynomial-ring) &rest plist)     [METHOD]
+
+ VARIABLE-HASH-TABLE ""                                                 [CLASS]
+   Superclasses
+   has-ring-variables
+   Initialization Arguments
+   Readers
+   variable-hash-table	Generic Function
+   	variable-hash-table
+   Returns 
+   variable-index-table	Generic Function
+   	variable-hash-table
+   Returns 
+   Writers
+   setf (variable-hash-table variable-hash-table)	Generic Setf Form
+   	variable-hash-table
+   The variable-hash-table argument should be a 
+   setf (variable-index-table variable-hash-table)	Generic Setf Form
+   	variable-index-table
+   The variable-index-table argument should be a 
+
+ CACHING-ZERO-AND-ONE ""                                                [CLASS]
+   Superclasses
+   domain
+   Initialization Arguments
+   Readers
+   Writers
+
+ MULTIVARIATE-POLYNOMIAL-RING ""                                        [CLASS]
+   Superclasses
+   polynomial-ringvariable-hash-tablecaching-zero-and-one
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ POLYNOMIAL ""                                                          [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MPOLYNOMIAL ""                                                         [CLASS]
+   Superclasses
+   polynomial
+   Initialization Arguments
+   The :form argument is a 
+   Readers
+   poly-form	Generic Function
+   	mpolynomial
+   Returns 
+   Writers
+
+ EPOLYNOMIAL ""                                                         [CLASS]
+   Superclasses
+   polynomialhas-comparison
+   Initialization Arguments
+   The :form argument is a 
+   Readers
+   poly-form	Generic Function
+   	epolynomial
+   Returns 
+   Writers
+
+ UPOLYNOMIAL ""                                                         [CLASS]
+   Superclasses
+   polynomial
+   Initialization Arguments
+   The :form argument is a 
+   Readers
+   poly-form	Generic Function
+   	upolynomial
+   Returns 
+   Writers
+
+ POWER-SERIES-DOMAIN ""                                                 [CLASS]
+   Superclasses
+   has-coefficient-domaincaching-zero-and-one
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ TPOWER-SERIES-DOMAIN ""                                                [CLASS]
+   Superclasses
+   power-series-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ TPOWER-SERIES-RING ""                                                  [CLASS]
+   Superclasses
+   ringhas-ring-variablestpower-series-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ TPOWER-SERIES-FIELD ""                                                 [CLASS]
+   Superclasses
+   fieldhas-ring-variablestpower-series-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ POWER-SERIES ""                                                        [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ TPOWER-SERIES ""                                                       [CLASS]
+   Superclasses
+   power-series
+   Initialization Arguments
+   The :valence argument is a 
+   The :branch-order argument is a 
+   The :order argument is a 
+   The :coeffs argument is a 
+   Readers
+   valence	Generic Function
+   	tpower-series
+   Returns 
+   branch-order	Generic Function
+   	tpower-series
+   Returns 
+   order	Generic Function
+   	tpower-series
+   Returns 
+   coeffs	Generic Function
+   	tpower-series
+   Returns 
+   Writers
+
+ RATIONAL-FUNCTION-FIELD ""                                             [CLASS]
+   Superclasses
+   quotient-field
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ RATIONAL-FUNCTION ""                                                   [CLASS]
+   Superclasses
+   quotient-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MORPHISM ""                                                            [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :domain argument is a 
+   The :map argument is a 
+   The :range argument is a 
+   Readers
+   morphism-domain	Generic Function
+   	morphism
+   Returns 
+   morphism-map	Generic Function
+   	morphism
+   Returns 
+   morphism-range	Generic Function
+   	morphism
+   Returns 
+   Writers
+
+ HOMOMORPHISM ""                                                        [CLASS]
+   Superclasses
+   morphism
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ AUTOMORPHISM ""                                                        [CLASS]
+   Superclasses
+   homomorphism
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIFFERENTIAL-POLYNOMIAL-RING ""                                        [CLASS]
+   Superclasses
+   multivariate-polynomial-ringdifferential-ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ IDEAL ""                                                               [CLASS]
+   Superclasses
+   module
+   Initialization Arguments
+   The :ring argument is a 
+   The :generators argument is a 
+   Readers
+   ring-of	Generic Function
+   	ideal
+   Returns 
+   generators-of	Generic Function
+   	ideal
+   Returns 
+   Writers
+
+ PID-IDEAL ""                                                           [CLASS]
+   Superclasses
+   ideal
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GROBNER-BASIS ""                                                       [CLASS]
+   Superclasses
+   idealhas-comparison
+   Initialization Arguments
+   Readers
+   reducibles-of	Generic Function
+   	grobner-basis
+   Returns 
+   Writers
+   setf (reducibles-of grobner-basis)	Generic Setf Form
+   	reducibles-of
+   The reducibles-of argument should be a 
+
+ ALGEBRAIC-EXTENSION-RING ""                                            [CLASS]
+   Superclasses
+   algebraic-extensionmultivariate-polynomial-ring
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ ALGEBRAIC-OBJECT ""                                                    [CLASS]
+   Superclasses
+   mpolynomial
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIRECT-SUM ""                                                          [CLASS]
+   Superclasses
+   tupledomain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ DIRECT-SUM-ELEMENT ""                                                  [CLASS]
+   Superclasses
+   tupledomain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ FREE-MODULE-ELEMENT ""                                                 [CLASS]
+   Superclasses
+   tupledomain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ VECTOR-SPACE-ELEMENT ""                                                [CLASS]
+   Superclasses
+   free-module-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ LISP-VECTOR-SPACE ""                                                   [CLASS]
+   Superclasses
+   vector-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ LISP-VECTOR ""                                                         [CLASS]
+   Superclasses
+   vector-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ PROJECTIVE-SPACE-ELEMENT ""                                            [CLASS]
+   Superclasses
+   vector-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MATRIX-SPACE ""                                                        [CLASS]
+   Superclasses
+   module
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ REAL-MATRIX-SPACE ""                                                   [CLASS]
+   Superclasses
+   matrix-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ COMPLEX-MATRIX-SPACE ""                                                [CLASS]
+   Superclasses
+   matrix-space
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GL-N ""                                                                [CLASS]
+   General linear group
+   Superclasses
+   grouphas-coefficient-domaindimensional-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ PSL-N ""                                                               [CLASS]
+   Superclasses
+   gl-n
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SL-N ""                                                                [CLASS]
+   Superclasses
+   psl-n
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ O-N ""                                                                 [CLASS]
+   Superclasses
+   gl-n
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SO-N ""                                                                [CLASS]
+   Superclasses
+   o-n
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ MATRIX-ELEMENT ""                                                      [CLASS]
+   Superclasses
+   domain-element
+   Initialization Arguments
+   The :value argument is a 
+   Readers
+   matrix-value	Generic Function
+   	matrix-element
+   Returns 
+   Writers
+
+ MATRIX-SPACE-ELEMENT ""                                                [CLASS]
+   Superclasses
+   matrix-element
+   Initialization Arguments
+   The :dimension1 argument is a 
+   The :dimension2 argument is a 
+   Readers
+   Writers
+
+ REAL-MATRIX-SPACE-ELEMENT ""                                           [CLASS]
+   Superclasses
+   matrix-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ COMPLEX-MATRIX-SPACE-ELEMENT ""                                        [CLASS]
+   Superclasses
+   matrix-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ GL-N-ELEMENT ""                                                        [CLASS]
+   Superclasses
+   matrix-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ PSL-N-ELEMENT ""                                                       [CLASS]
+   Superclasses
+   gl-n-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SL-N-ELEMENT ""                                                        [CLASS]
+   Superclasses
+   psl-n-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ O-N-ELEMENT ""                                                         [CLASS]
+   Superclasses
+   gl-n-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SO-N-ELEMENT ""                                                        [CLASS]
+   Superclasses
+   o-n-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ QUATERNION-DOMAIN ""                                                   [CLASS]
+   algebra of quaternions
+   Superclasses
+   vector-spacealgebra
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ UNIT-QUATERNION-DOMAIN ""                                              [CLASS]
+   group of unit quaternions
+   Superclasses
+   groupdimensional-domainhas-coefficient-domain
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ QUATERNION-WITH-MULTIPLICATION ""                                      [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ QUATERNION-DOMAIN-ELEMENT ""                                           [CLASS]
+   Superclasses
+   quaternion-with-multiplicationvector-space-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ UNIT-QUATERNION-DOMAIN-ELEMENT ""                                      [CLASS]
+   Superclasses
+   quaternion-with-multiplicationtupledomain-element
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.

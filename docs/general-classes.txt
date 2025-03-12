@@ -1,11 +1,54 @@
 
  File: ../classes/general-classes.lisp 
- 
- ;;; due to an error in user-manual.lisp this was filled manually.
- ;;; general-classes.lisp removed from file list.
- 
-  *GLOBAL-FUNCTIONS* (nil)                                            [VARIABLE]
+
+
+ HAS-MEMOIZATION ""                                                     [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   Readers
+   Writers
+
+ *GLOBAL-FUNCTIONS* (nil)                                            [VARIABLE]
    These are the functions known by everyone
+
+ GENERAL-EXPRESSIONS ""                                                 [CLASS]
+   Superclasses
+   has-memoizationnon-strict-domaindomain
+   Initialization Arguments
+   Readers
+   ge-variables	Generic Function
+   	general-expressions
+   Returns 
+   ge-functions	Generic Function
+   	general-expressions
+   Returns 
+   ge-context	Generic Function
+   	general-expressions
+   Returns 
+   Writers
+   setf (ge-variables general-expressions)	Generic Setf Form
+   	ge-variables
+   The ge-variables argument should be a 
+   setf (ge-functions general-expressions)	Generic Setf Form
+   	ge-functions
+   The ge-functions argument should be a 
+   setf (ge-context general-expressions)	Generic Setf Form
+   	ge-context
+   The ge-context argument should be a 
+
+ GENERAL-EXPRESSION ""                                                  [CLASS]
+   Superclasses
+   ge-or-numeric
+   Initialization Arguments
+   Readers
+   simplified?	Generic Function
+   	general-expression
+   Returns 
+   Writers
+   setf (simplified? general-expression)	Generic Setf Form
+   	simplified?
+   The simplified? argument should be a 
 
  GE-ATOM ""                                                             [CLASS]
    Superclasses
@@ -21,36 +64,36 @@
    Superclasses
    general-expressionhas-property-listge-atom
    Initialization Arguments
-   The :symbol argument is a
-   The :string argument is a
+   The :symbol argument is a 
+   The :string argument is a 
    Readers
-   symbol-of    Generic Function
-        ge-variable
-   Returns
-   string-of    Generic Function
-        ge-variable
-   Returns
+   symbol-of	Generic Function
+   	ge-variable
+   Returns 
+   string-of	Generic Function
+   	ge-variable
+   Returns 
    Writers
-   setf (symbol-of ge-variable) Generic Setf Form
-        symbol-of
-   The symbol-of argument should be a
-   setf (string-of ge-variable) Generic Setf Form
-        string-of
-   The string-of argument should be a
+   setf (symbol-of ge-variable)	Generic Setf Form
+   	symbol-of
+   The symbol-of argument should be a 
+   setf (string-of ge-variable)	Generic Setf Form
+   	string-of
+   The string-of argument should be a 
 
  GE-NARY ""                                                             [CLASS]
    Superclasses
    general-expression
    Initialization Arguments
-   The :terms argument is a
+   The :terms argument is a 
    Readers
-   terms-of     Generic Function
-        ge-nary
-   Returns
+   terms-of	Generic Function
+   	ge-nary
+   Returns 
    Writers
-   setf (terms-of ge-nary)      Generic Setf Form
-        terms-of
-   The terms-of argument should be a
+   setf (terms-of ge-nary)	Generic Setf Form
+   	terms-of
+   The terms-of argument should be a 
 
  GE-PLUS ""                                                             [CLASS]
    Superclasses
@@ -76,60 +119,60 @@
    Superclasses
    general-expression
    Initialization Arguments
-   The :base argument is a
-   The :exp argument is a
+   The :base argument is a 
+   The :exp argument is a 
    Readers
-   base-of      Generic Function
-        ge-expt
-   Returns
-   exponent-of  Generic Function
-        ge-expt
-   Returns
+   base-of	Generic Function
+   	ge-expt
+   Returns 
+   exponent-of	Generic Function
+   	ge-expt
+   Returns 
    Writers
-   setf (base-of ge-expt)       Generic Setf Form
-        base-of
-   The base-of argument should be a
-   setf (exponent-of ge-expt)   Generic Setf Form
-        exponent-of
-   The exponent-of argument should be a
+   setf (base-of ge-expt)	Generic Setf Form
+   	base-of
+   The base-of argument should be a 
+   setf (exponent-of ge-expt)	Generic Setf Form
+   	exponent-of
+   The exponent-of argument should be a 
 
  ABSTRACT-FUNCTION ""                                                   [CLASS]
    Superclasses
    domain-elementhas-property-list
    Initialization Arguments
-   The :nargs argument is a
+   The :nargs argument is a 
    Readers
-   nargs-of     Generic Function
-        abstract-function
-   Returns
+   nargs-of	Generic Function
+   	abstract-function
+   Returns 
    Writers
-   setf (nargs-of abstract-function)    Generic Setf Form
-        nargs-of
-   The nargs-of argument should be a
+   setf (nargs-of abstract-function)	Generic Setf Form
+   	nargs-of
+   The nargs-of argument should be a 
 
  HAS-BOUND-VARIABLES ""                                                 [CLASS]
    Superclasses
    None.
    Initialization Arguments
-   The :bound-vars argument is a
+   The :bound-vars argument is a 
    Readers
-   bound-vars-of        Generic Function
-        has-bound-variables
-   Returns
+   bound-vars-of	Generic Function
+   	has-bound-variables
+   Returns 
    Writers
-   setf (bound-vars-of has-bound-variables)     Generic Setf Form
-        bound-vars-of
-   The bound-vars-of argument should be a
+   setf (bound-vars-of has-bound-variables)	Generic Setf Form
+   	bound-vars-of
+   The bound-vars-of argument should be a 
 
  APPLICABLE-FUNCTION ""                                                 [CLASS]
    Superclasses
    abstract-functionhas-bound-variables
    Initialization Arguments
-   The :body argument is a
+   The :body argument is a 
    Readers
-   body-of      Generic Function
-        applicable-function
-   Returns
+   body-of	Generic Function
+   	applicable-function
+   Returns 
    Writers
 
  GE-FUNCTION ""                                                         [CLASS]
@@ -146,57 +189,57 @@
    Superclasses
    ge-function
    Initialization Arguments
-   The :derivs argument is a
+   The :derivs argument is a 
    Readers
-   derivs-of    Generic Function
-        ge-function-deriv
-   Returns
+   derivs-of	Generic Function
+   	ge-function-deriv
+   Returns 
    Writers
-   setf (derivs-of ge-function-deriv)   Generic Setf Form
-        derivs-of
-   The derivs-of argument should be a
+   setf (derivs-of ge-function-deriv)	Generic Setf Form
+   	derivs-of
+   The derivs-of argument should be a 
 
  GE-APPLICATION ""                                                      [CLASS]
    Superclasses
    general-expression
    Initialization Arguments
-   The :funct argument is a
-   The :args argument is a
+   The :funct argument is a 
+   The :args argument is a 
    Readers
-   funct-of     Generic Function
-        ge-application
-   Returns
-   args-of      Generic Function
-        ge-application
-   Returns
+   funct-of	Generic Function
+   	ge-application
+   Returns 
+   args-of	Generic Function
+   	ge-application
+   Returns 
    Writers
-   setf (funct-of ge-application)       Generic Setf Form
-        funct-of
-   The funct-of argument should be a
-   setf (args-of ge-application)        Generic Setf Form
-        args-of
-   The args-of argument should be a
+   setf (funct-of ge-application)	Generic Setf Form
+   	funct-of
+   The funct-of argument should be a 
+   setf (args-of ge-application)	Generic Setf Form
+   	args-of
+   The args-of argument should be a 
 
  GE-EQUATION ""                                                         [CLASS]
    Superclasses
    general-expression
    Initialization Arguments
-   The :lhs argument is a
-   The :rhs argument is a
+   The :lhs argument is a 
+   The :rhs argument is a 
    Readers
-   lhs-of       Generic Function
-        ge-equation
-   Returns
-   rhs-of       Generic Function
-        ge-equation
-   Returns
+   lhs-of	Generic Function
+   	ge-equation
+   Returns 
+   rhs-of	Generic Function
+   	ge-equation
+   Returns 
    Writers
-   setf (lhs-of ge-equation)    Generic Setf Form
-        lhs-of
-   The lhs-of argument should be a
-   setf (rhs-of ge-equation)    Generic Setf Form
-        rhs-of
-   The rhs-of argument should be a
+   setf (lhs-of ge-equation)	Generic Setf Form
+   	lhs-of
+   The lhs-of argument should be a 
+   setf (rhs-of ge-equation)	Generic Setf Form
+   	rhs-of
+   The rhs-of argument should be a 
 
  GE-EQN= ""                                                             [CLASS]
    Superclasses
@@ -232,71 +275,68 @@
    Superclasses
    has-bound-variablessetgeneral-expression
    Initialization Arguments
-   The :expressions argument is a
+   The :expressions argument is a 
    Readers
-   exprs-of     Generic Function
-        universal-quantified-set
-   Returns
+   exprs-of	Generic Function
+   	universal-quantified-set
+   Returns 
    Writers
-   setf (exprs-of universal-quantified-set)     Generic Setf Form
-        exprs-of
-   The exprs-of argument should be a
+   setf (exprs-of universal-quantified-set)	Generic Setf Form
+   	exprs-of
+   The exprs-of argument should be a 
 
  GE-FOURIER ""                                                          [CLASS]
    Superclasses
    general-expression
    Initialization Arguments
-   The :argument argument is a
-   The :space-var argument is a
-   The :freq-var argument is a
+   The :argument argument is a 
+   The :space-var argument is a 
+   The :freq-var argument is a 
    Readers
-   argument-of  Generic Function
-        ge-fourier
-   Returns
-   space-var-of Generic Function
-        ge-fourier
-   Returns
-   freq-var-of  Generic Function
-        ge-fourier
-   Returns
+   argument-of	Generic Function
+   	ge-fourier
+   Returns 
+   space-var-of	Generic Function
+   	ge-fourier
+   Returns 
+   freq-var-of	Generic Function
+   	ge-fourier
+   Returns 
    Writers
-   setf (argument-of ge-fourier)        Generic Setf Form
-        argument-of
-   The argument-of argument should be a
-   setf (space-var-of ge-fourier)       Generic Setf Form
-        space-var-of
-   The space-var-of argument should be a
-   setf (freq-var-of ge-fourier)        Generic Setf Form
-        freq-var-of
-   The freq-var-of argument should be a
+   setf (argument-of ge-fourier)	Generic Setf Form
+   	argument-of
+   The argument-of argument should be a 
+   setf (space-var-of ge-fourier)	Generic Setf Form
+   	space-var-of
+   The space-var-of argument should be a 
+   setf (freq-var-of ge-fourier)	Generic Setf Form
+   	freq-var-of
+   The freq-var-of argument should be a 
 
  GE-IFOURIER ""                                                         [CLASS]
    Superclasses
    general-expression
    Initialization Arguments
-   The :argument argument is a
-   The :space-var argument is a
-   The :freq-var argument is a
+   The :argument argument is a 
+   The :space-var argument is a 
+   The :freq-var argument is a 
    Readers
-   argument-of  Generic Function
-        ge-ifourier
-   Returns
-   space-var-of Generic Function
-        ge-ifourier
-   Returns
-   freq-var-of  Generic Function
-        ge-ifourier
-   Returns
+   argument-of	Generic Function
+   	ge-ifourier
+   Returns 
+   space-var-of	Generic Function
+   	ge-ifourier
+   Returns 
+   freq-var-of	Generic Function
+   	ge-ifourier
+   Returns 
    Writers
-   setf (argument-of ge-ifourier)       Generic Setf Form
-        argument-of
-   The argument-of argument should be a
-   setf (space-var-of ge-ifourier)      Generic Setf Form
-        space-var-of
-   The space-var-of argument should be a
-   setf (freq-var-of ge-ifourier)       Generic Setf Form
-        freq-var-of
-   The freq-var-of argument should be a
-NIL
-#<END-OF-FILE {10033DA573}>
-
+   setf (argument-of ge-ifourier)	Generic Setf Form
+   	argument-of
+   The argument-of argument should be a 
+   setf (space-var-of ge-ifourier)	Generic Setf Form
+   	space-var-of
+   The space-var-of argument should be a 
+   setf (freq-var-of ge-ifourier)	Generic Setf Form
+   	freq-var-of
+   The freq-var-of argument should be a 

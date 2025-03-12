@@ -16,6 +16,7 @@
 (defparameter weyl-folder "../")
 (load (format nil "~A~A" weyl-folder "new/weyl-user-manual"))
 
+
 (defparameter src-files (list
 "packages"
 "lisp-support"
@@ -85,7 +86,7 @@
 (defparameter html-index
 "<html>
 <head>
-<title>Example for Frame</title>
+<title>Weyl - Reference Manual</title>
 </head>
     <frameset cols=\"30%,*\">
     <frame src=\"nav.html\" name=nav> 1st FRAME

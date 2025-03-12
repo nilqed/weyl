@@ -36,3 +36,618 @@
  HOME-OF (simplex)                                           [GENERIC FUNCTION]
    The home of a noncurved simplex is determined by (the first of)
    its vertices.
+
+ TRIANGULATION ""                                                       [CLASS]
+   Superclasses
+   simplicial-complex
+   Initialization Arguments
+   Readers
+   %most-recent	Generic Function
+   	triangulation
+   Returns 
+   Writers
+   setf (%most-recent triangulation)	Generic Setf Form
+   	%most-recent
+   The %most-recent argument should be a 
+
+ C-TRIANGULATION ""                                                     [CLASS]
+   Superclasses
+   triangulation
+   Initialization Arguments
+   Readers
+   %constraints-of	Generic Function
+   	c-triangulation
+   Returns 
+   Writers
+
+ CDT ""                                                                 [CLASS]
+   Superclasses
+   c-triangulation
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ NAMED-SIMPLICIAL-COMPLEX ""                                            [CLASS]
+   Superclasses
+   simplicial-complex
+   Initialization Arguments
+   Readers
+   %name-table-of	Generic Function
+   	named-simplicial-complex
+   Returns 
+   %default-name-of	Generic Function
+   	named-simplicial-complex
+   Returns 
+   Writers
+   setf (%default-name-of named-simplicial-complex)	Generic Setf Form
+   	%default-name-of
+   The %default-name-of argument should be a 
+
+ MESH ""                                                                [CLASS]
+   Superclasses
+   cdtnamed-simplicial-complexhas-home-space
+   Initialization Arguments
+   Readers
+   %pending-list-of	Generic Function
+   	mesh
+   Returns 
+   Writers
+   setf (%pending-list-of mesh)	Generic Setf Form
+   	%pending-list-of
+   The %pending-list-of argument should be a 
+
+ INITIALIZE-INSTANCE :AFTER ((mesh mesh) &rest ignore)                 [METHOD]
+
+ NAME (simplex mesh)                                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NAME ((simplex simplex) (nsc named-simplicial-complex))               [METHOD]
+
+ NAME ((simplex simplex) (mesh mesh))                                  [METHOD]
+
+ %SET-NAME (simplex mesh name)                               [GENERIC FUNCTION]
+   The purpose of this function is unkown.
+
+ %SET-NAME ((simplex simplex) (nsc named-simplicial-complex) name)     [METHOD]
+
+ %SET-NAME ((simplex simplex) (mesh mesh) name)                        [METHOD]
+
+ (SETF NAME) %set-name                                           [SETF MAPPING]
+
+ INSERT (simplex nsc &key name &allow-other-keys)            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INSERT ((simplex simplex) (nsc named-simplicial-complex)              [METHOD]
+         &key (name (%default-name-of nsc)) &allow-other-keys)
+
+ DELETE-MAXIMAL-CELL (simplex nsc)                           [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ DELETE-MAXIMAL-CELL ((simplex simplex)                                [METHOD]
+                      (nsc named-simplicial-complex))
+
+ ALL-NAMES (nsc)                                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ ALL-NAMES ((nsc named-simplicial-complex))                            [METHOD]
+
+ ALL-NAMES ((sc simplicial-complex))                                   [METHOD]
+
+ ROTATE-LIST (list &optional (position 1))                           [FUNCTION]
+
+ MEMBER-ROTATE (item list &key (test #'eql) (key #'identity))        [FUNCTION]
+
+ COMPLEXER (vector)                                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ COMPLEXER ((vector vector-space-element))                             [METHOD]
+
+ COORDINATE-LIST (vector)                                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ COORDINATE-LIST ((vector vector-space-element))                       [METHOD]
+
+ SQR (item)                                                          [FUNCTION]
+
+ QUEUE ""                                                               [CLASS]
+   Superclasses
+   None.
+   Initialization Arguments
+   The :front argument is a 
+   The :back argument is a 
+   Readers
+   %contents	Generic Function
+   	queue
+   Returns 
+   front	Generic Function
+   	queue
+   Returns 
+   back	Generic Function
+   	queue
+   Returns 
+   Writers
+   setf (front queue)	Generic Setf Form
+   	front
+   The front argument should be a 
+   setf (back queue)	Generic Setf Form
+   	back
+   The back argument should be a 
+
+ MAKE-QUEUE (&key (initial-contents nil))                            [FUNCTION]
+
+ CLEARQ (queue)                                              [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CLEARQ ((queue queue))                                                [METHOD]
+
+ INSERTQ (item queue)                                        [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INSERTQ (item (queue queue))                                          [METHOD]
+
+ GETQ (queue &key delete)                                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ GETQ ((queue queue) &key (delete t))                                  [METHOD]
+
+ EMPTYQ? (queue)                                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ EMPTYQ? ((queue queue))                                               [METHOD]
+
+ COMPLEX-CIRCUMCENTER (a b c)                                        [FUNCTION]
+
+ CIRCLE-CENTER (a b radius)                                          [FUNCTION]
+
+ MAKE-MEAN-POINT (points &key mean-space point-space)        [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MAKE-MEAN-POINT ((points list)                                        [METHOD]
+                  &key (mean-space (domain-of (first points)))
+                  (point-space (domain-of (first points))))
+
+ %DEG-OVER-RAD ((/ 180.0 pi))                                        [CONSTANT]
+
+ ANGLE (vertex triangle &rest args &key space)               [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ ANGLE ((a vector-space-element) (b vector-space-element)              [METHOD]
+        &key (radians nil) (degrees (not radians))
+        &allow-other-keys)
+
+ MAKE-PARAMETER-SPACE (map-function target-space             [GENERIC FUNCTION]
+                       &key parameter-vectors
+                       target-points dimension
+                       inverse-map)
+   The purpose of this function is unknown.
+
+ MAKE-PARAMETER-SPACE ((map function) (target-space vector-space)      [METHOD]
+                       &key parameter-vectors target-points
+                       dimension inverse-map)
+
+ SPLIT (simplex where &rest args)                            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SPLIT ((simplex simplex) (where (eql nil))                            [METHOD]
+        &key (face (vertices-of simplex)) (splitting-point
+        (make-mean-point face :mean-space (home-of simplex))))
+
+ SPLIT ((simplex simplex) (where simplicial-complex) &rest args)       [METHOD]
+
+ SPLIT ((things list) where &rest ignore)                              [METHOD]
+
+ SIMPLEX-SIZE (simplex &optional space)                      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SIMPLEX-SIZE ((simplex simplex)                                       [METHOD]
+               &optional (space (home-of simplex)))
+
+ BEND (space &rest points)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BEND ((space vector-space) &rest three-points)                        [METHOD]
+
+ DISTANCE (vector1 vector2 &rest ignore)                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ DISTANCE ((vectora vector-space-element)                              [METHOD]
+           (vectorb vector-space-element) &rest ignore)
+
+ DISTANCE ((pointa point) (pointb point) &key (space nil))             [METHOD]
+
+ DISTANCE ((lista list) (listb list) &rest ignore)                     [METHOD]
+
+ EDGES-CROSS? (space edge1 edge2)                            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ EDGES-CROSS? ((space vector-space) (edge-a list) (edge-b list))       [METHOD]
+
+ BOUNDING-BOX (point space)                                  [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BOUNDING-BOX ((point point) (space vector-space))                     [METHOD]
+
+ BOUNDING-BOX ((list list) (space vector-space))                       [METHOD]
+
+ BOUNDING-BOX ((simplex simplex) (space vector-space))                 [METHOD]
+
+ BOUNDING-BOX ((sc simplicial-complex) (space vector-space))           [METHOD]
+
+ MEASURE (simplex space)                                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ MEASURE ((simplex simplex) (space vector-space))                      [METHOD]
+
+ ARC (point1 point2 space &key thru radius center            [GENERIC FUNCTION]
+      clockwise cw counterclockwise ccw direction)
+   The purpose of this function is unknown.
+
+ ARC ((apoint point) (bpoint point) (space vector-space)               [METHOD]
+      &key thru radius center clockwise (cw clockwise)
+      (counterclockwise (not cw)) (ccw counterclockwise) (direction
+      (if ccw
+      :ccw
+      :cw)))
+
+ MAKE-CURVED-SEGMENT (space param1 endpoint1 param2          [GENERIC FUNCTION]
+                      endpoint2 generator)
+   The purpose of this function is unknown.
+
+ MAKE-CURVED-SEGMENT ((space vector-space) (a-param-value number)      [METHOD]
+                      (a-endpoint point) (b-param-value number)
+                      (b-endpoint point) (generator function))
+
+ COMMON-ENDPOINT (segment-a segment-b)                               [FUNCTION]
+
+ POINT-VS-TRIANGLE (vertex triangle &key space)              [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ POINT-VS-TRIANGLE ((vertex point) (triangle simplex)                  [METHOD]
+                    &key (space (home-of triangle)))
+
+ CCW-SIDE (vertex triangle)                                  [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CCW-SIDE ((vertex point) (triangle simplex))                          [METHOD]
+
+ TRIANGULATE-TRIPLES (triples poison-vertex space triangle-class     [FUNCTION]
+                      &rest args)
+
+ STAR-TRIANGULATE (star-shape star-source space              [GENERIC FUNCTION]
+                   triangle-class &rest args)
+   The purpose of this method is unknown.
+
+ STAR-TRIANGULATE ((star-shape list) (star-source point)               [METHOD]
+                   (space vector-space) triangle-class &rest args)
+
+ FLAT-TRIANGULATE (flat-polygon space triangle-class         [GENERIC FUNCTION]
+                   &rest args)
+   The purpose of this function is unknown.
+
+ FLAT-TRIANGULATE ((flat-polygon list) (space vector-space)            [METHOD]
+                   triangle-class &rest args)
+
+ CIRCUMCENTER (triangle &key space)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CIRCUMCENTER ((triangle simplex) &key (space (home-of triangle)))     [METHOD]
+
+ CIRCUMRADIUS (triangle &key space)                          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ CIRCUMRADIUS ((triangle simplex) &key (space (home-of triangle)))     [METHOD]
+
+ ANGLE ((vertex point) (triangle simplex) &rest args                   [METHOD]
+        &key (space (home-of triangle)))
+
+ ANGLES (triangle &key space)                                [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ ANGLES ((triangle simplex) &key (space (home-of triangle)))           [METHOD]
+
+ VERTICES-SORTED-BY-ANGLE (triangle &key space)              [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ VERTICES-SORTED-BY-ANGLE ((triangle simplex)                          [METHOD]
+                           &key (space (home-of triangle)))
+
+ INSERT ((triangle simplex) (triangulation triangulation)              [METHOD]
+         &rest ignore)
+
+ NEIGHBORS (vertices triangulation)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NEIGHBORS ((vertices list) (triangulation triangulation))             [METHOD]
+
+ NEIGHBOR (triangle side triangulation)                      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NEIGHBOR ((triangle simplex) (side list)                              [METHOD]
+           (triangulation triangulation))
+
+ NEIGHBORHOOD (start triangulation)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NEIGHBORHOOD ((start simplex) (triangulation triangulation))          [METHOD]
+
+ NEAR-BASE (triangle vertex &key space)                      [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NEAR-BASE ((triangle simplex) (vertex point)                          [METHOD]
+            &key (space (home-of triangle)))
+
+ DIRECTED-LOCATE (triangle destination triangulation         [GENERIC FUNCTION]
+                  &key space)
+   The purpose of this function is unknown.
+
+ DIRECTED-LOCATE ((triangle simplex) (destination point)               [METHOD]
+                  (triangulation triangulation)
+                  &key (space (home-of triangle)))
+
+ LOCATE (vertex triangulation)                               [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ LOCATE ((vertex point) (triangulation triangulation))                 [METHOD]
+
+ TRIANGLES (triangulation)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ TRIANGLES ((triangulation triangulation))                             [METHOD]
+
+ ADJ-VERTICES (vertex triangulation)                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ ADJ-VERTICES ((vertex point) (triangulation triangulation))           [METHOD]
+
+ FLIP-OK? (edge triangulation)                               [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ FLIP-OK? ((edge list) (triangulation triangulation))                  [METHOD]
+
+ DELAUNAY? (edge triangulation &key space)                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ DELAUNAY? ((edge list) (triangulation triangulation) &key space)      [METHOD]
+
+ FLIP (side triangulation)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ FLIP ((side list) (triangulation triangulation))                      [METHOD]
+
+ SPLIT-EDGE (edge triangulation splitting-vertex)            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ SPLIT-EDGE ((edge list) (triangulation triangulation)                 [METHOD]
+             (splitting-vertex point))
+
+ FORCE-EDGE (edge triangulation)                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ FORCE-EDGE ((edge list) (triangulation triangulation))                [METHOD]
+
+ REMOVE-VERTEX (vertex triangulation)                        [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ REMOVE-VERTEX ((vertex point) (triangulation triangulation))          [METHOD]
+
+ PLACE (vertex triangulation &key triangle)                  [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ PLACE ((vertex point) (triangulation triangulation)                   [METHOD]
+        &key (triangle (locate vertex triangulation)))
+
+ CONSTRAINT (vertices triangulation)                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CONSTRAINT ((vertices list) (c-triangulation c-triangulation))        [METHOD]
+
+ NEIGHBOR ((triangle simplex) (side list)                              [METHOD]
+           (c-triangulation c-triangulation))
+
+ FLIP-OK? ((edge list) (c-triangulation c-triangulation))              [METHOD]
+
+ FLIP ((edge list) (c-triangulation c-triangulation))                  [METHOD]
+
+ SPLIT-EDGE ((edge list) (c-triangulation c-triangulation)             [METHOD]
+             (splitting-vertex point))
+
+ FORCE-EDGE ((edge list) (c-triangulation c-triangulation))            [METHOD]
+
+ REMOVE-VERTEX ((vertex point) (c-triangulation c-triangulation))      [METHOD]
+
+ PLACE ((simplex simplex) (c-triangulation c-triangulation)            [METHOD]
+        &rest ignore)
+
+ %SPLIT-CONSTRAINT-ONE-SIDE (edge triangle new-vertex        [GENERIC FUNCTION]
+                             concave triangulation)
+   The purpose of this function is unknown.
+
+ %SPLIT-CONSTRAINT-ONE-SIDE ((edge list) (triangle simplex)            [METHOD]
+                             (new-vertex point) concave
+                             (c-triangulation c-triangulation))
+
+ SPLIT ((simplex simplex) (c-triangulation c-triangulation)            [METHOD]
+        &rest args)
+
+ DELAUNAY? ((edge list) (cdt cdt) &rest ignore)                        [METHOD]
+
+ INSERT ((triangle simplex) (cdt cdt) &rest ignore)                    [METHOD]
+
+ PLACE ((vertex point) (cdt cdt) &rest ignore)                         [METHOD]
+
+ SPLIT-EDGE ((edge list) (cdt cdt) (splitting-vertex point))           [METHOD]
+
+ INSERT ((triangle simplex) (mesh mesh) &rest ignore)                  [METHOD]
+
+ DIMENSION-OF (mesh)                                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ DIMENSION-OF ((mesh mesh))                                            [METHOD]
+
+ %DELETE-TOO-CLOSE (vertex mesh too-close)                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ %DELETE-TOO-CLOSE ((vertex point) (mesh mesh) too-close)              [METHOD]
+
+ REMOVE-VERTEX ((vertex point) (mesh mesh))                            [METHOD]
+
+ %SPLIT-CONSTRAINT-ONE-SIDE ((edge list) (triangle simplex)            [METHOD]
+                             (new-vertex point) concave
+                             (mesh mesh))
+
+ SPLIT ((simplex simplex) (mesh mesh) &rest ignore)                    [METHOD]
+
+ PLACE ((simplex simplex) (mesh mesh) &key name &allow-other-keys)     [METHOD]
+
+ TRIANGLE-CENTER (triangle mesh)                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ TRIANGLE-CENTER ((triangle simplex) (mesh mesh))                      [METHOD]
+
+ TOO-BIG? (simplex the-bound space)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ TOO-BIG? ((simplex simplex) (the-bound t) (space vector-space))       [METHOD]
+
+ GRADE (triangle mesh angle-bounds size-list)                [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ GRADE ((triangle simplex) (mesh mesh) (angle-bounds list)             [METHOD]
+        (size-list list))
+
+ IMPROVE (triangle mesh)                                     [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ IMPROVE ((triangle simplex) (mesh mesh))                              [METHOD]
+
+ DO-BACKGROUND-BOX (box border mesh)                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ DO-BACKGROUND-BOX ((box list) (border number) (mesh mesh))            [METHOD]
+
+ BUILD-CDT-FROM-BOUNDARIES (mesh)                            [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BUILD-CDT-FROM-BOUNDARIES ((mesh mesh))                               [METHOD]
+
+ REFINE-MESH-PREP (mesh)                                     [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ REFINE-MESH-PREP ((mesh mesh))                                        [METHOD]
+
+ BOUNDARY-COMPLEX-OF (mesh)                                  [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ BOUNDARY-COMPLEX-OF ((mesh mesh))                                     [METHOD]
+
+ CREATE-MESH (space)                                         [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ CREATE-MESH ((space euclidean-space))                                 [METHOD]
+
+ INSERT-BOUNDARY (simplex mesh &key name)                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ INSERT-BOUNDARY ((simplex simplex) (mesh mesh) &key name)             [METHOD]
+
+ NAME-REGION (name point mesh)                               [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ NAME-REGION ((name symbol) (point point) (mesh mesh))                 [METHOD]
+
+ REFINE-MESH (mesh &key angle-bounds size-list)              [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ REFINE-MESH ((mesh mesh) &key (angle-bounds '(30))                    [METHOD]
+              (size-list nil))
+
+ MAKE-MESH ((space &rest keyargs &key size-list angle-bounds)           [MACRO]
+            &body body)
+
+ %MM-GET-POINT (desc)                                                   [MACRO]
+
+ %MM-BOUNDARY (name options type . desc)                                [MACRO]
+
+ DEFUN-BOUNDARY (function-name (point-list name) &body body)            [MACRO]
+
+ DEFMESH (name (&key size-list angle-bounds) &body body)                [MACRO]
+
+ MAKE-MESH-FROM-FILE (stream                                 [GENERIC FUNCTION]
+                      &key angle-bounds size-list)
+   The purpose of this function is unknown.
+
+ MAKE-MESH-FROM-FILE ((stream stream) &key angle-bounds size-list)     [METHOD]
+
+ READ-POINT (stream space)                                   [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ READ-POINT ((stream stream) (space domain))                           [METHOD]
+
+ READ-VERTEX-SET (stream vertex-table space)                 [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ READ-VERTEX-SET ((stream stream) (vertex-table hash-table)            [METHOD]
+                  (space domain))
+
+ READ-SIMPLICIAL-COMPLEX (stream vertex-table                [GENERIC FUNCTION]
+                          &key complex)
+   The purpose of this function is unknown.
+
+ READ-SIMPLICIAL-COMPLEX ((stream stream)                              [METHOD]
+                          (vertex-table hash-table)
+                          &key
+                          (complex
+                          (make-instance
+                          'named-simplicial-complex)))
+
+ READ-BOUNDARY-SIMPLICIAL-COMPLEX (stream vertex-table       [GENERIC FUNCTION]
+                                   &key complex)
+   The purpose of this function is unknown.
+
+ READ-BOUNDARY-SIMPLICIAL-COMPLEX ((stream stream)                     [METHOD]
+                                   (vertex-table hash-table)
+                                   &key
+                                   (complex
+                                   (make-instance
+                                   'named-simplicial-complex)))
+
+ READ-REGION-POINTS (stream space)                           [GENERIC FUNCTION]
+   The purspose of this function is unknown.
+
+ READ-REGION-POINTS ((stream stream) (space domain))                   [METHOD]
+
+ READ-SIZE-TABLE (stream)                                    [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ READ-SIZE-TABLE ((stream stream))                                     [METHOD]
+
+ FWRITE (tuple stream &rest ignore)                          [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ FWRITE ((tuple tuple) stream &rest ignore)                            [METHOD]
+
+ WRITE-VERTEX-SET (thing stream)                             [GENERIC FUNCTION]
+   The purpose of this function is unknown.
+
+ WRITE-VERTEX-SET ((thing t) stream)                                   [METHOD]
+
+ FWRITE ((simplex simplex) stream                                      [METHOD]
+         &key (vertex-table (write-vertex-set simplex stream)))
+
+ FWRITE ((sc simplicial-complex) stream                                [METHOD]
+         &key (vertex-table (write-vertex-set sc stream)))
+
+ FWRITE ((mesh mesh) stream &rest ignore)                              [METHOD]
+
+ WRITE-MESH (mesh stream)                                    [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ WRITE-MESH ((mesh mesh) stream)                                       [METHOD]
+
+ READ-MESH (stream)                                          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ READ-MESH ((stream stream))                                           [METHOD]

@@ -144,7 +144,10 @@
 ;;;                 backwards compatibility. 
 ;;; 20-OCT-94 mk    Added *userman-version* parameter.
 ;;; 08-MAR-25 kfp   Changed ";;;" to "" left margin.
-
+;;; 12-MAR-25 kfp   Changed nil to '(nil) in key -> :initarg
+;;;                 -- fixes format error: no more arguments ... 
+;;;                    when no :initarg present.
+;;;
 ;;; ********************************
 ;;; To Do **************************
 ;;; ********************************
@@ -663,7 +666,7 @@
 				     (if key
 					 (list key
 					       (null-or-cadr (member :type slot)))
-				       nil))))
+				       '(nil))))) ;;kfp 
 			    slots)
 		    slots
 		    (mapcar #'(lambda (slot)

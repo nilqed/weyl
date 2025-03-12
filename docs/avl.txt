@@ -29,3 +29,230 @@
  PARTITION ((var n . options) &body body)                               [MACRO]
 
  MAP-OVER-TREE (node (root . options) &body body)                       [MACRO]
+
+ AVL-TREE ""                                                            [CLASS]
+   Superclasses
+   has-comparison
+   Initialization Arguments
+   Readers
+   avl-root	Generic Function
+   	avl-tree
+   Returns 
+   Writers
+   setf (avl-root avl-tree)	Generic Setf Form
+   	avl-root
+   The avl-root argument should be a 
+
+ AVL-NODE ""                                                            [CLASS]
+   Superclasses
+   set-element
+   Initialization Arguments
+   The :left argument is a 
+   The :right argument is a 
+   The :balance argument is a 
+   Readers
+   avl-left	Generic Function
+   	avl-node
+   Returns 
+   avl-right	Generic Function
+   	avl-node
+   Returns 
+   avl-balance	Generic Function
+   	avl-node
+   Returns 
+   Writers
+   setf (avl-left avl-node)	Generic Setf Form
+   	avl-left
+   The avl-left argument should be a 
+   setf (avl-right avl-node)	Generic Setf Form
+   	avl-right
+   The avl-right argument should be a 
+   setf (avl-balance avl-node)	Generic Setf Form
+   	avl-balance
+   The avl-balance argument should be a 
+
+ AVL-TREE-ELEMENTS-AS-SINGLETONS ""                                     [CLASS]
+   Superclasses
+   set-elements-as-singletons
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ AVL-NODE-AS-PAIRS ""                                                   [CLASS]
+   Superclasses
+   set-element2avl-node
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ AVL-TREE-ELEMENTS-AS-PAIRS ""                                          [CLASS]
+   Superclasses
+   set-elements-as-pairs
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ SIMPLE-AVL-TREE ""                                                     [CLASS]
+   Superclasses
+   avl-treeavl-tree-elements-as-singletons
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ AVL-TREE-OF-PAIRS ""                                                   [CLASS]
+   Superclasses
+   avl-treeavl-tree-elements-as-pairs
+   Initialization Arguments
+   None.
+   Readers
+   None.
+   Writers
+   None.
+
+ AVL-SIZE (tree)                                             [GENERIC FUNCTION]
+   Return the size of the avl-tree.
+
+ AVL-SIZE ((tree avl-tree))                                            [METHOD]
+
+ AVL-SIZE ((node avl-node))                                            [METHOD]
+
+ PRINT-OBJECT ((tree avl-tree) stream)                                 [METHOD]
+
+ PRINT-OBJECT ((node avl-node) stream)                                 [METHOD]
+
+ UPDATE-NODE (node balance left right &rest args)            [GENERIC FUNCTION]
+   This is used to pudate a node with new information since we don't
+   know all the information that could be stored in a node we've assumed
+   they can all be lumped into args.
+
+ UPDATE-NODE ((node avl-node) balance left right &rest args)           [METHOD]
+
+ EMPTY? (tree)                                               [GENERIC FUNCTION]
+   Return true if the tree is empty.
+
+ AVL-HEIGHT (tree)                                           [GENERIC FUNCTION]
+   This determines the height of an AVL tree and also checks if your
+   tree is out of balance or 'Koyaanisquatsi' in Hopi Indian. Actual
+   height difference should be the same as the balance value, and should
+   be in the range {-1,0,1}.
+
+ AVL-HEIGHT ((tree avl-tree))                                          [METHOD]
+
+ AVL-HEIGHT ((node avl-node))                                          [METHOD]
+
+ LEFT-MOST (node)                                            [GENERIC FUNCTION]
+   Return true if the node is the left most node of the tree.
+
+ LEFT-MOST ((node avl-node))                                           [METHOD]
+
+ AVL-MAXIMUM (tree)                                          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAP-OVER-EACH-NODE (tree function)                          [GENERIC FUNCTION]
+   Map over each node of the tree applying the function.
+
+ MAP-OVER-EACH-NODE ((tree avl-tree) function)                         [METHOD]
+
+ MAKE-GENERATOR (tree)                                       [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ MAKE-GENERATOR ((tree avl-tree))                                      [METHOD]
+
+ RIGHT-MOST (node)                                           [GENERIC FUNCTION]
+   Return true if the node is the right most of the tree.
+
+ RIGHT-MOST ((node avl-node))                                          [METHOD]
+
+ AVL-MINIMUM (tree)                                          [GENERIC FUNCTION]
+   The purpose of this method is unknown.
+
+ AVL-NEXT (key tree-or-node)                                 [GENERIC FUNCTION]
+   Return the next item of the tree or node.
+
+ AVL-NEXT (key (tree avl-tree))                                        [METHOD]
+
+ AVL-NEXT (key (node avl-node))                                        [METHOD]
+
+ AVL-PREVIOUS (key tree-or-node)                             [GENERIC FUNCTION]
+   Return the next item of the tree or node.
+
+ AVL-PREVIOUS (key (tree avl-tree))                                    [METHOD]
+
+ AVL-PREVIOUS (key (node avl-node))                                    [METHOD]
+
+ BALANCE-RIGHT (node height-change)                          [GENERIC FUNCTION]
+   Balance a TREE that is right-Koyaanisquatsi, i.e. the right
+   subtree is 2 levels higher than the left subtree. HEIGHT-CHANGE is
+   the height of TREE relative to its value before the delete/insert
+   operation. Balance-right returns a node and the height of that node
+   relative to the original height of TREE.
+
+ BALANCE-RIGHT ((node avl-node) height-change)                         [METHOD]
+
+ BALANCE-LEFT (node height-change)                           [GENERIC FUNCTION]
+   Balance a TREE that is left-Koyaanisquatsi, i.e. the left subtree
+   is 2 levels higher than the right subtree. HEIGHT-CHANGE is the
+   height of TREE relative to its value before the delete/insert
+   operation. Balance-left returns a node and the height of that node
+   relative to the original height of TREE.
+
+ BALANCE-LEFT ((node avl-node) height-change)                          [METHOD]
+
+ INSERT (item tree &rest args)                               [GENERIC FUNCTION]
+   The first interesting operation on AVL trees. This inserts THING
+   into the tree and returns a new tree and an integer which is the
+   change in height of the tree.
+
+ INSERT (item (tree avl-tree) &rest args)                              [METHOD]
+
+ DELETE-HEAD (tree)                                          [GENERIC FUNCTION]
+   This returns the head (leftmost element) in the tree, and removes
+   it from the tree. Useful for implementing priority queues as AVL
+   trees. Values returned are the value of the leftmost element, the
+   modified tree, and the change in height of the tree.
+
+ DELETE-HEAD ((tree avl-tree))                                         [METHOD]
+
+ DELETE-HEAD ((node avl-node))                                         [METHOD]
+
+ DELETE-TAIL (tree)                                          [GENERIC FUNCTION]
+   This returns the tail (rightmost element) in the tree, and removes
+   it from the tree.  Values returned are the value of the rightmost
+   element, the modified tree, and the change in height of the tree.
+
+ DELETE-TAIL ((tree avl-tree))                                         [METHOD]
+
+ DELETE-TAIL ((node avl-node))                                         [METHOD]
+
+ ERASE-NODE (node)                                           [GENERIC FUNCTION]
+   This gets rid of a value that has been found in the tree. NODE is
+   the node containing the value. If the right subtree of NODE is higher
+   than its left, replace the value of NODE with the value of the
+   left-most leaf of the right subtree, and remove this leaf from the
+   right subtree. Otherwise replace NODE's value with the value of the
+   right-most leaf of the left subtree of NODE, and remove this leaf
+   from the left subtree.
+
+ ERASE-NODE ((node avl-node))                                          [METHOD]
+
+ DELETE (item (tree avl-tree) &rest rest)                              [METHOD]
+   This deletes an entry from an AVL tree.
+
+ MEMBER (item (tree avl-tree) &rest rest)                              [METHOD]
+
+ MAKE-ELEMENT ((tree avl-tree-elements-as-singletons) key              [METHOD]
+               &rest rest)
+
+ MAKE-ELEMENT ((tree avl-tree-elements-as-pairs) key &rest rest)       [METHOD]
