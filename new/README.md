@@ -1,8 +1,11 @@
-# New files
+# New files (*.lisp)
 
 * ge-support
-* ge-latex
+* latex
+* display
 * weyl-inifx
+* weyl-user-manual
+* make-docs
 
 
 ## ge-support
@@ -41,13 +44,18 @@ set-latex-repr
     Examples: (+-> \"p+q\") ==> (+ p q), (+-> \"p*q^2\") ==> (* p (expt q 2))."
 
 
-## ge-latex
+## latex  (ge-latex removed)
+
+We now use "methods" instead of "functions".
 
 latex
 
     (documentation 'latex 'function)
     "Tries to represent object x as latex code. Example: (latex (expt p q )) ==>
     $${{{\\pi}}^{{q}}}$$"
+
+
+## display
 
 cl-user::latex-to-sixel
 
@@ -63,14 +71,14 @@ display6
     graphics (e.g. xterm, mlterm and some others)."
 
 
-![display6](https://github.com/nilqed/cl-weyl/tree/main/docs/display6.png)
+![display6](../../docs/display6.png)
 
 :todo: handle (-1)
 
 In Jupyter notebooks (using e.g. [juCL](https://github.com/nilqed/juCL)) we can use `(latex ...)`, even with
 TeXmacs;  [texmacs-plugin](https://github.com/nilqed/sbcl-texmacs).
 
-![jucl-ge-latex](https://github.com/nilqed/cl-weyl/tree/main/docs/jucl-ge-latex.png)    
+![jucl-ge-latex](../../docs/jucl-ge-latex.png)    
 
 ## weyl-infix
 
@@ -90,9 +98,34 @@ TeXmacs;  [texmacs-plugin](https://github.com/nilqed/sbcl-texmacs).
     ;;; alternate syntax for Lisp, get a copy Apple's MLisp or Pratt's CGOL.
     ;;;
 
-We only swapped  `^^` (former `expt`)  and `^` (former `logor`) and use eval/read-from-string to
+We only swapped  `^^` (former `èxpt`)  and `^` (former `logor`) and use eval/read-from-string to
 avoid package tags.
 
+## weyl-user-manual
+This is the user-manual.lisp by Mark Kantrowitz, slightly adjusted to our
+needs and renamed to weyl-user-manual.lisp in order to avoid confusion.
+
+    ;;; *************************************************************************
+    ;;;   UserMan: Automatic User Manual Creation.
+    ;;;   Version 2.0 20-OCT-94.
+    ;;;   Written by Mark Kantrowitz, CMU School of Computer Science.
+    ;;;   Copyright (c) 1990-94. All rights reserved.
+    ;;;   Use, copying, modification, and distribution permitted.
+    ;;;   See the copyright notice in the source for details.
+    ;;; *************************************************************************
+
+
+
+## make-docs
+This creates a reference manual from scratch by using weyl-user-manual.lisp
+and some HTML5.
+
+    Load make-docs.lisp in folder weyl/new into Lisp and run
+    
+       (create-refman)
+    
+    The output goes to "docs". Open index.html to check.
+    
 
 
 

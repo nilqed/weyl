@@ -65,7 +65,8 @@
     :components
     ((:file "weyl-infix")
      (:file "ge-support")
-     (:file "ge-latex")))
+     (:file "latex")
+     (:file "display")))
    
    (:module "vector-spaces"
     :pathname "vector-spaces"
