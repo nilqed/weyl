@@ -9,7 +9,9 @@
 ;;; 06-FEB-2025/kfp : implementation of D(p^f(q),q) in method ge-deriv
 ;;;                 : fix bug in 'simp-times-terms' if exponent not a number
 ;;; 24-FEB-2025/kfp : Docstrings added.
-;;;
+;;; 15-MAR-2025/kfp : Fix bug in expand[ge-expt]: exponent must be in Z
+;;;                 : and at least non-negative (reasonably >=2). 
+;;; 
 
 (defparameter +version+ "cl-weyl:23-FEB-2025 14:30")
 
@@ -1542,11 +1544,17 @@ arrays."))
 			    do (push (* coef (expt a (- n i)) term) sum)))
 	     sum))))
 
+
+;;+kfp
+;; [-] (typep exponent 'rational-integer)
+;; [+] (if (typep exponent 'rational-integer) (>= exponent 2) nil)
+  
+
 (defmethod expand ((exp ge-expt))
   (let ((base (base-of exp))
 	(exponent (exponent-of exp)))
     (cond ((and (ge-plus? base)
-		(typep exponent 'rational-integer))
+		(if (typep exponent 'rational-integer) (>= exponent 2) nil))
 	   (simp-plus-terms (domain-of exp)
                             (expand-binomial-form (terms-of base)
                                                   (integer-value exponent))))
