@@ -11,9 +11,10 @@
 ;;; 24-FEB-2025/kfp : Docstrings added.
 ;;; 15-MAR-2025/kfp : Fix bug in expand[ge-expt]: exponent must be in Z
 ;;;                 : and at least non-negative (reasonably >=2). 
-;;; 
+;;; 16-MAR-2025/kfp : method added since (expt 2 p) --> error, no method so far 
+;;;                 : defmethod-sd expt [ge-or-numeric,general-expression] 
 
-(defparameter +version+ "cl-weyl:23-FEB-2025 14:30")
+(defparameter +version+ "cl-weyl: 16-MAR-2025 13:23")
 
 (in-package :weyli)
 
@@ -39,12 +40,12 @@
 (defsetf get-memoization set-memoization)
 
 (defmacro %memoize (domain expression &body body)
-  "Each time this form is executed, it checks to see if expression is cached 
-   in domain's memoization cache. If so, the value in the cache is returned 
-   without executing the body. If expression is not found in the cache, then 
-   the forms in body are evaluated, and the value of the last form is both 
-   returned and saved in domain's memoization cache.
-   It is usually much more convenient to use the ``memoize`` control structure."
+"Each time this form is executed, it checks to see if expression is cached 
+in domain's memoization cache. If so, the value in the cache is returned 
+without executing the body. If expression is not found in the cache, then 
+the forms in body are evaluated, and the value of the last form is both 
+returned and saved in domain's memoization cache.
+It is usually much more convenient to use the memoize control structure."
   `(let ((.expr. ,expression))
     (with-slots (memos) ,domain
       (multiple-value-bind (value found?) (gethash .expr. memos)
@@ -52,8 +53,8 @@
             (setf (get-memoization ,domain .expr.) (progn ,@body)))))))
 
 (defmacro memoize (expression &body body)
-  "Performs the same functions as ``weyli::%memoize`` except that the domain
-   used is ``*general*``."
+"Performs the same functions as weyli::%memoize except that the domain
+used is *general*."
   `(%memoize *general* ,expression ,@body))
 
 #+ignore
@@ -64,9 +65,9 @@
 
 (defgeneric display (expression &optional stream &rest ignore)
   (:documentation
-   "Prints the expression ``expr`` onto stream. If stream a graphics stream 
-   then a two dimension display will be used (not yet implemented), otherwise 
-   some textual display will be used.")
+   "Prints the expression expr onto stream. If stream a graphics stream 
+then a two dimension display will be used (not yet implemented), otherwise 
+some textual display will be used.")
   (:method ((express general-expression) &optional stream &rest ignore)
     (declare (ignore ignore))
     (princ express stream)))
@@ -78,20 +79,20 @@
 
 (defgeneric ge-equal (expression1 expression2)
   (:documentation
-   "Returns ``T`` for syntactically identical general expressions.")
+   "Returns T for syntactically identical general expressions.")
   (:method (expression1 expression2)
     (declare (ignore expression1 expression2))
     nil))
 
 (defmethod ge-equal ((x general-expression) (y general-expression))
-  "Returns ``T` if ``x` and ``y`` are syntactically identical general expressions."
+  "Returns T if x and y are syntactically identical general expressions."
   (eql x y))
 
 (defgeneric ge-great (expression1 expression2)
   (:documentation
    "To speed up operations like simplification of expressions, an order is 
-    placed on all expressions in the general representation. This ordering 
-    is provided by the function ``ge-great``.")
+placed on all expressions in the general representation. This ordering 
+is provided by the function ge-great.")
   (:method ((x general-expression) (y general-expression))
     (declare (ignore x y))
     nil))
@@ -138,14 +139,14 @@
 		 :imagpart (cl:imagpart x)))
 
 (defmethod coerce ((num number) (domain general-expressions))
-  "Coerce finds an element of domain that corresponds with element. This is 
-  done using one of two methods. First, there may be a canonical coercion, 
-  which is one that is defined via explicit coerce methods. These methods 
-  take care of mapping Lisp expressions, like numbers and atoms, into Weyl 
-  domains. If there are no canonical coercion methods then coerce checks to 
-  see if there is a unique morphism between element's domain and domain. 
-  If so, this morphism is used to map element to domain. If there is more 
-  than one morphism then an error is signaled."
+"Coerce finds an element of domain that corresponds with element. This is 
+done using one of two methods. First, there may be a canonical coercion, 
+which is one that is defined via explicit coerce methods. These methods 
+take care of mapping Lisp expressions, like numbers and atoms, into Weyl 
+domains. If there are no canonical coercion methods then coerce checks to 
+see if there is a unique morphism between element's domain and domain. 
+If so, this morphism is used to map element to domain. If there is more 
+than one morphism then an error is signaled."
   (make-element domain num))
 
 (defmethod coerce ((num rational-integer) (domain general-expressions))
@@ -230,9 +231,9 @@
 
 (defgeneric reparse-print-string (variable)
   (:documentation
-   "The class ``ge-variable`` has a slot for the symbol and one for
-    a string represenation. If subscripts are added, the string
-    represenation will be updated"))
+   "The class ge-variable has a slot for the symbol and one for
+a string represenation. If subscripts are added, the string
+represenation will be updated"))
 
 (defmethod reparse-print-string ((var ge-variable))
   (let ((string (cond ((atom (symbol-of var))
@@ -255,7 +256,7 @@
 
 (defmethod make-ge-variable ((domain general-expressions) var)
   "Create a variable var in the general-expressions domain. The new
-   variable will be pushed into the list (ge-variables domain)."
+variable will be pushed into the list (ge-variables domain)."
   (loop for v in (ge-variables domain)
 	do (when (equal (symbol-of v) var)
 	     (return v))
@@ -269,11 +270,11 @@
 
 (defmethod print-object ((var ge-variable) stream)
   "This method is provided for all CLOS instances. It is used whenever an 
-  object is printed using princ or a related function. In Weyl, a 
-  print-object method is provided for classes of objects to make the objects 
-  more readable when debugging or when doing simple computations. The printed 
-  form produced by print-object cannot be read to produce the object again 
-  (as can be done with lists and some other Lisp expressions."
+object is printed using princ or a related function. In Weyl, a 
+print-object method is provided for classes of objects to make the objects 
+more readable when debugging or when doing simple computations. The printed 
+form produced by print-object cannot be read to produce the object again 
+(as can be done with lists and some other Lisp expressions."
   (let ((sym (string-of var)))
     (cond ((and (not (null sym)) (atom sym))
 	   #+Genera
@@ -289,8 +290,8 @@
 (defgeneric add-subscripts (variable &rest subscripts)
   (:documentation
    "Creates a new variable, which has the subscripts indicated. If the 
-    variable already has subscripts, then the new subscripts are appended to 
-    the ones already present."))
+variable already has subscripts, then the new subscripts are appended to 
+the ones already present."))
 
 (defmethod add-subscripts ((var ge-variable) &rest subscripts)
   (setq var (coerce var *general*))
@@ -500,8 +501,8 @@
 
 (defmethod apply ((fun ge-function) &rest args)
   "Apply fun to the k arguments specified and the elements of list. If the 
-   number of arguments of the function di er from k plus the length of list 
-   then an error is signaled."
+number of arguments of the function di er from k plus the length of list 
+then an error is signaled."
   (let ((domain (domain-of fun)))
     (flet ((check-domain (dom)
              (cond ((null domain)
@@ -530,7 +531,7 @@
 
 (defgeneric display-list (objects &optional stream)
   (:documentation "Display a list of objects, paying attention to
-``*print-length*``.  No surrounding delimiters.  This is a method so that
+*print-length*.  No surrounding delimiters.  This is a method so that
 we can define similar functions for sets of objects embedded in
 arrays."))
 
@@ -556,7 +557,7 @@ arrays."))
   (write-char #\) stream))
 
 (defmethod simplify ((x ge-application))
-  "Performs simple simplifications of expr, ``0 + x = x`` and so on."
+  "Performs simple simplifications of expr, 0 + x = x and so on."
   (let ((args (mapcar #'simplify (args-of x)))
         (simplifier (getf (funct-of x) 'simplify))
 	new-x)
@@ -588,21 +589,21 @@ arrays."))
 
 (defgeneric make-ge-plus (domain terms)
   (:documentation
-   "Create ``ge-plus`` instances."))
+   "Create ge-plus instances."))
 
 (defmethod make-ge-plus ((domain general-expressions) terms)
   (make-instance 'ge-plus :domain domain :terms terms))
 
 (defgeneric make-ge-times (domain terms)
   (:documentation
-   "Create ``ge-times`` instances."))
+   "Create ge-times instances."))
 
 (defmethod make-ge-times ((domain general-expressions) terms)
   (make-instance 'ge-times :domain domain :terms terms))
 
 (defgeneric make-ge-expt (domain base exp)
   (:documentation
-   "Create ``ge-expt`` instances."))
+   "Create ge-expt instances."))
 
 (defmethod make-ge-expt ((domain general-expressions) base exp)
   (make-instance 'ge-expt :domain domain :base base :exp exp))
@@ -702,10 +703,10 @@ arrays."))
 ;; representation. 
 (defmacro merge-terms-in-sum (terms &body body)
   "This works by converting the sum into a list of dotted pairs.  The
-   first element of the list is a number, while the second is a list
-   of product terms.  This makes combining new elements quite easy.
-   After the combination, everything is converted back to the standard
-   representation." 
+first element of the list is a number, while the second is a list
+of product terms.  This makes combining new elements quite easy.
+After the combination, everything is converted back to the standard
+representation." 
   `(let ((,terms (list nil)))
     (labels ((add-term (base order) 
                (loop with terms = ,terms do
@@ -723,7 +724,7 @@ arrays."))
       ,@body)))
 
 (defun simp-plus-terms (domain old-terms)
-  "Simplify ``ge-plus`` terms."
+  "Simplify ge-plus terms."
   (merge-terms-in-sum terms
     (let ((const 0))
       (labels ((loop-over-terms (terms)
@@ -759,7 +760,7 @@ arrays."))
 	      (t (make-ge-plus domain terms)))))))
 
 (defun simp-times-terms (domain old-terms)
-  "Simplify ``ge-times`` terms"
+  "Simplify ge-times terms"
   (merge-terms-in-sum terms 
     (let ((const 1))
       (labels ((loop-over-terms (terms) 
@@ -838,7 +839,7 @@ arrays."))
   (ge-lgreat (terms-of x) (terms-of y)))
 
 (defmethod simplify ((x ge-expt))
-  "Simplify ``ge-expt`` (base exponent)."
+  "Simplify ge-expt (base exponent)."
   (let ((exp (simplify (exponent-of x)))
 	(base (base-of x)))
     (cond ((0? exp) 1)
@@ -878,9 +879,9 @@ arrays."))
 (defgeneric get-variable-property (domain variable key)
   (:documentation
    "There is a property list associated with each variable in a polynomial 
-   ring. This property list is ring specificc and not global. The ring 
-   property list is accessed using the generic function get-variable-property. 
-   Properties can modified using setf, as with normal property lists."))
+ring. This property list is ring specific and not global. The ring 
+property list is accessed using the generic function get-variable-property. 
+Properties can modified using setf, as with normal property lists."))
 
 (defmethod get-variable-property ((domain domain) (var ge-variable) key)
   "Returns a property property of variable."
@@ -894,9 +895,9 @@ arrays."))
 (defgeneric set-variable-property (domain variable key value)
   (:documentation
    "There is a property list associated with each variable in a polynomial 
-   ring. This property list is ring specificc and not global. The ring 
-   property list is accessed using the generic function get-variable-property. 
-   Properties can modified using setf, as with normal property lists."))
+ring. This property list is ring specific and not global. The ring 
+property list is accessed using the generic function get-variable-property. 
+Properties can modified using setf, as with normal property lists."))
 
 (defmethod set-variable-property (domain (var ge-variable) key value)
   "Set a variable property."
@@ -915,7 +916,7 @@ arrays."))
 (defgeneric declare-dependencies (variable &rest variables)
   (:documentation
    "Dependencies of one variable on another can be declared using 
-    ``declare-dependencies``."))
+declare-dependencies."))
 
 (defmethod declare-dependencies ((var ge-variable) &rest vars)
   "This indicates that kernel depends upon each of the variables in vars."
@@ -933,9 +934,9 @@ arrays."))
 
 (defmethod depends-on? ((exp list) &rest vars)
   "This predicate can be applied to any expression, not just to variables. 
-  It returns t if the exp depends on all of the variables in vars, otherwise 
-  it returns nil. The expression can also be a list, in which case nil is 
-  returned only if every element of exp is free of vars."
+It returns t if the exp depends on all of the variables in vars, otherwise 
+it returns nil. The expression can also be a list, in which case nil is 
+returned only if every element of exp is free of vars."
   (loop for arg in exp
 	do (when (apply #'depends-on? arg vars)
 	     (return t))
@@ -1027,7 +1028,7 @@ arrays."))
 
 (defmethod ge-deriv ((exp general-expression) (var symbol))
   "Derivative of expression w.r.t symbol which will be coerced
-   to the domain where expression lives."
+to the domain where expression lives."
   (ge-deriv exp (coerce var (domain-of exp))))
 
 (defmethod-sd ge-deriv ((exp numeric) (var ge-atom))
@@ -1087,7 +1088,7 @@ arrays."))
 
 (defgeneric make-ge-eqn= (domain lhs rhs)
   (:documentation
-   "The purpose of this method is unknown."))
+   "Create an equation of the form lhs = rhs in domain."))
 
 (defmethod make-ge-eqn= ((domain general-expressions) lhs rhs)
   (make-instance 'ge-eqn= :domain domain :rhs rhs :lhs lhs))
@@ -1102,6 +1103,7 @@ arrays."))
    "The purpose of this method is unknown."))
 
 (defmethod eqn= (lhs rhs)
+  "Create an equation of the form lhs = rhs in domain *general*"
   (make-ge-eqn= *general*
 		(simplify (coerce lhs *general*))
 		(simplify (coerce rhs *general*))))
@@ -1118,7 +1120,7 @@ arrays."))
 
 (defgeneric make-ge-eqn> (domain lhs rhs)
   (:documentation
-   "The purpose of this method is unknown."))
+   "Create an inequality of the form lhs > rhs in domain"))
 
 (defmethod make-ge-eqn> ((domain general-expressions) lhs rhs)
   (make-instance 'ge-eqn> :domain domain :rhs rhs :lhs lhs))
@@ -1130,7 +1132,7 @@ arrays."))
 
 (defgeneric eqn> (lhs rhs)
   (:documentation
-   "The purpose of this method is unknown."))
+   "Create an inequality of the form lhs > rhs in domain *general*"))
 
 (defmethod eqn> (lhs rhs)
   (make-ge-eqn> *general*
@@ -1149,7 +1151,7 @@ arrays."))
 
 (defgeneric make-ge-eqn>= (domain lhs rhs)
   (:documentation
-   "The purpose of this method is unknown."))
+   "Create an inequality of the form lhs >= rhs in domain"))
 
 (defmethod make-ge-eqn>= ((domain general-expressions) lhs rhs)
   (make-instance 'ge-eqn>= :domain domain :rhs rhs :lhs lhs))
@@ -1161,7 +1163,7 @@ arrays."))
 
 (defgeneric eqn>= (lhs rhs)
   (:documentation
-   "The purpose of this method is unknown."))
+   "Create an inequality of the form lhs >= rhs in domain *general*"))
 
 (defmethod eqn>= (lhs rhs)
   (make-ge-eqn>= *general*
@@ -1289,6 +1291,10 @@ arrays."))
 
 (defmethod-sd expt ((x general-expression) (y ge-or-numeric))
   (simplify (make-ge-expt domain x y)))
+  
+;;+kfp (since (expt 2 p) --> error, no method so far) 
+(defmethod-sd expt ((x ge-or-numeric) (y general-expression))
+  (simplify (make-ge-expt domain x y)))
 
 (defmethod-sd expt ((eq1 ge-eqn=) (eq2 ge-eqn=))
   (error "Can't exponentiate two equations"))
@@ -1406,9 +1412,9 @@ arrays."))
 
 (defmethod substitute (value var expr &rest ignore)
   "Substitutes value for each occurrence of var in polynomial . If value 
-  is a list, it is interpreted as a set of values to be substituted in 
-  parallel for the variables in var. The values being substituted must 
-  be either elements of the domain of polynomial or its coefficient domain."
+is a list, it is interpreted as a set of values to be substituted in 
+parallel for the variables in var. The values being substituted must 
+be either elements of the domain of polynomial or its coefficient domain."
   (declare (ignore value var ignore))
   expr)
 
