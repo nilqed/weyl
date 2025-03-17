@@ -1,19 +1,28 @@
-(ql:quickload :weyl-test)
+;(ql:quickload :weyl-test)
 
 (declaim (sb-ext:muffle-conditions style-warning))
 
 (in-package :weyl-test)
 
-(lisp-unit::run-tests '(f-and-g-series))
-(lisp-unit::run-tests '(permute choose))
-(defvar db (lisp-unit::run-tests '(ge-basics ge-deriv)))
+
+(format t "BEGIN WEYL TESTS ~%~%") 
+
+(defvar tdb (lisp-unit:run-tests))
+(terpri)
+(describe tdb)
+(terpri) 
 
 
-(lisp-unit:test-names db)
-(lisp-unit:print-failures db)
-(lisp-unit:failed-tests db)
-(lisp-unit:error-tests db)
-(lisp-unit:print-errors db)
-(lisp-unit:summarize-results db)
+(format t "TEST-NAMES: ....... ~A~%" (lisp-unit:test-names tdb))
+(format t "FAILED-TESTS: ..... ~A~%" (lisp-unit:failed-tests tdb))
+(format t "PRINT-FAILURES: ... ~A~%" (lisp-unit:print-failures tdb))
+(format t "ERROR-TESTS: ...... ~A~%" (lisp-unit:error-tests tdb))
+;
+(lisp-unit:print-errors tdb)
+(terpri)
+(lisp-unit:summarize-results tdb)
+
+(format t "~%END WEYL TESTS ~%~%") 
+;(cl-user::quit)
 
 
