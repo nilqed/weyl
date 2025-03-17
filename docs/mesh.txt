@@ -1,5 +1,5 @@
 
- File: ../mesh.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/mesh.lisp 
 
 
  *DELAUNAY* (t)                                                      [VARIABLE]

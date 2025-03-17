@@ -1,5 +1,5 @@
 
- File: ../numbers/bigfloat.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/numbers/bigfloat.lisp 
 
 
  BIGFLOATP (x)                                                       [FUNCTION]

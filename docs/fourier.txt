@@ -1,5 +1,5 @@
 
- File: ../fourier.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/fourier.lisp 
 
 
  MAKE-GE-FOURIER (domain argument svar fvar)                 [GENERIC FUNCTION]

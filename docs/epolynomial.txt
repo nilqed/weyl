@@ -1,5 +1,5 @@
 
- File: ../polynomials/epolynomial.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/polynomials/epolynomial.lisp 
 
 
  MAKE-EPOLYNOMIAL* (domain greater-function terms)           [GENERIC FUNCTION]

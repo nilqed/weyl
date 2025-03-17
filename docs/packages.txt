@@ -1,5 +1,5 @@
 
- File: ../packages.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/packages.lisp 
 
 
  *WEYLI-EXPORTED-SYMBOLS* ('("*" "+" "-" "/" "=" ">" "<" ">="        [VARIABLE]

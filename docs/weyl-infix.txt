@@ -1,5 +1,5 @@
 
- File: ../new/weyl-infix.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/new/weyl-infix.lisp 
 
 
  *VERSION* ("1.3  28-jun-96")                                       [PARAMETER]

@@ -1,5 +1,5 @@
 
- File: ../polynomials/sparsegcd.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/polynomials/sparsegcd.lisp 
 
 
  WITH-LINEAR-SUPPORT (&body body)                                       [MACRO]

@@ -1,5 +1,5 @@
 
- File: ../tpower.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/tpower.lisp 
 
 
  TP-FIELD-PRINT-OBJECT (d stream)                                    [FUNCTION]

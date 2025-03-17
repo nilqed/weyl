@@ -1,5 +1,5 @@
 
- File: ../classes/general-classes.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/classes/general-classes.lisp 
 
 
  HAS-MEMOIZATION ""                                                     [CLASS]

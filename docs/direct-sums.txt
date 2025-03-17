@@ -1,5 +1,5 @@
 
- File: ../direct-sums.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/direct-sums.lisp 
 
 
  DIMENSION-OF ((domain direct-sum))                                    [METHOD]

@@ -1,5 +1,5 @@
 
- File: ../numbers/gfp.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/numbers/gfp.lisp 
 
 
  NUMBER-OF-ELEMENTS (domain)                                 [GENERIC FUNCTION]

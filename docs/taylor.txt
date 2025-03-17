@@ -1,5 +1,5 @@
 
- File: ../taylor.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/taylor.lisp 
 
 
  DEFINE-TAYLOR-EXPANSION-FUN (name (domain order) &body body)           [MACRO]

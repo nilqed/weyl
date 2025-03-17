@@ -1,5 +1,5 @@
 
- File: ../avl.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/avl.lisp 
 
 
  CHOOSE (seq (var n . options) &body body)                              [MACRO]

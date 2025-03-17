@@ -1,8 +1,8 @@
 
- File: ../general.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/general.lisp 
 
 
- +VERSION+ ("cl-weyl:23-feb-2025 14:30")                            [PARAMETER]
+ +VERSION+ ("cl-weyl: 16-mar-2025 13:23")                           [PARAMETER]
 
  SET-MEMOIZATION (domain key value)                          [GENERIC FUNCTION]
    Set memoization. See chapter 3.2 in the manual.
@@ -22,32 +22,31 @@
    is returned without executing the body. If expression is not found in
    the cache, then the forms in body are evaluated, and the value of the
    last form is both returned and saved in domain's memoization cache.
-   It is usually much more convenient to use the ``memoize`` control
+   It is usually much more convenient to use the memoize control
    structure. 
 
  MEMOIZE (expression &body body)                                        [MACRO]
-   Performs the same functions as ``weyli::%memoize`` except that the
-   domain used is ``*general*``.
+   Performs the same functions as weyli::%memoize except that the domain
+   used is *general*.
 
  DISPLAY (expression &optional stream &rest ignore)          [GENERIC FUNCTION]
-   Prints the expression ``expr`` onto stream. If stream a graphics
-   stream then a two dimension display will be used (not yet
-   implemented), otherwise some textual display will be used.
+   Prints the expression expr onto stream. If stream a graphics stream 
+   then a two dimension display will be used (not yet implemented),
+   otherwise some textual display will be used.
 
  SIMPLIFY (expression)                                       [GENERIC FUNCTION]
    Simplify the expression.
 
  GE-EQUAL (expression1 expression2)                          [GENERIC FUNCTION]
-   Returns ``T`` for syntactically identical general expressions.
+   Returns T for syntactically identical general expressions.
 
  GE-EQUAL ((x general-expression) (y general-expression))              [METHOD]
-   Returns ``T` if ``x` and ``y`` are syntactically identical general
-   expressions. 
+   Returns T if x and y are syntactically identical general expressions.
 
  GE-GREAT (expression1 expression2)                          [GENERIC FUNCTION]
    To speed up operations like simplification of expressions, an order
    is placed on all expressions in the general representation. This
-   ordering is provided by the function ``ge-great``.
+   ordering is provided by the function ge-great.
 
  MAKE-QUOTIENT-ELEMENT ((domain general-expressions) (x integer)       [METHOD]
                         (y integer))
@@ -122,9 +121,9 @@
  GE-GREAT (x (y numeric))                                              [METHOD]
 
  REPARSE-PRINT-STRING (variable)                             [GENERIC FUNCTION]
-   The class ``ge-variable`` has a slot for the symbol and one for
-      a string represenation. If subscripts are added, the string
-      represenation will be updated
+   The class ge-variable has a slot for the symbol and one for
+   a string represenation. If subscripts are added, the string
+   represenation will be updated
 
  REPARSE-PRINT-STRING ((var ge-variable))                              [METHOD]
 
@@ -142,7 +141,7 @@
  PRINT-OBJECT ((var ge-variable) stream)                               [METHOD]
    This method is provided for all CLOS instances. It is used whenever
    an object is printed using princ or a related function. In Weyl, a
-    print-object method is provided for classes of objects to make the
+   print-object method is provided for classes of objects to make the
    objects more readable when debugging or when doing simple
    computations. The printed form produced by print-object cannot be
    read to produce the object again (as can be done with lists and some
@@ -150,8 +149,8 @@
 
  ADD-SUBSCRIPTS (variable &rest subscripts)                  [GENERIC FUNCTION]
    Creates a new variable, which has the subscripts indicated. If the 
-      variable already has subscripts, then the new subscripts are
-   appended to the ones already present.
+   variable already has subscripts, then the new subscripts are appended
+   to the ones already present.
 
  ADD-SUBSCRIPTS ((var ge-variable) &rest subscripts)                   [METHOD]
 
@@ -231,8 +230,8 @@
 
  DISPLAY-LIST (objects &optional stream)                     [GENERIC FUNCTION]
    Display a list of objects, paying attention to
-   ``*print-length*``.  No surrounding delimiters.  This is a method so
-   that we can define similar functions for sets of objects embedded in
+   *print-length*.  No surrounding delimiters.  This is a method so that
+   we can define similar functions for sets of objects embedded in
    arrays.
 
  DISPLAY-LIST ((objects list)                                          [METHOD]
@@ -241,7 +240,7 @@
  PRINT-OBJECT ((x ge-application) stream)                              [METHOD]
 
  SIMPLIFY ((x ge-application))                                         [METHOD]
-   Performs simple simplifications of expr, ``0 + x = x`` and so on.
+   Performs simple simplifications of expr, 0 + x = x and so on.
 
  *INITIALIZE-CONTEXTS-FUNS* (nil)                                    [VARIABLE]
 
@@ -252,17 +251,17 @@
  CHECK-POINT-CONTEXT (&body body)                                       [MACRO]
 
  MAKE-GE-PLUS (domain terms)                                 [GENERIC FUNCTION]
-   Create ``ge-plus`` instances.
+   Create ge-plus instances.
 
  MAKE-GE-PLUS ((domain general-expressions) terms)                     [METHOD]
 
  MAKE-GE-TIMES (domain terms)                                [GENERIC FUNCTION]
-   Create ``ge-times`` instances.
+   Create ge-times instances.
 
  MAKE-GE-TIMES ((domain general-expressions) terms)                    [METHOD]
 
  MAKE-GE-EXPT (domain base exp)                              [GENERIC FUNCTION]
-   Create ``ge-expt`` instances.
+   Create ge-expt instances.
 
  MAKE-GE-EXPT ((domain general-expressions) base exp)                  [METHOD]
 
@@ -287,14 +286,14 @@
    This works by converting the sum into a list of dotted pairs.  The
    first element of the list is a number, while the second is a list
    of product terms.  This makes combining new elements quite easy.
-   After the combination, everything is converted back to the
-   standard representation.
+   After the combination, everything is converted back to the standard
+   representation.
 
  SIMP-PLUS-TERMS (domain old-terms)                                  [FUNCTION]
-   Simplify ``ge-plus`` terms.
+   Simplify ge-plus terms.
 
  SIMP-TIMES-TERMS (domain old-terms)                                 [FUNCTION]
-   Simplify ``ge-times`` terms
+   Simplify ge-times terms
 
  PRINT-OBJECT ((sum ge-plus) stream)                                   [METHOD]
 
@@ -313,7 +312,7 @@
  GE-GREAT ((x ge-times) (y ge-times))                                  [METHOD]
 
  SIMPLIFY ((x ge-expt))                                                [METHOD]
-   Simplify ``ge-expt`` (base exponent).
+   Simplify ge-expt (base exponent).
 
  PRINT-OBJECT ((expr ge-expt) stream)                                  [METHOD]
 
@@ -327,7 +326,7 @@
 
  GET-VARIABLE-PROPERTY (domain variable key)                 [GENERIC FUNCTION]
    There is a property list associated with each variable in a
-   polynomial ring. This property list is ring specificc and not global.
+   polynomial ring. This property list is ring specific and not global.
    The ring property list is accessed using the generic function
    get-variable-property. Properties can modified using setf, as with
    normal property lists. 
@@ -337,7 +336,7 @@
 
  SET-VARIABLE-PROPERTY (domain variable key value)           [GENERIC FUNCTION]
    There is a property list associated with each variable in a
-   polynomial ring. This property list is ring specificc and not global.
+   polynomial ring. This property list is ring specific and not global.
    The ring property list is accessed using the generic function
    get-variable-property. Properties can modified using setf, as with
    normal property lists. 
@@ -349,7 +348,7 @@
 
  DECLARE-DEPENDENCIES (variable &rest variables)             [GENERIC FUNCTION]
    Dependencies of one variable on another can be declared using 
-      ``declare-dependencies``.
+   declare-dependencies.
 
  DECLARE-DEPENDENCIES ((var ge-variable) &rest vars)                   [METHOD]
    This indicates that kernel depends upon each of the variables in
@@ -402,7 +401,7 @@
    to the domain where expression lives.
 
  MAKE-GE-EQN= (domain lhs rhs)                               [GENERIC FUNCTION]
-   The purpose of this method is unknown.
+   Create an equation of the form lhs = rhs in domain.
 
  MAKE-GE-EQN= ((domain general-expressions) lhs rhs)                   [METHOD]
 
@@ -412,32 +411,33 @@
    The purpose of this method is unknown.
 
  EQN= (lhs rhs)                                                        [METHOD]
+   Create an equation of the form lhs = rhs in domain *general*
 
  SIMPLIFY ((eqn ge-eqn=))                                              [METHOD]
 
  MAKE-GE-EQN> (domain lhs rhs)                               [GENERIC FUNCTION]
-   The purpose of this method is unknown.
+   Create an inequality of the form lhs > rhs in domain
 
  MAKE-GE-EQN> ((domain general-expressions) lhs rhs)                   [METHOD]
 
  PRINT-OBJECT ((eqn ge-eqn>) stream)                                   [METHOD]
 
  EQN> (lhs rhs)                                              [GENERIC FUNCTION]
-   The purpose of this method is unknown.
+   Create an inequality of the form lhs > rhs in domain *general*
 
  EQN> (lhs rhs)                                                        [METHOD]
 
  SIMPLIFY ((eqn ge-eqn>))                                              [METHOD]
 
  MAKE-GE-EQN>= (domain lhs rhs)                              [GENERIC FUNCTION]
-   The purpose of this method is unknown.
+   Create an inequality of the form lhs >= rhs in domain
 
  MAKE-GE-EQN>= ((domain general-expressions) lhs rhs)                  [METHOD]
 
  PRINT-OBJECT ((eqn ge-eqn>=) stream)                                  [METHOD]
 
  EQN>= (lhs rhs)                                             [GENERIC FUNCTION]
-   The purpose of this method is unknown.
+   Create an inequality of the form lhs >= rhs in domain *general*
 
  EQN>= (lhs rhs)                                                       [METHOD]
 
@@ -492,9 +492,9 @@
  SUBSTITUTE (value var expr &rest ignore)                              [METHOD]
    Substitutes value for each occurrence of var in polynomial . If value
    is a list, it is interpreted as a set of values to be substituted in
-    parallel for the variables in var. The values being substituted
-   must be either elements of the domain of polynomial or its
-   coefficient domain. 
+   parallel for the variables in var. The values being substituted must 
+   be either elements of the domain of polynomial or its coefficient
+   domain. 
 
  SUBSTITUTE (value (var symbol) expr &rest ignore)                     [METHOD]
 

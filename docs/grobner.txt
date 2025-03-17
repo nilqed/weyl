@@ -1,5 +1,5 @@
 
- File: ../polynomials/grobner.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/polynomials/grobner.lisp 
 
 
  INITIALIZE-INSTANCE :AFTER ((id ideal) &rest ignore)                  [METHOD]

@@ -1,5 +1,5 @@
 
- File: ../vector-spaces/vector.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/vector-spaces/vector.lisp 
 
 
  LOOP-VECTOR-BIND (index vars-vectors &body body)                       [MACRO]

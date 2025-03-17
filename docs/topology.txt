@@ -1,5 +1,5 @@
 
- File: ../topology.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/topology.lisp 
 
 
  MAKE-ELEMENT ((domain euclidean-space) (value vector)                 [METHOD]

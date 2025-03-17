@@ -1,5 +1,5 @@
 
- File: ../classes/algebraic-domains.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/classes/algebraic-domains.lisp 
 
 
  SET ""                                                                 [CLASS]

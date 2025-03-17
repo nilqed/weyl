@@ -1,5 +1,5 @@
 
- File: ../polynomials/upolynomial.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/polynomials/upolynomial.lisp 
 
 
  SCALAR? ((x upolynomial))                                             [METHOD]

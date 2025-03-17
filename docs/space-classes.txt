@@ -1,5 +1,5 @@
 
- File: ../classes/space-classes.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/classes/space-classes.lisp 
 
 
  ABSTRACT-SPACE ""                                                      [CLASS]

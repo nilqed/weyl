@@ -1,5 +1,5 @@
 
- File: ../morphisms.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/morphisms.lisp 
 
 
  PRINT-OBJECT ((homo morphism) stream)                                 [METHOD]

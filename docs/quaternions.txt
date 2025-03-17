@@ -1,5 +1,5 @@
 
- File: ../vector-spaces/quaternions.lisp 
+ File: /home/kfp/quicklisp/local-projects/weyl/vector-spaces/quaternions.lisp 
 
 
  QUATERNION-DOMAIN-PRINT-OBJECT (domain stream)                      [FUNCTION]
