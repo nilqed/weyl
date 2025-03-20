@@ -8,6 +8,7 @@ WEYLI CLASSES
 -------------
 
 RATIONAL-INTEGER
+RATIONAL-NUMBER
 WEYLI::GE-ATOM
 WEYLI::GE-NARY
 WEYLI::GE-VARIABLE
@@ -36,8 +37,13 @@ WEYLI::UNIVERSAL-QUANTIFIED-SET
 (defgeneric latex (object &key &allow-other-keys)
   (:documentation "Return a LaTeX representation of object."))
 
+;; reader? -- weyli::integer-value
 (defmethod latex ((x weyli::rational-integer) &key (pre "") (post ""))
-  (format nil "~A{~A}~A" pre (slot-value x 'weyli::value) post))  
+  (format nil "~A{~A}~A" pre (slot-value x 'weyli::value) post)) 
+
+(defmethod latex ((x weyli::rational-number) &key (pre "") (post ""))
+  (format nil "~A{\\frac{~A}{~A}}~A" 
+     pre (numerator x) (denominator x) post)) 
 
 (defmethod latex ((x weyli::ge-variable) &key (pre "") (post ""))
   (let* ((lr (get-variable-property *general* x 'latex-repr)))
@@ -63,7 +69,7 @@ WEYLI::UNIVERSAL-QUANTIFIED-SET
      post)))
 
 (defmethod latex ((x weyli::ge-plus) &key (pre "") (post ""))
-  (format nil "~A~{{~A}~^ + ~}~A" 
+  (format nil "~A(~{{~A}~^ + ~})~A" 
     pre (mapcar #'latex (terms-of x)) post))
 
 (defmethod latex ((x weyli::ge-times) &key (pre "") (post ""))
