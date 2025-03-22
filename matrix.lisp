@@ -6,6 +6,10 @@
 
 ;;; matrix.lisp,v 1.14 1995/05/24 17:49:23 rz Exp
 
+;;; 22-MAR-2025/kfp
+;;; replaced make-space-print-object by matrix-space-print-object
+;;; in define-domain-creator matrix-space
+
 (in-package :weyli)
 
 ;;; DELETE (make::adjust-version-numbers Weyl "1.14")
@@ -17,7 +21,7 @@
   (define-domain-creator matrix-space ((ring ring))
     (make-instance 'matrix-space
                    :coefficient-domain ring
-                   :print-function 'make-space-print-object)
+                   :print-function 'matrix-space-print-object)
     :predicate #'(lambda (d)
                    (and (eql (class-name (class-of d)) 'matrix-space)
                         (eql (coefficient-domain-of d) ring)))))
